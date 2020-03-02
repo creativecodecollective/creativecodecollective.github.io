@@ -1,11 +1,10 @@
 ---
-eleventyExcludeFromCollections: true
 ---
 
 <!DOCTYPE html>
 <html>
 
-{% include head %}
+{%- include head.html -%}
 
 <body>
 
@@ -61,20 +60,20 @@ eleventyExcludeFromCollections: true
     </p>
   </div>
   <div id="resources">
-    {%- for resource in collections.all -%}
+    {% for resource in collections.all %}
       <div class="resource">
         <h1 id="title"><a href="{{ resource.data.link }}">{{ resource.data.title }}</a></h1>
         <p id="creator">{{ resource.data.creator }}</p>
-        {%- for tag in resource.data.tags -%}
+        {% for tag in resource.data.tags %}
           <span class="tag">{{ tag }}</span>
-        {%- endfor -%}
+        {% endfor %}
       </div>
-    {%- endfor -%}
+    {% endfor %}
   </div>
 </div>
 
-<script src="js/autocomplete.js"></script>
-<!-- <script src="js/scripts.js"></script> -->
+<script src="/js/autocomplete.js"></script>
+<!-- <script src="/js/scripts.js"></script> -->
 
 </body>
 </html>

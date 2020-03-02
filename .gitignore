@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node,jekyll
 
 ### Jekyll ###
-# _site/
+_site/
 
 ### Node ###
 # Logs
