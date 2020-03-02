@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+{% include head %}
+
+<body>
+  <h1 id="title"><a href=" {{ link }} ">{{ title }}</a></h1>
+  <p id="creator">{{ creator }}</p>
+  {%- for tag in tags -%}
+    {% if tag != "resource" %}<span class="tag">{{ tag }}</span>{% endif %}
+  {%- endfor -%}
+</body>
+</html>
