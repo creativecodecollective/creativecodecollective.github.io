@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Creative Code Collective</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="/css/jquery-ui.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="container">
+  <div id="start">
+    <h1>Resources</h1>
+    <p id="learn">I want to learn about
+    <select name="suggest_learn" id="suggest_learn" class="suggest">
+      <option value="algorithmic bias">algorithmic bias</option>
+      <option value="data privacy">data privacy</option>
+      <option value="critical code">critical code</option>
+      <option value="representation"></option>
+    </select>
+    </p>
+    <p id="do">I want to learn how to do 
+    <select name="suggest_do" id="suggest_do" class="suggest">
+      <option value="web scraping">web scraping</option>
+          <option value="data analysis/visualization">data analysis/visualization</option>
+      <option value="signal processing">signal processing</option>
+      <option value="shaders">shaders</option>
+      <option value="machine learning">machine learning</option>
+          <option value="natural language processing">natural language processing"</option>
+      <option value="computer vision">computer vision</option>
+      <option value="electronic literature">electronic literature</option>
+    </select>
+    </p>
+    <p id="use"> I want to learn how to use 
+    <select name="suggest_use" id="suggest_use" class="suggest">
+      <option value="processing">Processing</option>
+      <option value="p5.js">p5.js</option>
+      <option value="max/msp/jitter">Max/MSP/Jitter</option>
+      <option value="supercollider">SuperCollider</option>
+      <option value="html, css, javascript">HTML, CSS, JavaScript</option>
+      <option value="python">Python</option>
+      <option value="unity">Unity</option>
+      <option value="openframeworks">openFrameworks</option>
+      <option value="arduino">Arduino</option>
+      <option value="opengl/webgl">OpenGL/WebGL</option>
+      <option value="touchdesigner">TouchDesigner</option>
+      <option value="raspberry pi">Raspberry Pi</option>
+    </select>
+    </p>
+    <p id="make">I want to make 
+    <select name="suggest_make" id="suggest_make" class="suggest">
+      <option value="a website">a website</option>
+      <option value="generative art">generative art</option>
+          <option value="an interactive installation">an interactivinstallationoption>
+      <option value="a mobile app">a mobile app</option>
+      <option value="a VR/AR experience">a VR/AR experience</option>
+      <option value="a game">a game</option>
+      <option value="a bot">a bot</option>
+    </select>
+    </p>
+  </div>
+  <div id="resources"><div class="resource">
+        <h1 id="title"><a href="https://natureofcode.com/">The Nature of Code</a></h1>
+        <p id="creator">Daniel Shiffman</p><span class="tag">generative art</span><span class="tag">processing</span></div><div class="resource">
+        <h1 id="title"><a href="https://thebookofshaders.com/">The Book of Shaders</a></h1>
+        <p id="creator">Patricio Gonzalez Vivo and Jen Lowe</p><span class="tag">shaders</span></div></div>
+</div>
+
+<script src="js/autocomplete.js"></script>
+<!-- <script src="js/scripts.js"></script> -->
+
+</body>
+</html>
