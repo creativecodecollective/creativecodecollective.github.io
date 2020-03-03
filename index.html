@@ -61,14 +61,12 @@
   </div>
   <div id="resources">
     {% for resource in site.resources %}
-    <div class=".resource">
+    <div class="resource">
       <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
       {% for tag in resource.tags %}
-      <span class="tag">{{ tag }}</span>
+        {{ tag }}
       {% endfor %}
-
     </div>
-    
     {% endfor %}
   </div>
 </div>
