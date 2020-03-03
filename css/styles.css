@@ -63,18 +63,18 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
 
-#title {
+.title {
   margin: 0;
   font-size: 1.5em;
   line-height: 1;
 }
 
-#title a {
+.title a {
   color: #FC3427;
   text-decoration: none;
 }
 
-#creator {
+.creator {
   line-height: 1;
 }
 
