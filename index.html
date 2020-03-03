@@ -60,14 +60,8 @@
     </p>
   </div>
   <div id="resources">
-    {% for resource in site.collections.resources %}
-      <div class="resource">
-        <h1 id="title"><a href="{{ resource.data.link }}">{{ resource.data.title }}</a></h1>
-        <p id="creator">{{ resource.data.creator }}</p>
-        {% for tag in resource.data.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+    {% for resource in site.resources %}
+      {{ resource.data }}
     {% endfor %}
   </div>
 </div>
