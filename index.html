@@ -64,9 +64,6 @@
       <div class="resource-tile">
         <h1 id="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
         <p id="creator">{{ resource.creator }}</p>
-        {% for tag in resource.tags %}
-            <span class="tag">{{ tag }}</span>
-        {% endfor %}
       </div>
     {% endfor %}
   </div>
