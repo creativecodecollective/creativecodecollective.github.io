@@ -1,4 +1,4 @@
-# CREATIVE.CODE.COLLECTIVE 
+## CREATIVE CODE COLLECTIVE 
 
 We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community, not competition. Join us in person, at USC's Media Arts + Practice division, or explore our growing online resource hub. 
 
