@@ -1,3 +1,7 @@
+/********
+ GENERAL
+********/
+
 * {
   box-sizing: border-box;
 }
@@ -17,6 +21,9 @@ body {
   height: 100%;
 }
 
+/********
+ START
+********/
 
 #start {
   font-size: 20px;
@@ -43,16 +50,21 @@ body {
   padding: 1em;
 }
 
+/********
+ RESOURCES
+********/
+
 #resources {
   display: flex;
   height: 100%;
   padding: 100px;
+  flex-wrap: wrap;
+  overflow: scroll;
   background-color: #F5F5F3;
 }
 
 .resource {
   width: 250px;
-  height: 250px;
   margin: 2em;
   padding: 2em;
   background-color: #fff;
@@ -79,12 +91,16 @@ body {
   font-size: 0.7em;
   text-transform: uppercase;
   display: inline-block;
-  margin: 0 1em 1em 0;
+  margin: 0 .5em .5em 0;
   border-radius: 2px;
-  padding: 0.5em 1em;
-  background-color: #4DADF7;
-  color: #D8F2F9;
+  padding: 0.2em .5em;
+  border: 0.5px solid #fc3427;
+  color: #fc3427;
 }
+
+/********
+ FOOTER
+********/
 
 .footer {
   background-color: black;
