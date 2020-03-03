@@ -63,28 +63,12 @@
     {% for resource in site.collections.resources %}
       <div class="resource">
         <h1 id="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
-        <p id="creator">{{ resource.data.creator }}</p>
-        {% for tag in resource.data.tags %}
+        <p id="creator">{{ resource.creator }}</p>
+        {% for tag in resource.tags %}
             <span class="tag">{{ tag }}</span>
         {% endfor %}
       </div>
-      {{ resource.title }}
     {% endfor %}
-
-    <div id="resources">
-      {%- for resource in collections.all -%}
-      {% for resource in collections.all %}
-        <div class="resource">
-          <h1 id="title"><a href="{{ resource.data.link }}">{{ resource.data.title }}</a></h1>
-          <p id="creator">{{ resource.data.creator }}</p>
-          {%- for tag in resource.data.tags -%}
-          {% for tag in resource.data.tags %}
-            <span class="tag">{{ tag }}</span>
-          {%- endfor -%}
-          {% endfor %}
-        </div>
-      {%- endfor -%}
-      {% endfor %}
   </div>
 </div>
 <div class="footer">ky is a god</div>
