@@ -1,6 +1,6 @@
 ## CREATIVE CODE COLLECTIVE 
 
-We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community, not competition. Join us in person, at USC's Media Arts + Practice division, or explore our growing online resource hub. 
+We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community, not competition. Join us in person, at USC's Media Arts + Practice division, or explore our growing resource hub online. 
 
 You can find things to LEARN, DO, USE, and MAKE with code, as well as view projects created by our members. 
 
