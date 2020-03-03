@@ -85,7 +85,9 @@ body {
   background-color: #4DADF7;
   color: #D8F2F9;
 }
+
 .footer {
+  background-color: black;
   width: 100vw;
   text-align: center;
   color: white
