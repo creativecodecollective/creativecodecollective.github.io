@@ -60,7 +60,7 @@
     </p>
   </div>
   <div id="resources">
-    {% for resource in resources %}
+    {% for resource in site.resources %}
       <div class="resource">
         <h1 id="title"><a href="{{ resource.data.link }}">{{ resource.data.title }}</a></h1>
         <p id="creator">{{ resource.data.creator }}</p>
