@@ -53,7 +53,7 @@ body {
   background-color: #F5F5F3;
 }
 
-.resource-tile {
+.resource {
   width: 250px;
   height: 250px;
   margin: 2em;
@@ -89,8 +89,7 @@ body {
   color: #D8F2F9;
 }
 .footer {
-  background-color:black;
   width: 100vw;
   text-align: center;
-  color: white;
+  color: white
 }
