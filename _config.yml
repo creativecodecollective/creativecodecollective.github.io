@@ -27,6 +27,10 @@ url: "https://creativecodecollective.github.io" # the base hostname & protocol f
 # Build settings
 markdown: kramdown
 
+collections:
+  - resources
+  
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

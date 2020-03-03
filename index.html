@@ -10,7 +10,7 @@
 
 <div id="container">
   <div id="start">
-    <h1>Resources</h1>
+    <h1>Resources (beta)</h1>
     <p id="learn">I want to learn about
     <select name="suggest_learn" id="suggest_learn" class="suggest">
       <option value="algorithmic bias">algorithmic bias</option>
@@ -60,17 +60,17 @@
     </p>
   </div>
   <div id="resources">
-    {% for resource in collections.all %}
-      <div class="resource">
-        <h1 id="title"><a href="{{ resource.data.link }}">{{ resource.data.title }}</a></h1>
-        <p id="creator">{{ resource.data.creator }}</p>
-        {% for tag in resource.data.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+    {% for resource in site.resources %}
+    <div class="resource">
+      <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
+      {% for tag in resource.tags %}
+        {{ tag }}
+      {% endfor %}
+    </div>
     {% endfor %}
   </div>
 </div>
+<div class="footer">ky is a god</div>
 
 <script src="/js/autocomplete.js"></script>
 <!-- <script src="/js/scripts.js"></script> -->

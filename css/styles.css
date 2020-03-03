@@ -17,14 +17,11 @@ body {
   height: 100%;
 }
 
-#start,
-#resources {
-  width: 50%;
-  padding: 100px;
-}
 
 #start {
   font-size: 20px;
+  width: 50%;
+  padding: 100px;
 }
 
 #start input {
@@ -63,18 +60,18 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
 
-#title {
+.title {
   margin: 0;
   font-size: 1.5em;
   line-height: 1;
 }
 
-#title a {
+.title a {
   color: #FC3427;
   text-decoration: none;
 }
 
-#creator {
+.creator {
   line-height: 1;
 }
 
@@ -87,4 +84,11 @@ body {
   padding: 0.5em 1em;
   background-color: #4DADF7;
   color: #D8F2F9;
+}
+
+.footer {
+  background-color: black;
+  width: 100vw;
+  text-align: center;
+  color: white
 }
