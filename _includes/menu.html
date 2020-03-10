@@ -1,0 +1,10 @@
+<div class="header">
+  <h1>CREATIVE CODE COLLECTIVE</h1>
+  <nav>
+  {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" style="padding: 10px;" {% if page.url == item.link %}style="color: darkcyan;"{% endif %}>
+      {{ item.name }}
+    </a>
+  {% endfor %}
+  </nav>
+</div>

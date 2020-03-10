@@ -1,0 +1,40 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+
+{%- include head.html -%}
+
+<body>
+{% include menu.html %}
+<div id="container">
+  <div id="start">
+    <h2>About Us</h2>
+    <p id="about">Creative Code Collective is a supportive community for critical and artistic coding. We support gaining programming skills in an engaging, non-intimidating environment—-instead focusing on project-driven approaches for learning and making with code. We emphasize criticality and experimentation, and we believe in growth not perfection, scrappy artistic strategies not perfect code, collaboration not competition. All levels and languages welcome!
+      <a href="/joinus.html" style="background-color: #F5F5F3;">Here's more information about how to join us.</a>
+    <!--<select name="suggest_learn" id="suggest_learn" class="suggest">
+      <option value="algorithmic bias">algorithmic bias</option>
+    </select>-->
+    </p>
+  </div>
+  <div id="resources">
+    <h2>Our Community</h2> <!--Change this to only items tagged 'member' or with our names or project websites-->
+    {% for resource in site.resources %}
+    <div class="resource">
+      <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
+      <p class="creator">{{ resource.creator }}</p>
+      {% for tag in resource.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="footer">ky is a god</div>
+
+<script src="/js/autocomplete.js"></script>
+<!-- <script src="/js/scripts.js"></script> -->
+
+</body>
+</html>
