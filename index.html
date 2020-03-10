@@ -7,10 +7,10 @@
 {%- include head.html -%}
 
 <body>
-
+{% include menu.html %}
 <div id="container">
   <div id="start">
-    <h1>Resources (beta)</h1>
+    <h2>Resources (beta)</h2>
     <p id="learn">I want to learn about
     <select name="suggest_learn" id="suggest_learn" class="suggest">
       <option value="algorithmic bias">algorithmic bias</option>
@@ -19,7 +19,7 @@
       <option value="representation"></option>
     </select>
     </p>
-    <p id="do">I want to learn how to do 
+    <p id="do">I want to learn how to do
     <select name="suggest_do" id="suggest_do" class="suggest">
       <option value="web scraping">web scraping</option>
           <option value="data analysis/visualization">data analysis/visualization</option>
@@ -31,7 +31,7 @@
       <option value="electronic literature">electronic literature</option>
     </select>
     </p>
-    <p id="use"> I want to learn how to use 
+    <p id="use"> I want to learn how to use
     <select name="suggest_use" id="suggest_use" class="suggest">
       <option value="processing">Processing</option>
       <option value="p5.js">p5.js</option>
@@ -47,7 +47,7 @@
       <option value="raspberry pi">Raspberry Pi</option>
     </select>
     </p>
-    <p id="make">I want to make 
+    <p id="make">I want to make
     <select name="suggest_make" id="suggest_make" class="suggest">
       <option value="a website">a website</option>
       <option value="generative art">generative art</option>
