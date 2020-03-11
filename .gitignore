@@ -112,3 +112,5 @@ tmp/
 temp/
 
 # End of https://www.gitignore.io/api/node,jekyll
+
+.DS_Store

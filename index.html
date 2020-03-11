@@ -1,4 +1,39 @@
 ---
+learn:
+  - algorithmic bias
+  - data privacy
+  - critical code
+  - representation
+do:
+  - web scraping
+  - data analysis/visualization
+  - signal processing
+  - shaders
+  - machine learning
+  - natural language processing
+  - computer vision
+  - electronic literature
+use:
+  - Processing
+  - p5.js
+  - Max/MSP/Jitter
+  - SuperCollider
+  - HTML, CSS, JavaScript
+  - Python
+  - Unity
+  - openFrameworks
+  - Arduino
+  - OpenGL/WebGL
+  - TouchDesigner
+  - Raspberry Pi
+make:
+  - a website
+  - generative art
+  - an installation
+  - a mobile app
+  - a VR/AR experience
+  - a game
+  - a bot
 ---
 
 <!DOCTYPE html>
@@ -13,49 +48,30 @@
     <h2>Resources (beta)</h2>
     <p id="learn">I want to learn about
     <select name="suggest_learn" id="suggest_learn" class="suggest">
-      <option value="algorithmic bias">algorithmic bias</option>
-      <option value="data privacy">data privacy</option>
-      <option value="critical code">critical code</option>
-      <option value="representation"></option>
+      {% for item in page.learn %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
     </select>
     </p>
     <p id="do">I want to learn how to do
     <select name="suggest_do" id="suggest_do" class="suggest">
-      <option value="web scraping">web scraping</option>
-          <option value="data analysis/visualization">data analysis/visualization</option>
-      <option value="signal processing">signal processing</option>
-      <option value="shaders">shaders</option>
-      <option value="machine learning">machine learning</option>
-          <option value="natural language processing">natural language processing"</option>
-      <option value="computer vision">computer vision</option>
-      <option value="electronic literature">electronic literature</option>
+      {% for item in page.do %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
     </select>
     </p>
     <p id="use"> I want to learn how to use
     <select name="suggest_use" id="suggest_use" class="suggest">
-      <option value="processing">Processing</option>
-      <option value="p5.js">p5.js</option>
-      <option value="max/msp/jitter">Max/MSP/Jitter</option>
-      <option value="supercollider">SuperCollider</option>
-      <option value="html, css, javascript">HTML, CSS, JavaScript</option>
-      <option value="python">Python</option>
-      <option value="unity">Unity</option>
-      <option value="openframeworks">openFrameworks</option>
-      <option value="arduino">Arduino</option>
-      <option value="opengl/webgl">OpenGL/WebGL</option>
-      <option value="touchdesigner">TouchDesigner</option>
-      <option value="raspberry pi">Raspberry Pi</option>
+      {% for item in page.use %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
     </select>
     </p>
     <p id="make">I want to make
     <select name="suggest_make" id="suggest_make" class="suggest">
-      <option value="a website">a website</option>
-      <option value="generative art">generative art</option>
-          <option value="an interactive installation">an interactivinstallationoption>
-      <option value="a mobile app">a mobile app</option>
-      <option value="a VR/AR experience">a VR/AR experience</option>
-      <option value="a game">a game</option>
-      <option value="a bot">a bot</option>
+      {% for item in page.make %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
     </select>
     </p>
   </div>
@@ -64,6 +80,7 @@
     <div class="resource">
       <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
       <p class="creator">{{ resource.creator }}</p>
+      <p class="description">{{ resource.description }}</p>
       {% for tag in resource.tags %}
         <span class="tag">{{ tag }}</span>
       {% endfor %}
