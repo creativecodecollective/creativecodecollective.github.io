@@ -1,0 +1,10 @@
+- name: home
+  link: /
+- name: about
+  link: /about.html
+- name: join us
+  link: /joinus.html
+- name: friends
+  link: /friends.html
+- name: resource faq
+  link: /faq.html

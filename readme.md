@@ -16,6 +16,6 @@ If you'd like to contribute, first let us know you want to join the Creative Cod
 
 [markdown file]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
-[clear commit]: http://seesparkbox.com/foundry/semantic_commit_messages
+[clear commit comments]: http://seesparkbox.com/foundry/semantic_commit_messages
 
 See also our collaborative [community guidelines/code of conduct], coming soon.

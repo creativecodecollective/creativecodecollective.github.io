@@ -42,10 +42,10 @@ make:
 {%- include head.html -%}
 
 <body>
-
+{% include menu.html %}
 <div id="container">
   <div id="start">
-    <h1>Resources (beta)</h1>
+    <h2>Resources (beta)</h2>
     <p id="learn">I want to learn about
     <select name="suggest_learn" id="suggest_learn" class="suggest">
       {% for item in page.learn %}
@@ -53,21 +53,21 @@ make:
       {% endfor %}
     </select>
     </p>
-    <p id="do">I want to learn how to do 
+    <p id="do">I want to learn how to do
     <select name="suggest_do" id="suggest_do" class="suggest">
       {% for item in page.do %}
       <option value="{{ item }}">{{ item }}</option>
       {% endfor %}
     </select>
     </p>
-    <p id="use"> I want to learn how to use 
+    <p id="use"> I want to learn how to use
     <select name="suggest_use" id="suggest_use" class="suggest">
       {% for item in page.use %}
       <option value="{{ item }}">{{ item }}</option>
       {% endfor %}
     </select>
     </p>
-    <p id="make">I want to make 
+    <p id="make">I want to make
     <select name="suggest_make" id="suggest_make" class="suggest">
       {% for item in page.make %}
       <option value="{{ item }}">{{ item }}</option>

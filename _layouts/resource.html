@@ -4,6 +4,7 @@
 {% include head.html %}
 
 <body>
+  {% include menu.html %}
   <h1 id="title"><a href=" {{ link }} ">{{ title }}</a></h1>
   <p id="creator">{{ creator }}</p>
   {%- for tag in tags -%}
