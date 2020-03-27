@@ -1,10 +1,10 @@
 - name: home
   link: /
 - name: about
-  link: /about.html
+  link: /about
 - name: join us
-  link: /joinus.html
+  link: /joinus
 - name: friends
-  link: /friends.html
+  link: /friends
 - name: resource faq
-  link: /faq.html
+  link: /faq
