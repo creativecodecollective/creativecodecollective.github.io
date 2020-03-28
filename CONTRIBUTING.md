@@ -6,7 +6,7 @@ There are several ways you can be part of our community through contributing!
 
 * Working remotely: Through forks and pull requests, you can work on your own copy of the repository and push it upstream (i.e. back to this repository) whenever you want. Try this tutorial on [contributing to open-source projects](https://www.gun.io/blog/how-to-github-fork-branch-and-pull-request) as a place to start on this.
 
-* Working directly: If you would prefer to work directly on this repository, first let us know you want to join the Creative Code Collective. You can let us know in person, [create an issue], or contact us through another channel (we have a [Slack](https://mapcodecollective.slack.com) and an [Instagram](https://www.instagram.com/creativecodecollective/)). As a contributor, you can push directly to this repository.
+* Working directly: If you would prefer to work directly on this repository, first let us know you want to join the Creative Code Collective. You can let us know in person, [create an issue], or contact us through another channel (we have an [email](mailto:mapcodecollective@gmail.com), a [Slack](https://mapcodecollective.slack.com) and an [Instagram](https://www.instagram.com/creativecodecollective/)). As a contributor, you can push directly to this repository.
 
 ## Find a typo?
 
