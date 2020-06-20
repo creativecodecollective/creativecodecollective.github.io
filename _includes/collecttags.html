@@ -1,0 +1,52 @@
+<!-- based on http://longqian.me/2017/02/09/github-jekyll-tag/ -->
+
+<!-- tags -->
+{% assign site.tags = "" %}
+{% for resource in site.resources %}
+  {% assign rtags = resource.tags | join:'|' | append:'|' %}
+  {% assign tags = tags | append:rtags %}
+{% endfor %}
+{% assign tags = tags | split:'|' | compact | uniq | sort %}
+
+{% assign site.learn = "" %}
+{% assign site.do = "" %}
+{% assign site.use = "" %}
+{% assign site.make = "" %}
+{% for tag in tags %}
+  {% assign split = tag | split: ": " %}
+  {% assign cat = split | first %}
+  {% assign content = split | slice: 1, split.size | join: "" %}
+  {% case cat %}
+    {% when "learn" %}
+      {% assign learn = learn | append: content | append: "|" %}
+    {% when "do" %}
+      {% assign do = do | append: content | append: "|" %}
+    {% when "use" %}
+      {% assign use = use | append: content | append: "|" %}
+    {% when "make" %}
+      {% assign make = make | append: content | append: "|" %}
+  {% endcase %}
+{% endfor %}
+{% assign learn = learn | split:'|' | compact | uniq | sort %}
+{% assign do = do | split:'|' | compact | uniq | sort %}
+{% assign use = use | split:'|' | compact | uniq | sort %}
+{% assign make = make | split:'|' | compact | uniq | sort %}
+
+<!-- levels -->
+{% assign levels = "beginner|intermediate|experienced" | split: "|" %}
+
+<!-- languages -->
+{% assign site.languages = "" %}
+{% for resource in site.resources %}
+  {% assign rlangs = resource.languages | join:'|' | append:'|' %}
+  {% assign languages = languages | append:rlangs %}
+{% endfor %}
+{% assign languages = languages | split:'|' | compact | uniq | sort %}
+
+<!-- types -->
+{% assign site.types = "" %}
+{% for resource in site.resources %}
+  {% assign rtypes = resource.types | join:'|' | append:'|' %}
+  {% assign types = types | append:rtypes %}
+{% endfor %}
+{% assign types = types | split:'|' | compact | uniq | sort %}
