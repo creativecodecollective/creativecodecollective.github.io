@@ -1,97 +1,150 @@
 ---
-learn:
-  - algorithmic bias
-  - data privacy
-  - critical code
-  - representation
-do:
-  - web scraping
-  - data analysis/visualization
-  - signal processing
-  - shaders
-  - machine learning
-  - natural language processing
-  - computer vision
-  - electronic literature
-use:
-  - Processing
-  - p5.js
-  - Max/MSP/Jitter
-  - SuperCollider
-  - HTML, CSS, JavaScript
-  - Python
-  - Unity
-  - openFrameworks
-  - Arduino
-  - OpenGL/WebGL
-  - TouchDesigner
-  - Raspberry Pi
-make:
-  - a website
-  - generative art
-  - an installation
-  - a mobile app
-  - a VR/AR experience
-  - a game
-  - a bot
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <title>Creative Code Collective</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"> -->
+  <link rel="stylesheet" href="/css/new.css">
+  <link rel="stylesheet" href="/css/styles.css">
 
-{%- include head.html -%}
-
+  {% include collecttags.html %}
+</head>
 <body>
-{% include menu.html %}
-<div id="container">
-  <div id="start">
-    <h2>Resources (beta)</h2>
-    <p id="learn">I want to learn about
-    <select name="suggest_learn" id="suggest_learn" class="suggest">
-      {% for item in page.learn %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="do">I want to learn how to do
-    <select name="suggest_do" id="suggest_do" class="suggest">
-      {% for item in page.do %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="use"> I want to learn how to use
-    <select name="suggest_use" id="suggest_use" class="suggest">
-      {% for item in page.use %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="make">I want to make
-    <select name="suggest_make" id="suggest_make" class="suggest">
-      {% for item in page.make %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-  </div>
-  <div id="resources">
-    {% for resource in site.resources %}
-    <div class="resource">
-      <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
-      <p class="creator">{{ resource.creator }}</p>
-      <p class="description">{{ resource.description }}</p>
-      {% for tag in resource.tags %}
-        <span class="tag">{{ tag }}</span>
+  <header id="header">
+    <h1>Creative Code Collective</h1>
+    <nav>
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/collective">About</a></li>
+        <li><a href="/resources">Resource Hub</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
+    <form id="generator">
+      <div id="actions">
+        <div class="action">
+          <label for="learn">Learn</label>
+          <select name="learn" id="learn">
+            <option value="" selected>anything</option>
+            {% for item in learn %}
+            <option value="{{ item | prepend: 'learn: ' }}">{{ item }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="action">
+          <label for="do">Do</label>
+          <select name="do" id="do">
+            <option value="" selected>anything</option>
+            {% for item in do %}
+            <option value="{{ item | prepend: 'do: ' }}">{{ item }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="action">
+          <label for="use">Use</label>
+          <select name="use" id="use">
+            <option value="" selected>anything</option>
+            {% for item in use %}
+            <option value="{{ item | prepend: 'use: ' }}">{{ item }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="action">
+          <label for="make">Make</label>
+          <select name="make" id="make">
+            <option value="" selected>anything</option>
+            {% for item in make %}
+            <option value="{{ item | prepend: 'make: ' }}">{{ item }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div>
+        <button type="submit">Search</button>
+        <button type="button" value="randomise">Randomise</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </section>
+  <main>
+    <h2>Resources</h2>
+    <form id="filters">
+      <label for="levels">Level</label>
+      <select class="filter" name="levels" id="levels">
+        <option value="">All</option>
+        {% for level in levels %}
+        <option value="{{ level | prepend: 'levels: ' }}">{{ level }}</option>
+        {% endfor %}
+      </select>
+      <label for="langs">Language</label>
+      <select class="filter" name="langs" id="langs">
+        <option value="">All</option>
+        {% for language in languages %}
+        <option value="{{ language | prepend: 'langs: ' }}">{{ language }}</option>
+        {% endfor %}
+      </select>
+      <label for="types">Type</label>
+      <select class="filter" name="types" id="types">
+        <option value="">All</option>
+        {% for type in types %}
+        <option value="{{ type | prepend: 'types: ' }}">{{ type }}</option>
+        {% endfor %}
+      </select>
+    </form>
+    <div id="resources">
+      {% for resource in site.resources %}
+      <article class="res">
+        <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
+        <p class="res-creator">{{ resource.creator }}</p>
+        <figure class="res-blurb">
+          <blockquote class="res-description">{{ resource.description }}</blockquote>
+          <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+        </figure>
+        <dl class="res-meta">
+          <div class="res-meta-levels">
+            <dt>Levels</dt>
+            {% for level in resource.levels %}
+            <dd>{{ level }}</dd>
+            {% endfor %}
+          </div>
+          <div class="res-meta-langs">
+            <dt>Languages</dt>
+            {% for language in resource.languages %}
+            <dd>{{ language }}</dd>
+            {% endfor %}
+          </div>
+          <div class="res-meta-types">
+            <dt>Types</dt>
+            {% for type in resource.types %}
+            <dd>{{ type }}</dd>
+            {% endfor %}
+          </div>
+          <div class="res-meta-tags">
+            <dt>Tags</dt>
+            {% for tag in resource.tags %}
+            <dd>{{ tag }}</dd>
+            {% endfor %}
+          </div>
+        </dl>
+      </article>
       {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-</div>
-<div class="footer">ky is a god</div>
-
-<script src="/js/autocomplete.js"></script>
-<!-- <script src="/js/scripts.js"></script> -->
-
+  </main>
+  <footer id="footer">
+    <p>Mondays 1–4 p.m.</p>
+    <ul class="links">
+      <li><a href="">Instagram</a></li>
+      <li><a href="">Slack</a></li>
+      <li><a href="">Email</a></li>
+    </ul>
+    <p>USC Media Arts + Practice</p>
+  </footer>
+  <script src="/js/scripts.js"></script>
 </body>
 </html>
