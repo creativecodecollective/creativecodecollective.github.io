@@ -1,5 +1,4 @@
 ---
-layout: resource
 title: "Reading List: Equity in Computing"
 creator: Elizabeth Patitsas
 link: https://tinyurl.com/criticalCS
