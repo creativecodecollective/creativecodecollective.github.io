@@ -1,5 +1,4 @@
 ---
-layout: resource
 title: Eloquent Javascript (3rd Edition)
 creator: Marijn Haverbeke
 link: https://eloquentjavascript.net/

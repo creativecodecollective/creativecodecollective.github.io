@@ -1,5 +1,4 @@
 ---
-layout: resource
 title: what is it called
 creator: who or who all made it
 link: url where to find it

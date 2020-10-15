@@ -1,0 +1,151 @@
+---
+id: resource-hub
+title: Resource Hub | Creative Code Collective
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+  {% include header.html %}
+
+  <main class="bubble3">
+
+    <div class="container">
+
+      <section id="roadmap" class="roadmap">
+        <h2>Roadmap</h2>
+        <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
+        <p><b>This page is still under construction!</b></p>
+        <form id="generator">
+          <div class="action">
+            <label for="learn">Learn</label>
+            <select name="learn" id="learn">
+              <option value="" selected>anything</option>
+              {% for tag in learn %}
+              <option value="{{ tag }}">{{ tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="action">
+            <label for="do">Do</label>
+            <select name="do" id="do">
+              <option value="" selected>anything</option>
+              {% for tag in do %}
+              <option value="{{ tag }}">{{ tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="action">
+            <label for="use">Use</label>
+            <select name="use" id="use">
+              <option value="" selected>anything</option>
+              {% for tag in use %}
+              <option value="{{ tag }}">{{ tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="action">
+            <label for="make">Make</label>
+            <select name="make" id="make">
+              <option value="" selected>anything</option>
+              {% for tag in make %}
+              <option value="{{ tag }}">{{ tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <button type="submit">Search</button>
+          <button type="button" value="randomise">Randomise</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+
+      <h2>Resources</h2>
+      <form id="filters" class="filters">
+        <div class="filter">
+          <label for="levels">Level</label>
+          <select name="levels" id="levels">
+            <option value="">All</option>
+            {% for level in levels %}
+            <option value="{{ level }}">{{ level }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="filter">
+          <label for="languages">Language</label>
+          <select name="languages" id="languages">
+            <option value="">All</option>
+            {% for language in languages %}
+            <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="filter">
+          <label for="types">Type</label>
+          <select name="types" id="types">
+            <option value="">All</option>
+            {% for type in types %}
+            <option value="{{ type }}">{{ type }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </form>
+      <div class="resources">
+        {% for resource in site.resources %}
+        <article class="res"
+                 data-levels="{{ resource.levels | join: ',' }}"
+                 data-languages="{{ resource.languages | join: ',' }}"
+                 data-types="{{ resource.types | join: ',' }}"
+                 data-tags="{{ resource.tags | join: ',' }}">
+          <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
+          <p class="res-creator">{{ resource.creator }}</p>
+          <figure class="res-blurb">
+            {% if resource.description %}
+              <blockquote class="res-description">{{ resource.description }}</blockquote>
+            {% endif %}
+            {% if resource.contributor %}
+              <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+            {% endif %}
+          </figure>
+          <dl class="res-meta">
+            <div class="res-meta-levels">
+              <dt>Levels</dt>
+              {% for level in resource.levels %}
+              <dd>{{ level }}</dd>
+              {% endfor %}
+            </div>
+            <div class="res-meta-languages">
+              <dt>Languages</dt>
+              {% for language in resource.languages %}
+              <dd>{{ language }}</dd>
+              {% endfor %}
+            </div>
+            <div class="res-meta-types">
+              <dt>Types</dt>
+              {% for type in resource.types %}
+              <dd>{{ type }}</dd>
+              {% endfor %}
+            </div>
+            <div class="res-meta-tags">
+              <dt>Tags</dt>
+              {% for tag in resource.tags %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+            </div>
+          </dl>
+        </article>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </main>
+
+  {% include footer.html %}
+
+</body>
+</html>

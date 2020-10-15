@@ -1,167 +1,68 @@
 ---
+id: home
+title: Home | Creative Code Collective
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Creative Code Collective</title>
-  <meta charset="UTF-8">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"> -->
-  <link rel="stylesheet" href="/css/styles.css">
 
-  <script src="/js/scripts.js" defer></script>
-
-  {% include collecttags.html %}
-</head>
+{% include head.html %}
 
 <body>
 
-  <header>
-    <h1>Creative Code Collective</h1>
-    <nav>
-      <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/collective">About</a></li>
-        <li><a href="/resources">Resource Hub</a></li>
-      </ul>
-    </nav>
-  </header>
+  {% include header.html %}
 
-  <section id="roadmap" class="roadmap">
-    <h2>Roadmap</h2>
-    <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
-    <form id="generator">
-      <div class="action">
-        <label for="learn">Learn</label>
-        <select name="learn" id="learn">
-          <option value="" selected>anything</option>
-          {% for tag in learn %}
-          <option value="{{ tag }}">{{ tag }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="action">
-        <label for="do">Do</label>
-        <select name="do" id="do">
-          <option value="" selected>anything</option>
-          {% for tag in do %}
-          <option value="{{ tag }}">{{ tag }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="action">
-        <label for="use">Use</label>
-        <select name="use" id="use">
-          <option value="" selected>anything</option>
-          {% for tag in use %}
-          <option value="{{ tag }}">{{ tag }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="action">
-        <label for="make">Make</label>
-        <select name="make" id="make">
-          <option value="" selected>anything</option>
-          {% for tag in make %}
-          <option value="{{ tag }}">{{ tag }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <button type="submit">Search</button>
-      <button type="button" value="randomise">Randomise</button>
-      <button type="reset">Reset</button>
-    </form>
-  </section>
-
-  <main>
-    <h2>Resources</h2>
-    <form id="filters">
-      <div class="filter">
-        <label for="levels">Level</label>
-        <select name="levels" id="levels">
-          <option value="">All</option>
-          {% for level in levels %}
-          <option value="{{ level }}">{{ level }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="filter">
-        <label for="languages">Language</label>
-        <select name="languages" id="languages">
-          <option value="">All</option>
-          {% for language in languages %}
-          <option value="{{ language }}">{{ language }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="filter">
-        <label for="types">Type</label>
-        <select name="types" id="types">
-          <option value="">All</option>
-          {% for type in types %}
-          <option value="{{ type }}">{{ type }}</option>
-          {% endfor %}
-        </select>
-      </div>
-    </form>
-    <div class="resources">
-      {% for resource in site.resources %}
-      <article class="res"
-               data-levels="{{ resource.levels | join: ',' }}"
-               data-languages="{{ resource.languages | join: ',' }}"
-               data-types="{{ resource.types | join: ',' }}"
-               data-tags="{{ resource.tags | join: ',' }}">
-        <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
-        <p class="res-creator">{{ resource.creator }}</p>
-        <figure class="res-blurb">
-          {% if resource.description %}
-            <blockquote class="res-description">{{ resource.description }}</blockquote>
-          {% endif %}
-          {% if resource.contributor %}
-            <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
-          {% endif %}
-        </figure>
-        <dl class="res-meta">
-          <div class="res-meta-levels">
-            <dt>Levels</dt>
-            {% for level in resource.levels %}
-            <dd>{{ level }}</dd>
-            {% endfor %}
-          </div>
-          <div class="res-meta-languages">
-            <dt>Languages</dt>
-            {% for language in resource.languages %}
-            <dd>{{ language }}</dd>
-            {% endfor %}
-          </div>
-          <div class="res-meta-types">
-            <dt>Types</dt>
-            {% for type in resource.types %}
-            <dd>{{ type }}</dd>
-            {% endfor %}
-          </div>
-          <div class="res-meta-tags">
-            <dt>Tags</dt>
-            {% for tag in resource.tags %}
-            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-            {% endfor %}
-          </div>
-        </dl>
-      </article>
-      {% endfor %}
-    </div>
+  <main class="bubble3">
+    <article>
+      <section>
+        <h2>ABOUT THE COLLECTIVE</h2>
+        <h3>WHY<span class="ligature">??</span></h3>
+        <p>we need supportive spaces that value our diverse capacities to learn & experiment—fearlessly, creatively, critically—with code</p>
+        <h3>WHAT<span class="ligature">++</span></h3>
+        <p>workshops & project troubleshooting</p>
+        <p>co-learning & co-working space</p>
+        <p>online resource hub</p>
+        <h3>INSPIRED BY<span class="ligature">&gt;&gt;</span></h3>
+        <p>sister spit poetry tour</p>
+        <p>homebrew computer club</p>
+        <p>processing.org</p>
+        <h3>SHARED VALUES</h3>
+        <ol>
+          <li>scrappy artistic strategies, not perfect code</li>
+          <li>growth, not perfection</li>
+          <li>open-source attitude: community, not competition</li>
+          <li>we all have skills to teach each other</li>
+          <li>all practice is theory–practice</li>
+          <li>project-based co-learning</li>
+          <li>learn–make–imagine simultaneously & recursively</li>
+          <li>creativity as collaborative wayfinding (ouija)</li>
+        </ol>
+      </section>
+      <section>
+        <h2>WHAT WE DO</h2>
+        <h3>SOME GUEST WORKSHOPS IN THE PAST</h3>
+        <ul>
+          <li>Feminist.AI</li>
+          <li>Machine Learning Tactics for Artists</li>
+          <li>Getting Started with ML5.js</li>
+          <li>Shaders for Scaredy Cats</li>
+          <li>Movement-Based Interaction Design</li>
+          <li>Coding for Live Performance</li>
+        </ul>
+        <h3>SOME CURRENT IDEAS</h3>
+        <ul>
+          <li>WebVR with Mozilla Hubs</li>
+          <li>Hydra/p5.js exquisite corpse algo-rave</li>
+          <li>Remixing videos using command line tools</li>
+          <li>Discussing design and typographical aesthetics of code</li>
+          <li>Discussing the codification of color</li>
+          <li>Discussing internet histories</li>
+        </ul>
+      </section>
+    </article>
   </main>
 
-  <footer id="footer">
-    <p>Mondays 1–4 p.m.</p>
-    <ul class="links">
-      <li><a href="">Instagram</a></li>
-      <li><a href="">Slack</a></li>
-      <li><a href="">Email</a></li>
-    </ul>
-    <p>USC Media Arts + Practice</p>
-  </footer>
+  {% include footer.html %}
 
 </body>
 </html>
