@@ -1,0 +1,97 @@
+---
+learn:
+  - algorithmic bias
+  - data privacy
+  - critical code
+  - representation
+do:
+  - web scraping
+  - data analysis/visualization
+  - signal processing
+  - machine learning
+  - natural language processing
+  - computer vision
+  - electronic literature
+use:
+  - Processing
+  - p5.js
+  - Max/MSP/Jitter
+  - SuperCollider
+  - HTML, CSS, JavaScript
+  - Python
+  - Unity
+  - openFrameworks
+  - Arduino
+  - OpenGL/WebGL
+  - TouchDesigner
+  - Raspberry Pi
+make:
+  - websites
+  - generative art
+  - installations
+  - mobile apps
+  - VR/AR
+  - games
+  - bots
+  - shaders
+---
+
+<!DOCTYPE html>
+<html>
+
+{%- include head.html -%}
+
+<body>
+{% include menu.html %}
+<div id="container">
+  <div id="start">
+    <h2>Resources (beta)</h2>
+    <p id="learn">I want to learn about
+    <select name="suggest_learn" id="suggest_learn" class="suggest">
+      {% for item in page.learn %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
+    </select>
+    </p>
+    <p id="do">I want to learn how to do
+    <select name="suggest_do" id="suggest_do" class="suggest">
+      {% for item in page.do %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
+    </select>
+    </p>
+    <p id="use"> I want to learn how to use
+    <select name="suggest_use" id="suggest_use" class="suggest">
+      {% for item in page.use %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
+    </select>
+    </p>
+    <p id="make">I want to make
+    <select name="suggest_make" id="suggest_make" class="suggest">
+      {% for item in page.make %}
+      <option value="{{ item }}">{{ item }}</option>
+      {% endfor %}
+    </select>
+    </p>
+  </div>
+  <div id="resources">
+    {% for resource in site.resources %}
+    <div class="resource">
+      <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
+      <p class="creator">{{ resource.creator }}</p>
+      <p class="description">{{ resource.description }}</p>
+      {% for tag in resource.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="footer">ky is a god</div>
+
+<script src="/js/autocomplete.js"></script>
+<!-- <script src="/js/scripts.js"></script> -->
+
+</body>
+</html>

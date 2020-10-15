@@ -2,13 +2,13 @@
   display: flex;
 }
 
-#roadmap {
+.roadmap {
   background: var(--nc-bg-2);
   padding: 2rem;
   border-radius: 4px;
 }
 
-#resources {
+.resources {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -41,9 +41,9 @@
 .links {
   list-style-type: none;
   padding-left: 0;
+  display: flex;
 }
 
 .links li {
-  display: inline-block;
-  margin-top: 0;
+  margin: 0 1em 0 0;
 }
