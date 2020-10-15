@@ -1,97 +1,68 @@
 ---
-learn:
-  - algorithmic bias
-  - data privacy
-  - critical code
-  - representation
-do:
-  - web scraping
-  - data analysis/visualization
-  - signal processing
-  - shaders
-  - machine learning
-  - natural language processing
-  - computer vision
-  - electronic literature
-use:
-  - Processing
-  - p5.js
-  - Max/MSP/Jitter
-  - SuperCollider
-  - HTML, CSS, JavaScript
-  - Python
-  - Unity
-  - openFrameworks
-  - Arduino
-  - OpenGL/WebGL
-  - TouchDesigner
-  - Raspberry Pi
-make:
-  - a website
-  - generative art
-  - an installation
-  - a mobile app
-  - a VR/AR experience
-  - a game
-  - a bot
+id: home
+title: Home | Creative Code Collective
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-{%- include head.html -%}
+{% include head.html %}
 
 <body>
-{% include menu.html %}
-<div id="container">
-  <div id="start">
-    <h2>Resources (beta)</h2>
-    <p id="learn">I want to learn about
-    <select name="suggest_learn" id="suggest_learn" class="suggest">
-      {% for item in page.learn %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="do">I want to learn how to do
-    <select name="suggest_do" id="suggest_do" class="suggest">
-      {% for item in page.do %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="use"> I want to learn how to use
-    <select name="suggest_use" id="suggest_use" class="suggest">
-      {% for item in page.use %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-    <p id="make">I want to make
-    <select name="suggest_make" id="suggest_make" class="suggest">
-      {% for item in page.make %}
-      <option value="{{ item }}">{{ item }}</option>
-      {% endfor %}
-    </select>
-    </p>
-  </div>
-  <div id="resources">
-    {% for resource in site.resources %}
-    <div class="resource">
-      <h1 class="title"><a href="{{ resource.link }}">{{ resource.title }}</a></h1>
-      <p class="creator">{{ resource.creator }}</p>
-      <p class="description">{{ resource.description }}</p>
-      {% for tag in resource.tags %}
-        <span class="tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    {% endfor %}
-  </div>
-</div>
-<div class="footer">ky is a god</div>
 
-<script src="/js/autocomplete.js"></script>
-<!-- <script src="/js/scripts.js"></script> -->
+  {% include header.html %}
+
+  <main class="bubble3">
+    <article>
+      <section>
+        <h2>ABOUT THE COLLECTIVE</h2>
+        <h3>WHY<span class="ligature">??</span></h3>
+        <p>we need supportive spaces that value our diverse capacities to learn & experiment—fearlessly, creatively, critically—with code</p>
+        <h3>WHAT<span class="ligature">++</span></h3>
+        <p>workshops & project troubleshooting</p>
+        <p>co-learning & co-working space</p>
+        <p>online resource hub</p>
+        <h3>INSPIRED BY<span class="ligature">&gt;&gt;</span></h3>
+        <p>sister spit poetry tour</p>
+        <p>homebrew computer club</p>
+        <p>processing.org</p>
+        <h3>SHARED VALUES</h3>
+        <ol>
+          <li>scrappy artistic strategies, not perfect code</li>
+          <li>growth, not perfection</li>
+          <li>open-source attitude: community, not competition</li>
+          <li>we all have skills to teach each other</li>
+          <li>all practice is theory–practice</li>
+          <li>project-based co-learning</li>
+          <li>learn–make–imagine simultaneously & recursively</li>
+          <li>creativity as collaborative wayfinding (ouija)</li>
+        </ol>
+      </section>
+      <section>
+        <h2>WHAT WE DO</h2>
+        <h3>SOME GUEST WORKSHOPS IN THE PAST</h3>
+        <ul>
+          <li>Feminist.AI</li>
+          <li>Machine Learning Tactics for Artists</li>
+          <li>Getting Started with ML5.js</li>
+          <li>Shaders for Scaredy Cats</li>
+          <li>Movement-Based Interaction Design</li>
+          <li>Coding for Live Performance</li>
+        </ul>
+        <h3>SOME CURRENT IDEAS</h3>
+        <ul>
+          <li>WebVR with Mozilla Hubs</li>
+          <li>Hydra/p5.js exquisite corpse algo-rave</li>
+          <li>Remixing videos using command line tools</li>
+          <li>Discussing design and typographical aesthetics of code</li>
+          <li>Discussing the codification of color</li>
+          <li>Discussing internet histories</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  {% include footer.html %}
 
 </body>
 </html>
