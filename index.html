@@ -6,14 +6,17 @@
 <head>
   <title>Creative Code Collective</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
-  <!-- <link rel="stylesheet" href="/css/new.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"> -->
   <link rel="stylesheet" href="/css/styles.css">
+
+  <script src="/js/scripts.js" defer></script>
 
   {% include collecttags.html %}
 </head>
+
 <body>
-  <header id="header">
+
+  <header>
     <h1>Creative Code Collective</h1>
     <nav>
       <ul class="links">
@@ -23,88 +26,100 @@
       </ul>
     </nav>
   </header>
-  <section id="roadmap">
+
+  <section id="roadmap" class="roadmap">
     <h2>Roadmap</h2>
     <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
     <form id="generator">
-      <div id="actions">
-        <div class="action">
-          <label for="learn">Learn</label>
-          <select name="learn" id="learn">
-            <option value="" selected>anything</option>
-            {% for item in learn %}
-            <option value="{{ item | prepend: 'learn: ' }}">{{ item }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="action">
-          <label for="do">Do</label>
-          <select name="do" id="do">
-            <option value="" selected>anything</option>
-            {% for item in do %}
-            <option value="{{ item | prepend: 'do: ' }}">{{ item }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="action">
-          <label for="use">Use</label>
-          <select name="use" id="use">
-            <option value="" selected>anything</option>
-            {% for item in use %}
-            <option value="{{ item | prepend: 'use: ' }}">{{ item }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="action">
-          <label for="make">Make</label>
-          <select name="make" id="make">
-            <option value="" selected>anything</option>
-            {% for item in make %}
-            <option value="{{ item | prepend: 'make: ' }}">{{ item }}</option>
-            {% endfor %}
-          </select>
-        </div>
+      <div class="action">
+        <label for="learn">Learn</label>
+        <select name="learn" id="learn">
+          <option value="" selected>anything</option>
+          {% for tag in learn %}
+          <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
       </div>
-      <div>
-        <button type="submit">Search</button>
-        <button type="button" value="randomise">Randomise</button>
-        <button type="reset">Reset</button>
+      <div class="action">
+        <label for="do">Do</label>
+        <select name="do" id="do">
+          <option value="" selected>anything</option>
+          {% for tag in do %}
+          <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
       </div>
+      <div class="action">
+        <label for="use">Use</label>
+        <select name="use" id="use">
+          <option value="" selected>anything</option>
+          {% for tag in use %}
+          <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="action">
+        <label for="make">Make</label>
+        <select name="make" id="make">
+          <option value="" selected>anything</option>
+          {% for tag in make %}
+          <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit">Search</button>
+      <button type="button" value="randomise">Randomise</button>
+      <button type="reset">Reset</button>
     </form>
   </section>
+
   <main>
     <h2>Resources</h2>
     <form id="filters">
-      <label for="levels">Level</label>
-      <select class="filter" name="levels" id="levels">
-        <option value="">All</option>
-        {% for level in levels %}
-        <option value="{{ level | prepend: 'levels: ' }}">{{ level }}</option>
-        {% endfor %}
-      </select>
-      <label for="langs">Language</label>
-      <select class="filter" name="langs" id="langs">
-        <option value="">All</option>
-        {% for language in languages %}
-        <option value="{{ language | prepend: 'langs: ' }}">{{ language }}</option>
-        {% endfor %}
-      </select>
-      <label for="types">Type</label>
-      <select class="filter" name="types" id="types">
-        <option value="">All</option>
-        {% for type in types %}
-        <option value="{{ type | prepend: 'types: ' }}">{{ type }}</option>
-        {% endfor %}
-      </select>
+      <div class="filter">
+        <label for="levels">Level</label>
+        <select name="levels" id="levels">
+          <option value="">All</option>
+          {% for level in levels %}
+          <option value="{{ level }}">{{ level }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter">
+        <label for="languages">Language</label>
+        <select name="languages" id="languages">
+          <option value="">All</option>
+          {% for language in languages %}
+          <option value="{{ language }}">{{ language }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter">
+        <label for="types">Type</label>
+        <select name="types" id="types">
+          <option value="">All</option>
+          {% for type in types %}
+          <option value="{{ type }}">{{ type }}</option>
+          {% endfor %}
+        </select>
+      </div>
     </form>
-    <div id="resources">
+    <div class="resources">
       {% for resource in site.resources %}
-      <article class="res">
+      <article class="res"
+               data-levels="{{ resource.levels | join: ',' }}"
+               data-languages="{{ resource.languages | join: ',' }}"
+               data-types="{{ resource.types | join: ',' }}"
+               data-tags="{{ resource.tags | join: ',' }}">
         <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
         <p class="res-creator">{{ resource.creator }}</p>
         <figure class="res-blurb">
-          <blockquote class="res-description">{{ resource.description }}</blockquote>
-          <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+          {% if resource.description %}
+            <blockquote class="res-description">{{ resource.description }}</blockquote>
+          {% endif %}
+          {% if resource.contributor %}
+            <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+          {% endif %}
         </figure>
         <dl class="res-meta">
           <div class="res-meta-levels">
@@ -113,7 +128,7 @@
             <dd>{{ level }}</dd>
             {% endfor %}
           </div>
-          <div class="res-meta-langs">
+          <div class="res-meta-languages">
             <dt>Languages</dt>
             {% for language in resource.languages %}
             <dd>{{ language }}</dd>
@@ -128,7 +143,8 @@
           <div class="res-meta-tags">
             <dt>Tags</dt>
             {% for tag in resource.tags %}
-            <dd>{{ tag }}</dd>
+            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
             {% endfor %}
           </div>
         </dl>
@@ -136,6 +152,7 @@
       {% endfor %}
     </div>
   </main>
+
   <footer id="footer">
     <p>Mondays 1–4 p.m.</p>
     <ul class="links">
@@ -145,6 +162,6 @@
     </ul>
     <p>USC Media Arts + Practice</p>
   </footer>
-  <script src="/js/scripts.js"></script>
+
 </body>
 </html>

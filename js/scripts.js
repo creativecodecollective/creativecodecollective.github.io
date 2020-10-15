@@ -1,20 +1,19 @@
-// add class names from filled-in html
-function addClasses(resources) {
-  for (let res of resources) {
-    let fields = res.querySelectorAll("div");
-    for (let field of fields) {
-      for (let d of field.querySelectorAll("dd")) {
-        let text = d.textContent.replace(": ", "-").replace(" ", "_");
-        let fieldname = field.classList[0].split("-")[2];
-        if (fieldname === "tags") {
-          res.classList.add(text);
-        } else {
-          res.classList.add(fieldname + "-" + text);
-        }
-      }
-    }
-  }
-}
+// "use strict"
+
+// add data attributes from filled-in html
+// function addDataAttrs(resources) {
+//   for (let res of resources) {
+//     let fields = res.querySelectorAll("div");
+//     for (let field of fields) {
+//       let fieldname = field.classList[0].split("-")[2];
+//       let fieldlist = [];
+//       for (let d of field.querySelectorAll("dd")) {
+//         fieldlist.push(d.textContent);
+//       }
+//       res.dataset[fieldname] = fieldlist.join("|");
+//     }
+//   }
+// }
 
 // update generator upon interactions
 let updateGenerator = (event) => {
@@ -47,16 +46,19 @@ let updateGenerator = (event) => {
     }
   }
 
-  // updateFilters();
-  generateResources();
+  let resources = generateResources();
+  // updateFilters(resources);
 }
 
-// function updateFilters() {
-//   let filters = document.querySelectorAll(".filter");
+// function updateFilters(resources) {
+//   let filters = document.querySelectorAll(".filter select");
 //   for (let filter of filters) {
-//     let options = [...filter.querySelectorAll("option")];
-//     options.splice(0, 1); // remove first "all" option
-//     for 
+//     let filterid = filter.id;
+//     let 
+//     let options = filter.querySelectorAll("option:not([value=''])");
+//     options.forEach((val, i, arr) => {
+//       console.log()
+//     });
 //   }
 // }
 
@@ -92,7 +94,7 @@ function generateResources() {
       let tags = [...res.classList]; // turn into an array
       tags.splice(0, 1); // remove first "res" class name
       let matches = tags.filter(tag => {
-        return queries.includes(tag.replace("-", ": ").replace("_", " "))
+        return queries.includes(tag.replace("-", ":").replace("_", " "))
       });
       if (matches.length > 0) {
         res.style.display = "block";
@@ -101,11 +103,11 @@ function generateResources() {
       }
     }
   }
+
+  return resources;
 }
 
 let resources = document.getElementsByClassName("res");
-addClasses(resources);
-
 let generator = document.getElementById("generator");
 generator.reset();
 for (let button of generator.querySelectorAll("button")) {

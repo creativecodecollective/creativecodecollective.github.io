@@ -3,7 +3,7 @@ layout: resource
 title: Eloquent Javascript (3rd Edition)
 creator: Marijn Haverbeke
 link: https://eloquentjavascript.net/
-tags: ["use: javascript"]
+tags: ["use:javascript"]
 levels: [beginner, intermediate]
 languages: [English, فارسی, български, português, русский язык]
 types: [book]
