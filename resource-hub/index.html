@@ -63,7 +63,7 @@ title: Resource Hub | Creative Code Collective
           <button type="button" value="randomise">Randomise</button>
           <button type="reset">Reset</button>
         </form>
-      </section>
+
 
       <h2>Resources</h2>
       <p>Filter by</p>
@@ -96,23 +96,27 @@ title: Resource Hub | Creative Code Collective
           </select>
         </div>
       </form>
+      <!-- I think this should all be one form, one filter process, to simplify. -SARAH -->
+</section>
+
       <div class="resources">
         {% for resource in site.resources %}
         <article class="res"
                  data-levels="{{ resource.levels | join: ',' }}"
                  data-languages="{{ resource.languages | join: ',' }}"
                  data-types="{{ resource.types | join: ',' }}"
-                 data-tags="{{ resource.tags | join: ',' }}">
+                 data-tags="{{ resource.tags | join: ',' }}"
+                 data-learn="{{ resource.learn | join: ',' }}"
+                 data-do="{{ resource.do | join: ',' }}"
+                 data-use="{{ resource.use | join: ',' }}"
+                 data-make="{{ resource.make | join: ',' }}">
           <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
-          <p class="res-creator">{{ resource.creator }}</p>
           <figure class="res-blurb">
             {% if resource.description %}
               <blockquote class="res-description">{{ resource.description }}</blockquote>
             {% endif %}
-            {% if resource.contributor %}
-              <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
-            {% endif %}
           </figure>
+          <dt>Creator</dt><p class="res-creator">{{ resource.creator }}</p>
           <dl class="res-meta">
             <div class="res-meta-levels">
               <dt>Levels</dt>
@@ -132,6 +136,43 @@ title: Resource Hub | Creative Code Collective
               <dd>{{ type }}</dd>
               {% endfor %}
             </div>
+            {% if resource.learn %}
+            <div class="res-meta-learn">
+              <dt>Learn</dt>
+                {% for tag in resource.learn %}
+                <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                    data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if resource.do %}
+            <div class="res-meta-do">
+              <dt>Do</dt>
+              {% for tag in resource.do %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if resource.use %}
+            <div class="res-meta-use">
+              <dt>Use</dt>
+              {% for tag in resource.use %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if resource.make %}
+            <div class="res-meta-make">
+              <dt>Make</dt>
+              {% for tag in resource.make %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if resource.tags %}
             <div class="res-meta-tags">
               <dt>Tags</dt>
               {% for tag in resource.tags %}
@@ -139,6 +180,12 @@ title: Resource Hub | Creative Code Collective
                   data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
               {% endfor %}
             </div>
+            {% endif %}
+            <div class="res-contrib">
+            {% if resource.contributor %}
+              <figcaption class="res-contrib"><cite><dt>Community Contributor</dt> {{ resource.contributor }}</cite></figcaption>
+            {% endif %}
+            <div>
           </dl>
         </article>
         {% endfor %}

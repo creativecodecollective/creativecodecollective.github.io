@@ -22,6 +22,38 @@
 {% endfor %}
 {% assign types = types | split:',' | compact | uniq | sort %}
 
+<!-- learn -->
+{% assign site.learn = "" %}
+{% for resource in site.resources %}
+  {% assign res_learn = resource.learn | join:',' | append:',' %}
+  {% assign learn = learn | append:res_learn %}
+{% endfor %}
+{% assign learn = learn | split:',' | compact | uniq | sort %}
+
+<!-- do -->
+{% assign site.do = "" %}
+{% for resource in site.resources %}
+  {% assign res_do = resource.do | join:',' | append:',' %}
+  {% assign do = do | append:res_do %}
+{% endfor %}
+{% assign do = do | split:',' | compact | uniq | sort %}
+
+<!-- use -->
+{% assign site.use = "" %}
+{% for resource in site.resources %}
+  {% assign res_use = resource.use | join:',' | append:',' %}
+  {% assign use = use | append:res_use %}
+{% endfor %}
+{% assign use = use | split:',' | compact | uniq | sort %}
+
+<!-- make -->
+{% assign site.make = "" %}
+{% for resource in site.resources %}
+  {% assign res_make = resource.make | join:',' | append:',' %}
+  {% assign make = make | append:res_make %}
+{% endfor %}
+{% assign make = make | split:',' | compact | uniq | sort %}
+
 <!-- tags -->
 {% assign site.tags = "" %}
 {% for resource in site.resources %}
@@ -30,28 +62,8 @@
 {% endfor %}
 {% assign tags = tags | split:',' | compact | uniq | sort %}
 
-{% assign learn = learn | split:',' | compact | uniq | sort %}
-{% assign do = do | split:',' | compact | uniq | sort %}
-{% assign use = use | split:',' | compact | uniq | sort %}
-{% assign make = make | split:',' | compact | uniq | sort %}
-
 {% for tag in tags %}
   {% assign split = tag | split: ":" %}
   {% assign cat = split | first %}
   {% assign content = split | slice: 1, split.size | join: "" %}
-  {% case cat %}
-    {% when "learn" %}
-      {% assign learn = learn | append: content | append: "," %}
-    {% when "do" %}
-      {% assign do = do | append: content | append: "," %}
-    {% when "use" %}
-      {% assign use = use | append: content | append: "," %}
-    {% when "make" %}
-      {% assign make = make | append: content | append: "," %}
-  {% endcase %}
 {% endfor %}
-
-{% assign site.learn = "" %}
-{% assign site.do = "" %}
-{% assign site.use = "" %}
-{% assign site.make = "" %}
