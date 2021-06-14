@@ -63,8 +63,6 @@ title: Resource Hub | Creative Code Collective
           <button id="randomiseButton" type="button" value="randomise">Randomise</button>
           <button id="resetButton" type="reset">Reset</button>
         </form>
-
-
       <h2>Resources</h2>
       <p>Filter by</p>
       <form id="filters" class="filter" method="get">
@@ -116,8 +114,10 @@ title: Resource Hub | Creative Code Collective
             {% if resource.description %}
               <blockquote class="res-description">{{ resource.description }}</blockquote>
             {% endif %}
+            {% if resource.contributor %}
+              <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+            {% endif %}
           </figure>
-          <dt>Creator</dt><p class="res-creator">{{ resource.creator }}</p>
           <dl class="res-meta">
             <div class="res-meta-levels">
               <dt>Levels</dt>
@@ -174,13 +174,13 @@ title: Resource Hub | Creative Code Collective
             </div>
             {% endif %}
             {% if resource.tags %}
-            <div class="res-meta-tags">
-              <dt>Tags</dt>
-              {% for tag in resource.tags %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-            </div>
+              <div class="res-meta-tags">
+                <dt>Tags</dt>
+                {% for tag in resource.tags %}
+                <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                    data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+                {% endfor %}
+              </div>
             {% endif %}
             <div class="res-contrib">
             {% if resource.contributor %}

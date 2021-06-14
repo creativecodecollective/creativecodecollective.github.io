@@ -62,6 +62,10 @@
 {% endfor %}
 {% assign tags = tags | split:',' | compact | uniq | sort %}
 
+{% assign site.learn = "" %}
+{% assign site.do = "" %}
+{% assign site.use = "" %}
+{% assign site.make = "" %}
 {% for tag in tags %}
   {% assign split = tag | split: ":" %}
   {% assign cat = split | first %}
