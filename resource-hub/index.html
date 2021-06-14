@@ -22,7 +22,7 @@ title: Resource Hub | Creative Code Collective
         <p>For example:</p>
         <p>I'd like to learn _____ to do _____ using _____ to make _____. </p>
         <p><b>This page is still under construction!</b></p>
-        <form method="GET" id="generator">
+        <form method="GET" id="generator" action="">
           <div class="action">
             <label for="learn">Learn</label>
             <select name="learn" id="learn">
@@ -59,19 +59,21 @@ title: Resource Hub | Creative Code Collective
               {% endfor %}
             </select>
           </div>
-          <button id="submitButton" type="submit">Search</button>
+          <button id="searchButton" type="search">Search</button>
           <button id="randomiseButton" type="button" value="randomise">Randomise</button>
           <button id="resetButton" type="reset">Reset</button>
         </form>
+
+
       <h2>Resources</h2>
-      <p>Filter by</p>
-      <form id="filters" class="filter" method="get">
+      <p>Filter results by</p>
+      <form id="filters" class="filter" method="GET" action="">
         <div class="filter">
-          <label for="levels">Level</label>
-          <select name="levels" id="levels">
-            <option value="">All</option>
-            {% for level in levels %}
-            <option value="{{ level }}">{{ level }}</option>
+          <label for="collection">Collection</label>
+          <select name="collection" id="collection">
+            <option value="">Any</option>
+            {% for coll in collections %}
+            <option value="{{ coll }}">{{ coll }}</option>
             {% endfor %}
           </select>
         </div>
@@ -93,11 +95,11 @@ title: Resource Hub | Creative Code Collective
             {% endfor %}
           </select>
         </div>
+        <button id="filterButton" type="filter">Filter</button>
       </form>
-      <!-- I think this should all be one form, one filter process, to simplify. -SARAH -->
+      <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
 </section>
 
-<!-- some JS below that acts on the forms, if select.learn == processing etc -->
       <div class="resources">
         {% for resource in site.resources %}
         <article display="none" class="res"
@@ -221,7 +223,7 @@ title: Resource Hub | Creative Code Collective
     let actions = event.target.form.querySelectorAll("select");
 
     // deal with buttons
-    if (event.target.type === "submit") { // submit
+    if (event.target.type === "search") { // search
       event.preventDefault();
     } else if (event.target.type === "reset") { // reset
       event.preventDefault();
@@ -318,7 +320,7 @@ title: Resource Hub | Creative Code Collective
   let resources = document.getElementsByClassName("res");
 
   var generator = document.getElementById('generator')
-  //submitButton.addEventListener("click", updateGenerator);
+  // searchButton.addEventListener("click", updateGenerator);
   //let randomiseButton = document.getElementById("randomiseButton")
   //randomiseButton.addEventListener("click", updateGenerator);
 //  let resetButton = document.getElementById("resetButton")
