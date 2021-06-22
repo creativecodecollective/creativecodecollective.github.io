@@ -10,6 +10,34 @@ title: Resource Hub | Creative Code Collective
 
 <body>
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <script type="text/javascript">
+
+  var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
+
+
+  function init() {
+        Papa.parse(public_spreadsheet_url, {
+          download: true,
+          header: true,
+          complete: showInfo
+        })
+      }
+
+  window.addEventListener('DOMContentLoaded', init)
+
+  function showInfo(results) {
+        var data = results.data
+
+        // data comes through as a simple array since simpleSheet is turned on
+        console.log("Successfully processed " + data.length + " rows!")
+        // document.getElementById("food").innerHTML = "<strong>Foods:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
+        console.log(data);
+      }
+
+      console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
+    </script>
+
   {% include header.html %}
 
   <main class="bubble3">
