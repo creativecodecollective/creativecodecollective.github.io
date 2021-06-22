@@ -1,8 +1,5 @@
 name: googlesheet_actions
 uses: rjoydip/googlesheet-actions@0.1.1
 sheet-id: ${{ secrets.2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV }}
-  - script: |
-        console.log(${{steps.googlesheet_actions.outputs.result}})
-    - name: test
-      run: |
-        cat $HOME/_data/data.json
+script: console.log(${{steps.googlesheet_actions.outputs.result}})
+run: cat $HOME/_data/data.json
