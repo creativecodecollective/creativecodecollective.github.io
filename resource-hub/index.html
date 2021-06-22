@@ -10,34 +10,6 @@ title: Resource Hub | Creative Code Collective
 
 <body>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-  <script type="text/javascript">
-
-  var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
-
-
-  function init() {
-        Papa.parse(public_spreadsheet_url, {
-          download: true,
-          header: true,
-          complete: showInfo
-        })
-      }
-
-  window.addEventListener('DOMContentLoaded', init)
-
-  function showInfo(results) {
-        var data = results.data
-
-        // data comes through as a simple array since simpleSheet is turned on
-        console.log("Successfully processed " + data.length + " rows!")
-        // document.getElementById("food").innerHTML = "<strong>Foods:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
-        console.log(data);
-      }
-
-      console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
-    </script>
-
   {% include header.html %}
 
   <main class="bubble3">
@@ -226,6 +198,7 @@ title: Resource Hub | Creative Code Collective
 
   </main>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 <script>
   // "use strict"
 
@@ -243,6 +216,79 @@ title: Resource Hub | Creative Code Collective
   //     }
   //   }
   // }
+
+
+  //PAPA PARSE START
+
+  var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
+
+
+  function init() {
+        Papa.parse(public_spreadsheet_url, {
+          download: true,
+          header: true,
+          dynamicTyping: true,
+          complete: showInfo
+        })
+      }
+
+  window.addEventListener('DOMContentLoaded', init)
+
+  function showInfo(results) {
+        var data = results.data
+
+        //write file, can we use liquid or is that only before build? write to site.data (/_data/ folder?)
+
+        // data comes through as a simple array since simpleSheet is turned on
+        console.log("Successfully processed " + data.length + " rows!")
+
+        let resources = document.getElementsByClassName('resources')
+        console.log(resources)
+
+        let article = document.createElement("article")
+        article.classList.add("res")
+        // article.display = "none"
+
+        let title = document.createElement("H3")
+        title.classList.add("res-title")
+
+        for (let d in data){
+          let resource = {
+                blurb: data[d].blurb,
+                contributor: data[d].contributor,
+                title: data[d].title,
+                creator: data[d].creator,
+                link: data[d].link,
+                image: data[d].image,
+                languages: data[d].languages,
+                learn: data[d].learn,
+                make: data[d].make,
+                use: data[d].use,
+                do: data[d].do,
+                mood: data[d].mood,
+                opensource: data[d].opensource,
+                year: data[d].year
+          }
+        console.log(resource)
+
+        // article.style.data-levels = "{{ resource.levels | join: ',' }}"
+        // article.style.data-languages = resource.languages
+        // article.style.data-types = "{{ resource.types | join: ',' }}"
+        // article.style.data-tags = "{{ resource.tags | join: ',' }}"
+        // article.style.data-learn = "{{ resource.learn | join: ',' }}"
+        // article.style.data-do = "{{ resource.do | join: ',' }}"
+        // article.style.data-use = "{{ resource.use | join: ',' }}"
+        // article.style.data-make = "{{ resource.make | join: ',' }}"
+        
+        title.innerHTML = resource.title
+        article.appendChild(title)
+        resources.appendChild(article)
+        }
+      }
+
+      console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
+  //PAPA PARSE END
+
 
   // update generator upon interactions
   let updateGenerator = (event) => {
