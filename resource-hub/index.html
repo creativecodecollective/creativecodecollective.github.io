@@ -238,7 +238,7 @@ title: Resource Hub | Creative Code Collective
 
         // data comes through as a simple array since simpleSheet is turned on
         console.log("Successfully processed " + data.length + " rows!")
-        console.log(data)
+        // console.log(data)
 
         for (let d in data){
           let r = {
@@ -282,38 +282,54 @@ title: Resource Hub | Creative Code Collective
           opensource: data.opensource,
           year: data.year
       }
-      console.log(r.title)
+      // console.log(r.title)
       
+      //CREATE ELEMENTS
       let resources = document.getElementById('resources')
       let article = document.createElement("article")
+      let link = document.createElement("a")
       let title = document.createElement("H3")
       let creator = document.createElement("dd")
       let blurb = document.createElement("blockquote")
       let dl = document.createElement("dl")
-      let labelLang = document.createElement("dt")
-      let labelLearn = document.createElement("dt")
-      let labelMake = document.createElement("dt")
-      let labelUse = document.createElement("dt")
-      let labelDo = document.createElement("dt")
       let languages = document.createElement("div")
       let learn = document.createElement("div")
       let make = document.createElement("div")
       let use = document.createElement("div")
       let doDiv = document.createElement("div")
+
+      let labelLang = document.createElement("dt")
+      let labelLearn = document.createElement("dt")
+      let labelMake = document.createElement("dt")
+      let labelUse = document.createElement("dt")
+      let labelDo = document.createElement("dt")
+
+      let lang = document.createElement("dd")
+      let learnDD = document.createElement("dd")
+      let doDD = document.createElement("dd")
+      let useDD = document.createElement("dd")
+      let makeDD = document.createElement("dd")
       let contributor = document.createElement("small")
 
-      article.classList.add("res")      
+      //ADD CLASSES
+      article.classList.add("res")     
+      link.classList.add("links") 
       title.classList.add("res-title")
       creator.classList.add("res-title")
       blurb.classList.add("res-description")
-      contributor.classList.add("res-contrib") //add cite and figure wrappers if necessary
       dl.classList.add("res-meta")
       languages.classList.add("res-meta-languages")
       learn.classList.add("res-meta-learn")
       make.classList.add("res-meta-make")
       doDiv.classList.add("res-meta-do")
+      contributor.classList.add("res-contrib") //add cite and figure wrappers if necessary
 
+      //INSERT CONTENT
+      link.href = r.link
+      link.target = "_blank"
+      // console.log(r.link)
       title.innerHTML = r.title
+      title.href = r.link
       creator.innerHTML = r.creator
       blurb.innerHTML = r.blurb
       labelLang.innerText = "Languages"
@@ -321,39 +337,45 @@ title: Resource Hub | Creative Code Collective
       labelMake.innerText = "Make"
       labelUse.innerText = "Use"
       labelDo.innerText = "Do"
+      lang.innerHTML = r.languages
+      learnDD.innerHTML = r.learn
+      doDD.innerHTML = r.do
+      useDD.innerHTML = r.use
+      makeDD.innerHTML = r.make
       contributor.innerHTML = r.contributor
 
-      // for (let l in (r.languages)){
-      //   let lang = document.createElement("dd")
-      //   languages.classList.add("res-languages")
-      //   lang.innerText = r.languages[l]
-      //   languages.appendChild(l)
-      // }
-      // dl.appendChild(languages)
-
-      // //LEARN
-      // let learn = document.createElement("div")
-      // learn.classList.add("res-learn")
-      // let metaLabel = document.createElement("dt")
-      // metaLabel.innerText = "Learn"
-      // learn.appendChild(metaLabel)
-
-      // for (let l in (r.learn)){
-      //   let ln = document.createElement("dd")
-      //   learn.classList.add("res-learn")
-      //   ln.innerText = r.languages[l]
-      //   learn.appendChild(l)
-      // }
-      // dl.appendChild(learn)
-
       //DISPLAY ELEMENTS
-      article.appendChild(title)
+      languages.appendChild(labelLang)
+      // let list = [r.languages]
+      // for (let i in list) {
+      //   if (i == undefined) { continue }
+      //   // console.log(r.languages[i])
+      //   let lang = document.createElement("dd")
+      //   lang.innerText = r.languages[i]
+      //   languages.appendChild(i)
+      // }
+      languages.appendChild(lang)
+      learn.appendChild(labelLearn)
+      learn.appendChild(learnDD)
+      doDiv.appendChild(labelDo)
+      doDiv.appendChild(doDD)
+      use.appendChild(labelUse)
+      use.appendChild(useDD)
+      make.appendChild(labelMake)
+      make.appendChild(makeDD)
+
+      dl.appendChild(languages)
+      dl.appendChild(learn)
+      dl.appendChild(doDiv)
+      dl.appendChild(use)
+      dl.appendChild(make)
+
+      link.appendChild(title)
+      article.appendChild(link)
       article.appendChild(creator)
       article.appendChild(blurb)
       article.appendChild(contributor)
       article.appendChild(dl)
-      // languages.appendChild(metaLabel)
-      // learn.appendChild(metaLabel)
       resources.appendChild(article)
       // article.display = "block" //hidden to sort
       // console.log(resource)
