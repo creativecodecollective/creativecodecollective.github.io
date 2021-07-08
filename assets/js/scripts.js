@@ -17,6 +17,7 @@
 
 // update generator upon interactions
 let updateGenerator = (event) => {
+  console.log('reached updateGenerator()')
   event.stopPropagation();
   let actions = event.target.form.querySelectorAll("select");
 
@@ -54,7 +55,7 @@ let updateGenerator = (event) => {
 //   let filters = document.querySelectorAll(".filter select");
 //   for (let filter of filters) {
 //     let filterid = filter.id;
-//     let 
+//     let
 //     let options = filter.querySelectorAll("option:not([value=''])");
 //     options.forEach((val, i, arr) => {
 //       console.log()
@@ -75,7 +76,7 @@ function generateResources() {
   }
 
   // get filters
-  let filters = document.querySelectorAll(".filter");
+  let filters = document.querySelectorAll("#filter");
   for (let filter of filters) {
     if (filter.value) { // ignore if set to "all"
       queries.push(filter.value);
@@ -83,6 +84,7 @@ function generateResources() {
   }
 
   console.log(queries);
+  console.log("here?")
 
   let resources = document.getElementsByClassName("res");
   if (queries.length == 0) {
@@ -92,8 +94,14 @@ function generateResources() {
   } else {
     for (let res of resources) {
       let tags = [...res.classList]; // turn into an array
+      console.log(tags)
+      //RIGHT NOW IT's not working here??
+      console.log("this is where tag is empty")
       tags.splice(0, 1); // remove first "res" class name
       let matches = tags.filter(tag => {
+        //RIGHT NOW IT's not working here??
+        console.log("tag filtering happening??")
+        // console.log(queries.includes(tag.replace("-", ":").replace("_", " ")))
         return queries.includes(tag.replace("-", ":").replace("_", " "))
       });
       if (matches.length > 0) {
@@ -107,13 +115,16 @@ function generateResources() {
   return resources;
 }
 
+
+
+//issue is with how to set up the form I think
 let resources = document.getElementsByClassName("res");
-let generator = document.getElementById("generator");
-generator.reset();
-for (let button of generator.querySelectorAll("button")) {
-  button.addEventListener("click", updateGenerator);
-}
+var generator = document.getElementById('generator');
+
+ for (let button of generator.querySelectorAll("button")) {
+   button.addEventListener("click", updateGenerator);
+ }
 
 let filterForm = document.getElementById("filters");
-filterForm.reset();
-filterForm.addEventListener("input", generateResources);
+// filterForm.reset();
+document.addEventListener("input", generateResources);
