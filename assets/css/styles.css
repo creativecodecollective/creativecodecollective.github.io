@@ -156,7 +156,7 @@ article section:not(:last-of-type) {
   margin: 1em 0;
 }
 
-.resources {
+#resources {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
@@ -172,6 +172,11 @@ article section:not(:last-of-type) {
 
 .res-title {
   font-size: 1.5em;
+  margin-top: 0;
+}
+
+.res-creator {
+  font-size: 0.35em;
   margin-top: 0;
 }
 
