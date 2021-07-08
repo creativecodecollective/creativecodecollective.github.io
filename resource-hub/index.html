@@ -100,13 +100,11 @@ title: Resource Hub | Creative Code Collective
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
 </section>
 
-      <div class="resources">
+      <div id="resources">
         {% for resource in site.resources %}
         <article display="none" class="res"
-                 data-levels="{{ resource.levels | join: ',' }}"
                  data-languages="{{ resource.languages | join: ',' }}"
                  data-types="{{ resource.types | join: ',' }}"
-                 data-tags="{{ resource.tags | join: ',' }}"
                  data-learn="{{ resource.learn | join: ',' }}"
                  data-do="{{ resource.do | join: ',' }}"
                  data-use="{{ resource.use | join: ',' }}"
@@ -221,39 +219,29 @@ title: Resource Hub | Creative Code Collective
   //PAPA PARSE START
 
   var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
-
-
+  
   function init() {
         Papa.parse(public_spreadsheet_url, {
           download: true,
           header: true,
           dynamicTyping: true,
-          complete: showInfo
+          complete: loadData
         })
       }
 
   window.addEventListener('DOMContentLoaded', init)
 
-  function showInfo(results) {
+  function loadData(results) {
         var data = results.data
 
         //write file, can we use liquid or is that only before build? write to site.data (/_data/ folder?)
 
         // data comes through as a simple array since simpleSheet is turned on
         console.log("Successfully processed " + data.length + " rows!")
-
-        let resources = document.getElementsByClassName('resources')
-        console.log(resources)
-
-        let article = document.createElement("article")
-        article.classList.add("res")
-        // article.display = "none"
-
-        let title = document.createElement("H3")
-        title.classList.add("res-title")
+        console.log(data)
 
         for (let d in data){
-          let resource = {
+          let r = {
                 blurb: data[d].blurb,
                 contributor: data[d].contributor,
                 title: data[d].title,
@@ -269,25 +257,118 @@ title: Resource Hub | Creative Code Collective
                 opensource: data[d].opensource,
                 year: data[d].year
           }
-        console.log(resource)
-
-        // article.style.data-levels = "{{ resource.levels | join: ',' }}"
-        // article.style.data-languages = resource.languages
-        // article.style.data-types = "{{ resource.types | join: ',' }}"
-        // article.style.data-tags = "{{ resource.tags | join: ',' }}"
-        // article.style.data-learn = "{{ resource.learn | join: ',' }}"
-        // article.style.data-do = "{{ resource.do | join: ',' }}"
-        // article.style.data-use = "{{ resource.use | join: ',' }}"
-        // article.style.data-make = "{{ resource.make | join: ',' }}"
-        
-        title.innerHTML = resource.title
-        article.appendChild(title)
-        resources.appendChild(article)
+          
+          createArticle(r)
         }
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
   //PAPA PARSE END
+
+  function createArticle(data){
+      r = {
+          blurb: data.blurb,
+          contributor: data.contributor,
+          title: data.title,
+          creator: data.creator,
+          link: data.link,
+          image: data.image,
+          languages: data.languages,
+          learn: data.learn,
+          make: data.make,
+          use: data.use,
+          do: data.do,
+          mood: data.mood,
+          opensource: data.opensource,
+          year: data.year
+      }
+      console.log(r.title)
+      
+      let resources = document.getElementById('resources')
+      let article = document.createElement("article")
+      let title = document.createElement("H3")
+      let creator = document.createElement("dd")
+      let blurb = document.createElement("blockquote")
+      let dl = document.createElement("dl")
+      let labelLang = document.createElement("dt")
+      let labelLearn = document.createElement("dt")
+      let labelMake = document.createElement("dt")
+      let labelUse = document.createElement("dt")
+      let labelDo = document.createElement("dt")
+      let languages = document.createElement("div")
+      let learn = document.createElement("div")
+      let make = document.createElement("div")
+      let use = document.createElement("div")
+      let doDiv = document.createElement("div")
+      let contributor = document.createElement("small")
+
+      article.classList.add("res")      
+      title.classList.add("res-title")
+      creator.classList.add("res-title")
+      blurb.classList.add("res-description")
+      contributor.classList.add("res-contrib") //add cite and figure wrappers if necessary
+      dl.classList.add("res-meta")
+      languages.classList.add("res-meta-languages")
+      learn.classList.add("res-meta-learn")
+      make.classList.add("res-meta-make")
+      doDiv.classList.add("res-meta-do")
+
+      title.innerHTML = r.title
+      creator.innerHTML = r.creator
+      blurb.innerHTML = r.blurb
+      labelLang.innerText = "Languages"
+      labelLearn.innerText = "Learn"
+      labelMake.innerText = "Make"
+      labelUse.innerText = "Use"
+      labelDo.innerText = "Do"
+      contributor.innerHTML = r.contributor
+
+      // for (let l in (r.languages)){
+      //   let lang = document.createElement("dd")
+      //   languages.classList.add("res-languages")
+      //   lang.innerText = r.languages[l]
+      //   languages.appendChild(l)
+      // }
+      // dl.appendChild(languages)
+
+      // //LEARN
+      // let learn = document.createElement("div")
+      // learn.classList.add("res-learn")
+      // let metaLabel = document.createElement("dt")
+      // metaLabel.innerText = "Learn"
+      // learn.appendChild(metaLabel)
+
+      // for (let l in (r.learn)){
+      //   let ln = document.createElement("dd")
+      //   learn.classList.add("res-learn")
+      //   ln.innerText = r.languages[l]
+      //   learn.appendChild(l)
+      // }
+      // dl.appendChild(learn)
+
+      //DISPLAY ELEMENTS
+      article.appendChild(title)
+      article.appendChild(creator)
+      article.appendChild(blurb)
+      article.appendChild(contributor)
+      article.appendChild(dl)
+      // languages.appendChild(metaLabel)
+      // learn.appendChild(metaLabel)
+      resources.appendChild(article)
+      // article.display = "block" //hidden to sort
+      // console.log(resource)
+
+
+    // article.style.data-levels = "{{ resource.levels | join: ',' }}"
+    // article.style.data-languages = resource.languages
+    // article.style.data-types = "{{ resource.types | join: ',' }}"
+    // article.style.data-tags = "{{ resource.tags | join: ',' }}"
+    // article.style.data-learn = "{{ resource.learn | join: ',' }}"
+    // article.style.data-do = "{{ resource.do | join: ',' }}"
+    // article.style.data-use = "{{ resource.use | join: ',' }}"
+    // article.style.data-make = "{{ resource.make | join: ',' }}"
+      
+  }
 
 
   // update generator upon interactions

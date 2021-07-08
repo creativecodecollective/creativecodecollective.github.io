@@ -273,6 +273,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll (~> 3.9.0)
   kramdown-parser-gfm (~> 1.1.0)
   tzinfo-data
   webrick
