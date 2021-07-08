@@ -1,0 +1,27 @@
+# bare minimal
+name: googlesheet
+
+on:
+    push:
+      branches:
+        - main
+        - csv
+
+jobs:
+    fetch:
+      runs-on: ubuntu-latest
+      steps:
+        - id: googlesheet_actions
+          uses: rjoydip/googlesheet-actions@0.1.1
+          with:
+            sheet-id: ${{ secrets.1PhArOS2tgxC7PgHbUy7eCFjqwGBe90QnbNuj4A51b90 }}
+        - id: echo
+          uses: actions/github-script@v2
+          with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+                console.log(${{steps.googlesheet_actions.outputs.result}})
+        - name: test
+          run: |
+            cat $HOME/data.json
+
