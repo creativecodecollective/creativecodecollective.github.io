@@ -255,7 +255,8 @@ title: Resource Hub | Creative Code Collective
                 do: data[d].do,
                 mood: data[d].mood,
                 opensource: data[d].opensource,
-                year: data[d].year
+                year: data[d].year,
+                mood: data[d].mood
           }
           
           createArticle(r)
@@ -280,7 +281,8 @@ title: Resource Hub | Creative Code Collective
           do: data.do,
           mood: data.mood,
           opensource: data.opensource,
-          year: data.year
+          year: data.year,
+          mood: data.mood
       }
       // console.log(r.title)
       
@@ -297,19 +299,25 @@ title: Resource Hub | Creative Code Collective
       let make = document.createElement("div")
       let use = document.createElement("div")
       let doDiv = document.createElement("div")
+      let contributor = document.createElement("div")
+      let mood = document.createElement("div")
 
+      let labelCreator = document.createElement("dt")
       let labelLang = document.createElement("dt")
       let labelLearn = document.createElement("dt")
       let labelMake = document.createElement("dt")
       let labelUse = document.createElement("dt")
       let labelDo = document.createElement("dt")
+      let labelContrib = document.createElement("dt")
+      let labelMood = document.createElement("dt")
 
       let lang = document.createElement("dd")
       let learnDD = document.createElement("dd")
       let doDD = document.createElement("dd")
       let useDD = document.createElement("dd")
       let makeDD = document.createElement("dd")
-      let contributor = document.createElement("small")
+      let contribDD = document.createElement("dd")
+      let moodDD = document.createElement("dd")
 
       //ADD CLASSES
       article.classList.add("res")     
@@ -322,7 +330,8 @@ title: Resource Hub | Creative Code Collective
       learn.classList.add("res-meta-learn")
       make.classList.add("res-meta-make")
       doDiv.classList.add("res-meta-do")
-      contributor.classList.add("res-contrib") //add cite and figure wrappers if necessary
+      contributor.classList.add("res-meta-contrib") //add cite and figure wrappers if necessary
+      mood.classList.add("res-meta-mood")
 
       //INSERT CONTENT
       link.href = r.link
@@ -330,6 +339,7 @@ title: Resource Hub | Creative Code Collective
       // console.log(r.link)
       title.innerHTML = r.title
       title.href = r.link
+      labelCreator.innerText = "Creator"
       creator.innerHTML = r.creator
       blurb.innerHTML = r.blurb
       labelLang.innerText = "Languages"
@@ -337,12 +347,15 @@ title: Resource Hub | Creative Code Collective
       labelMake.innerText = "Make"
       labelUse.innerText = "Use"
       labelDo.innerText = "Do"
+      labelContrib.innerText = "Community contributor"
+      labelMood.innerText = "Collection"
       lang.innerHTML = r.languages
       learnDD.innerHTML = r.learn
       doDD.innerHTML = r.do
       useDD.innerHTML = r.use
       makeDD.innerHTML = r.make
-      contributor.innerHTML = r.contributor
+      contribDD.innerHTML = r.contributor
+      mood.innerHTML = r.mood
 
       //DISPLAY ELEMENTS
       languages.appendChild(labelLang)
@@ -363,18 +376,25 @@ title: Resource Hub | Creative Code Collective
       use.appendChild(useDD)
       make.appendChild(labelMake)
       make.appendChild(makeDD)
+      contributor.appendChild(labelContrib)
+      contributor.appendChild(contribDD)
+      mood.appendChild(labelMood)
+      mood.appendChild(moodDD)
 
       dl.appendChild(languages)
       dl.appendChild(learn)
       dl.appendChild(doDiv)
       dl.appendChild(use)
       dl.appendChild(make)
+      dl.appendChild(contributor)
+      dl.appendChild(mood)
 
       link.appendChild(title)
       article.appendChild(link)
+      article.appendChild(labelCreator)
       article.appendChild(creator)
       article.appendChild(blurb)
-      article.appendChild(contributor)
+      // article.appendChild(contributor)
       article.appendChild(dl)
       resources.appendChild(article)
       // article.display = "block" //hidden to sort
