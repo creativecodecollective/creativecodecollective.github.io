@@ -6,9 +6,11 @@ You can find things to LEARN, DO, USE, and MAKE with code, as well as view proje
 
 ## Meetups
 
-Summer 2021: Wed 5-7p PDT (check Discord for select dates and URL)
+Summer 2021: Wed 5-7p PDT (check our Discord server for up-to-date times and URLs)
+
 Fall 2021: Date & Time TBA
-Discord: Anytime. [Join here](https://discord.gg/thvgd52)
+
+Discord: Join anytime [here](https://discord.gg/thvgd52)
 
 ## Please Contribute
 
