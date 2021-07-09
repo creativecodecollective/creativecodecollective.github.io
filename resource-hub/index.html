@@ -101,7 +101,7 @@ title: Resource Hub | Creative Code Collective
 </section>
 
       <div id="resources">
-        {% for resource in site.resources %}
+        <!-- {% for resource in site.resources %}
         <article display="none" class="res"
                  data-languages="{{ resource.languages | join: ',' }}"
                  data-types="{{ resource.types | join: ',' }}"
@@ -189,7 +189,7 @@ title: Resource Hub | Creative Code Collective
             <div>
           </dl>
         </article>
-        {% endfor %}
+        {% endfor %} -->
       </div>
 
     </div>
@@ -359,6 +359,7 @@ title: Resource Hub | Creative Code Collective
 
       //DISPLAY ELEMENTS
       languages.appendChild(labelLang)
+      // //separate individual entries from cell for filtering?
       // let list = [r.languages]
       // for (let i in list) {
       //   if (i == undefined) { continue }
@@ -394,13 +395,11 @@ title: Resource Hub | Creative Code Collective
       article.appendChild(labelCreator)
       article.appendChild(creator)
       article.appendChild(blurb)
-      // article.appendChild(contributor)
       article.appendChild(dl)
       resources.appendChild(article)
       // article.display = "block" //hidden to sort
-      // console.log(resource)
 
-
+    // //@KY: what did these do, add data tags to the article level for each sortable field?
     // article.style.data-levels = "{{ resource.levels | join: ',' }}"
     // article.style.data-languages = resource.languages
     // article.style.data-types = "{{ resource.types | join: ',' }}"
@@ -409,7 +408,6 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-do = "{{ resource.do | join: ',' }}"
     // article.style.data-use = "{{ resource.use | join: ',' }}"
     // article.style.data-make = "{{ resource.make | join: ',' }}"
-      
   }
 
 
