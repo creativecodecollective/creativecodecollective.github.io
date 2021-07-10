@@ -293,10 +293,11 @@ title: Resource Hub | Creative Code Collective
       option.innerHTML = item
       label.appendChild(option)
       //eventually will trigger the filter somehow!?
+      //why did this stop working? because error in parseTags in displayResourses prob?
     }
   }
 
-  function parseTags(tags, div, article){
+  function parseTags(tags, div, label, article){
     if (tags != null ){
       // tags = tags.replace(/\s+/g, '')
       tags = tags.split(", ")
@@ -311,7 +312,7 @@ title: Resource Hub | Creative Code Collective
 
         //add links to sort TK
         let a = document.createElement("a")
-        a.href = "?" + div.firstChild.innerHTML + "=" + tagClass
+        a.href = "?" + label.innerHTML + "=" + tagClass
         console.log(a.href)
 
         
@@ -434,25 +435,25 @@ title: Resource Hub | Creative Code Collective
       labelMood.innerText = "Collection"
 
       languages.appendChild(labelLang)
-      parseTags(r.languages, languages, article)
+      parseTags(r.languages, languages, labelLang, article)
       // languages.appendChild(lang)
       learn.appendChild(labelLearn)
-      parseTags(r.learn, learn, article)
+      parseTags(r.learn, learn, labelLearn, article)
       // learn.appendChild(learnDD)
       doDiv.appendChild(labelDo)
-      parseTags(r.do, doDiv, article)
+      parseTags(r.do, doDiv, labelDo, article)
       // doDiv.appendChild(doDD)
       use.appendChild(labelUse)
-      parseTags(r.use, use, article)
+      parseTags(r.use, use, labelUse, article)
       // use.appendChild(useDD)
       make.appendChild(labelMake)
-      parseTags(r.make, make, article)
+      parseTags(r.make, make, labelMake, article)
       // make.appendChild(makeDD)
       contributor.appendChild(labelContrib)
-      parseTags(r.contributor, contributor, article)
+      parseTags(r.contributor, contributor, labelContrib, article)
       // contributor.appendChild(contribDD)
       mood.appendChild(labelMood)
-      parseTags(r.mood, moodDD, article)
+      parseTags(r.mood, mood, labelMood, article)
       // mood.appendChild(moodDD)
 
       dl.appendChild(learn)
