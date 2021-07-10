@@ -290,7 +290,7 @@ title: Resource Hub | Creative Code Collective
     for (let item of tags.values()){
       let option = document.createElement("option")
       option.value = item 
-      option.innerText = item
+      option.innerHTML = item
       label.appendChild(option)
       //eventually will trigger the filter somehow!?
     }
@@ -298,23 +298,28 @@ title: Resource Hub | Creative Code Collective
 
   function parseTags(tags, div, article){
     if (tags != null ){
-      tags = tags.replace(/\s+/g, '')
-      tags = tags.split(",")
+      // tags = tags.replace(/\s+/g, '')
+      tags = tags.split(", ")
       console.log(tags)
       for (let t in tags) {
-        //add links to sort TK
-        let a = document.createElement("a")
-        a.href = "?" + div.firstChild.innerText + "=" + tags[t]
-        console.log(a.href)
-
         //display tags
         let dd = document.createElement("dd")
         dd.innerHTML = tags[t] + " "
+
+        let tagClass = tags[t].replace(/\s+/g, '')
+        console.log(tagClass)
+
+        //add links to sort TK
+        let a = document.createElement("a")
+        a.href = "?" + div.firstChild.innerHTML + "=" + tagClass
+        console.log(a.href)
+
+        
         a.appendChild(dd) //adding a link to each tag to re-filter by that tag TK
         div.appendChild(a)
 
         //add to article class
-        article.classList.add(tags[t])        
+        article.classList.add(tagClass)        
       }
     }
   }
@@ -450,13 +455,13 @@ title: Resource Hub | Creative Code Collective
       parseTags(r.mood, moodDD, article)
       // mood.appendChild(moodDD)
 
-      dl.appendChild(languages)
       dl.appendChild(learn)
       dl.appendChild(doDiv)
       dl.appendChild(use)
       dl.appendChild(make)
-      // dl.appendChild(contributor)
+      dl.appendChild(languages)
       dl.appendChild(mood)
+      // dl.appendChild(contributor)
 
       link.appendChild(title)
       article.appendChild(link)
@@ -466,9 +471,9 @@ title: Resource Hub | Creative Code Collective
       article.appendChild(dl)
       resources.appendChild(article)
 
-      // article.display = "hidden" //hidden to sort
-      // let cyberfemme = document.getElementsByClassName("cyberfeminism")
-      // cyberfemme.display = "block"
+      article.display = "none" //none/block to sort
+      let cyberfemme = document.getElementsByClassName("cyberfeminism")
+      cyberfemme.display = "block"
 
     // //@KY: what did these do, add data tags to the article level for each sortable field?
     // article.style.data-levels = "{{ resource.levels | join: ',' }}"
