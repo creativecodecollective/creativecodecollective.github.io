@@ -283,7 +283,7 @@ title: Resource Hub | Creative Code Collective
         displayDropdowns(makeset, "make")
 
         //eventually on click will filter?
-        filterResources("privacy")
+        filterResources("javascript")
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
@@ -292,9 +292,9 @@ title: Resource Hub | Creative Code Collective
   //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
   function filterResources(c){
     //this will be buttons that make the URLs with GET requests
-    //they hide display articles with the tags requested, accordingly
-    let articles = document.getElementsByTagName("article")
-    for (let a in articles) articles[a].style.display = "none"
+    // //they hide display articles with the tags requested, accordingly
+    // let articles = document.getElementsByTagName("article")
+    // for (let a in articles) articles[a].style.display = "none"
 
     let show = document.getElementsByClassName(c)
     for (s in show) show[s].style.display = "block"
