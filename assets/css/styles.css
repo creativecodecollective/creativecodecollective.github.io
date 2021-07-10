@@ -34,7 +34,11 @@ h6 {
 }
 
 a {
-  color: #0366D6;
+  color: #19227D
+}
+
+a:visited {
+  color: #19227D
 }
 
 header,
@@ -173,15 +177,19 @@ article section:not(:last-of-type) {
 .res-title {
   font-size: 1.5em;
   margin-top: 0;
-}
-
-.res-creator {
-  font-size: 0.35em;
-  margin-top: 0;
+  text-align: left;
 }
 
 .res-meta > div:not(:last-of-type) {
   margin-bottom: 1rem;
+}
+
+small {
+  text-align: right;
+}
+
+blockquote {
+  font-style: italic;
 }
 
 dt {

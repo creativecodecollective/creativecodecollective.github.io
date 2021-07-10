@@ -86,7 +86,7 @@ title: Resource Hub | Creative Code Collective
             {% endfor %}
           </select>
         </div>
-        <div class="filter">
+        <!-- <div class="filter">
           <label for="types">Type</label>
           <select name="types" id="types">
             <option value="">All</option>
@@ -94,14 +94,14 @@ title: Resource Hub | Creative Code Collective
             <option value="{{ type }}">{{ type }}</option>
             {% endfor %}
           </select>
-        </div>
+        </div> -->
         <button id="filterButton" type="filter">Filter</button>
       </form>
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
 </section>
 
       <div id="resources">
-        {% for resource in site.resources %}
+        <!-- {% for resource in site.resources %}
         <article display="none" class="res"
                  data-languages="{{ resource.languages | join: ',' }}"
                  data-types="{{ resource.types | join: ',' }}"
@@ -189,7 +189,7 @@ title: Resource Hub | Creative Code Collective
             <div>
           </dl>
         </article>
-        {% endfor %}
+        {% endfor %} -->
       </div>
 
     </div>
@@ -231,16 +231,28 @@ title: Resource Hub | Creative Code Collective
 
   window.addEventListener('DOMContentLoaded', init)
 
+  //create empty tags lists, to be populated by get tags as data is brought in
+  let contribset = new Set()
+  let creatorset = new Set()
+  let languageset = new Set()
+  let learnset = new Set()
+  let makeset = new Set()
+  let useset = new Set()
+  let doset = new Set()
+  let moodset = new Set() 
+  let opensourceset = new Set()
+  let yearset = new Set()
+
+  let tags = [contribset, creatorset, languageset, learnset, makeset, useset, doset, moodset, opensourceset, yearset]
+
   function loadData(results) {
+        
         var data = results.data
-
-        //write file, can we use liquid or is that only before build? write to site.data (/_data/ folder?)
-
-        // data comes through as a simple array since simpleSheet is turned on
         console.log("Successfully processed " + data.length + " rows!")
-        // console.log(data)
+        // let columns = results.meta.fields
 
         for (let d in data){
+          
           let r = {
                 blurb: data[d].blurb,
                 contributor: data[d].contributor,
@@ -253,19 +265,63 @@ title: Resource Hub | Creative Code Collective
                 make: data[d].make,
                 use: data[d].use,
                 do: data[d].do,
-                mood: data[d].mood,
                 opensource: data[d].opensource,
-                year: data[d].year
+                year: data[d].year,
+                mood: data[d].mood
           }
+
+          // if (r.make != null ){console.log(r.make, typeof(r.make))}
           
-          createArticle(r)
+          getTags(r)  //fills all the tag sets with what's in each resource entry row
+          
+          displayResource(r) //creates dom elements for each resource
         }
+
+        displayDropdowns(learnset, "learn")
+        displayDropdowns(doset, "do")
+        displayDropdowns(useset, "use")
+        displayDropdowns(makeset, "make")
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
   //PAPA PARSE END
 
-  function createArticle(data){
+  function displayDropdowns(tags, field){
+    let label = document.getElementById(field)
+    for (let item of tags.values()){
+      let option = document.createElement("option")
+      option.value = item 
+      option.innerText = item
+      label.appendChild(option)
+    }
+  }
+
+  // (sets) => for (s in sets) sets.add(s)
+  function addTagsToSet(tags, set){
+    if (tags != null ){
+      tags = tags.split(", ")
+      console.log(tags)
+      for (let t in tags) { 
+        set.add(tags[t]) 
+        }
+      }
+    }
+
+  function getTags(r){
+      // for (let item in r.learn) learnset.add(r.learn[item])
+      addTagsToSet(r.learn, learnset)
+      addTagsToSet(r.make, makeset)
+      addTagsToSet(r.use, useset)
+      addTagsToSet(r.do, doset)
+
+      //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM
+
+  }
+
+  // function filterResource(c){
+  // }
+
+  function displayResource(data){
       r = {
           blurb: data.blurb,
           contributor: data.contributor,
@@ -280,7 +336,8 @@ title: Resource Hub | Creative Code Collective
           do: data.do,
           mood: data.mood,
           opensource: data.opensource,
-          year: data.year
+          year: data.year,
+          mood: data.mood
       }
       // console.log(r.title)
       
@@ -297,19 +354,25 @@ title: Resource Hub | Creative Code Collective
       let make = document.createElement("div")
       let use = document.createElement("div")
       let doDiv = document.createElement("div")
+      let contributor = document.createElement("div")
+      let mood = document.createElement("div")
 
+      let labelCreator = document.createElement("dt")
       let labelLang = document.createElement("dt")
       let labelLearn = document.createElement("dt")
       let labelMake = document.createElement("dt")
       let labelUse = document.createElement("dt")
       let labelDo = document.createElement("dt")
+      let labelContrib = document.createElement("dt")
+      let labelMood = document.createElement("dt")
 
       let lang = document.createElement("dd")
       let learnDD = document.createElement("dd")
       let doDD = document.createElement("dd")
       let useDD = document.createElement("dd")
       let makeDD = document.createElement("dd")
-      let contributor = document.createElement("small")
+      let contribDD = document.createElement("dd")
+      let moodDD = document.createElement("dd")
 
       //ADD CLASSES
       article.classList.add("res")     
@@ -322,7 +385,8 @@ title: Resource Hub | Creative Code Collective
       learn.classList.add("res-meta-learn")
       make.classList.add("res-meta-make")
       doDiv.classList.add("res-meta-do")
-      contributor.classList.add("res-contrib") //add cite and figure wrappers if necessary
+      contributor.classList.add("res-meta-contrib") //add cite and figure wrappers if necessary
+      mood.classList.add("res-meta-mood")
 
       //INSERT CONTENT
       link.href = r.link
@@ -330,6 +394,7 @@ title: Resource Hub | Creative Code Collective
       // console.log(r.link)
       title.innerHTML = r.title
       title.href = r.link
+      labelCreator.innerText = "Creator"
       creator.innerHTML = r.creator
       blurb.innerHTML = r.blurb
       labelLang.innerText = "Languages"
@@ -337,15 +402,19 @@ title: Resource Hub | Creative Code Collective
       labelMake.innerText = "Make"
       labelUse.innerText = "Use"
       labelDo.innerText = "Do"
+      labelContrib.innerText = "Community contributor"
+      labelMood.innerText = "Collection"
       lang.innerHTML = r.languages
       learnDD.innerHTML = r.learn
       doDD.innerHTML = r.do
       useDD.innerHTML = r.use
       makeDD.innerHTML = r.make
-      contributor.innerHTML = r.contributor
+      contribDD.innerHTML = r.contributor
+      mood.innerHTML = r.mood
 
       //DISPLAY ELEMENTS
       languages.appendChild(labelLang)
+      // //separate individual entries from cell for filtering?
       // let list = [r.languages]
       // for (let i in list) {
       //   if (i == undefined) { continue }
@@ -363,24 +432,29 @@ title: Resource Hub | Creative Code Collective
       use.appendChild(useDD)
       make.appendChild(labelMake)
       make.appendChild(makeDD)
+      contributor.appendChild(labelContrib)
+      contributor.appendChild(contribDD)
+      mood.appendChild(labelMood)
+      mood.appendChild(moodDD)
 
       dl.appendChild(languages)
       dl.appendChild(learn)
       dl.appendChild(doDiv)
       dl.appendChild(use)
       dl.appendChild(make)
+      dl.appendChild(contributor)
+      dl.appendChild(mood)
 
       link.appendChild(title)
       article.appendChild(link)
+      article.appendChild(labelCreator)
       article.appendChild(creator)
       article.appendChild(blurb)
-      article.appendChild(contributor)
       article.appendChild(dl)
       resources.appendChild(article)
       // article.display = "block" //hidden to sort
-      // console.log(resource)
 
-
+    // //@KY: what did these do, add data tags to the article level for each sortable field?
     // article.style.data-levels = "{{ resource.levels | join: ',' }}"
     // article.style.data-languages = resource.languages
     // article.style.data-types = "{{ resource.types | join: ',' }}"
@@ -389,8 +463,9 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-do = "{{ resource.do | join: ',' }}"
     // article.style.data-use = "{{ resource.use | join: ',' }}"
     // article.style.data-make = "{{ resource.make | join: ',' }}"
-      
   }
+
+
 
 
   // update generator upon interactions

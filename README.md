@@ -1,12 +1,16 @@
 # CREATIVE CODE COLLECTIVE
 
-We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community, not competition. Join us in person, at USC's Media Arts + Practice division, or explore our growing resource hub online.
+We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community not competition. Join us in person, at USC's Media Arts + Practice division, or explore our growing resource hub online.
 
 You can find things to LEARN, DO, USE, and MAKE with code, as well as view projects created by our members.
 
 ## Meetups
 
-Spring 2020: Mondays 1-4pm, SCI L106
+Summer 2021: Wed 5-7p PDT (check our Discord server for up-to-date times and URLs)
+
+Fall 2021: Date & Time TBA
+
+Discord: Join anytime [here](https://discord.gg/thvgd52)
 
 ## Please Contribute
 
@@ -16,15 +20,19 @@ See also our collaborative community guidelines/code of conduct, coming soon.
 
 ## Technical Details
 
+### Adding a resource
+
+More info on how to submit additional resources will be coming soon. Contact us on Discord if you want to submit one ASAP!
+
 ### Structure
 
-This website uses Jekyll, a Ruby-based static site generator. There are two types of folders in a Jekyll project: static content folders (e.g. `_includes/`), and dynamic content folders (e.g. `community/`). Jekyll uses both to produce the site that you ultimately see. For example, instead of copy-and-pasting the `head` across all pages, it's saved in `_includes/head.html`. Instead of coding all the details of each resource card in `index.html`, `_resources/` contains `.md` files with metadata for the resource, all of which is then automatically loaded and formatted in `index.html`.
+This website uses Jekyll, a Ruby-based static site generator. There are two types of folders in a Jekyll project: static content folders (e.g. `_includes/`), and dynamic content folders (e.g. `community/`). Jekyll uses both to produce the site that you ultimately see. For example, instead of copy-and-pasting the `head` across all pages, it's saved in `_includes/head.html`. Instead of coding all the details of each resource card in `index.html`, these are filled in dynamically using information from a spreadsheet you can update with metadata for the resource, all of which is then automatically loaded and formatted in `index.html`.
 
 After running once, Jekyll will create a `_site/` folder, which contains all the generated files, so make sure not to make your changes in there.
 
 ### Setup
 
-For simple changes, like fixing a typo or adding a resource card, GitHub lets you edit files right on the repository page. For more complex changes, like changing the site structure, setting up a local server can help you test and preview changes on your own before submitting them.
+For simple changes, like fixing a typo, GitHub lets you edit files right on the repository page. For more complex changes, like changing the site structure, setting up a local server can help you test and preview changes on your own before submitting them.
 
 Here's how to clone the repo and set up a local server (instructions referenced from the Jekyll [Quickstart page](https://jekyllrb.com/docs/)).
 
