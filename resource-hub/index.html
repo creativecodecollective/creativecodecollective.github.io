@@ -243,37 +243,16 @@ title: Resource Hub | Creative Code Collective
   let opensourceset = new Set()
   let yearset = new Set()
 
+  let tags = [contribset, creatorset, languageset, learnset, makeset, useset, doset, moodset, opensourceset, yearset]
+
   function loadData(results) {
         
         var data = results.data
         console.log("Successfully processed " + data.length + " rows!")
-
         // let columns = results.meta.fields
-        // let checked = "x"
-        // let columnName = [columns.length]
-
-        // data comes through as a simple array since simpleSheet is turned on
-        // console.log(data)
-
-        // console.log(columns)
-        // for (let j=0; j< columns.length; j++){
-        //   columnName[j] = columns[j]
-        // }
-
-        // for (let i = categoryStartNum; i < columns.length; i++){
-        //   for (let j=0; j < data.length; j++){
-        //     if (data[j][columnName[i]] == checked){
-        //       console.log("matched")
-        //     } 
-        //   }
-        // }
-        // console.log(columnName)
-
-        
-        
-        // let contribset, creatorset, languageset, learnset, makeset, useset, doset, moodset, opensourceset, yearset = new Set()
 
         for (let d in data){
+          
           let r = {
                 blurb: data[d].blurb,
                 contributor: data[d].contributor,
@@ -290,16 +269,57 @@ title: Resource Hub | Creative Code Collective
                 year: data[d].year,
                 mood: data[d].mood
           }
+
+          // if (r.make != null ){console.log(r.make, typeof(r.make))}
           
           getTags(r)  //fills all the tag sets with what's in each resource entry row
           
           displayResource(r) //creates dom elements for each resource
         }
-        // console.log(creatorset)  // for (let item of creatorset) console.log(item)
+
+        displayDropdowns(learnset, "learn")
+        displayDropdowns(doset, "do")
+        displayDropdowns(useset, "use")
+        displayDropdowns(makeset, "make")
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
   //PAPA PARSE END
+
+  function displayDropdowns(tags, field){
+    let label = document.getElementById(field)
+    for (let item of tags.values()){
+      let option = document.createElement("option")
+      option.value = item 
+      option.innerText = item
+      label.appendChild(option)
+    }
+  }
+
+  // (sets) => for (s in sets) sets.add(s)
+  function addTagsToSet(tags, set){
+    if (tags != null ){
+      tags = tags.split(", ")
+      console.log(tags)
+      for (let t in tags) { 
+        set.add(tags[t]) 
+        }
+      }
+    }
+
+  function getTags(r){
+      // for (let item in r.learn) learnset.add(r.learn[item])
+      addTagsToSet(r.learn, learnset)
+      addTagsToSet(r.make, makeset)
+      addTagsToSet(r.use, useset)
+      addTagsToSet(r.do, doset)
+
+      //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM
+
+  }
+
+  // function filterResource(c){
+  // }
 
   function displayResource(data){
       r = {
@@ -445,37 +465,7 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-make = "{{ resource.make | join: ',' }}"
   }
 
-  function getTags(data){
-    // called in load data for each item in data
-    r = {
-          contributor: data.contributor,
-          creator: data.creator,
-          languages: data.languages,
-          learn: data.learn,
-          make: data.make,
-          use: data.use,
-          do: data.do,
-          mood: data.mood,
-          opensource: data.opensource,
-          year: data.year
-      }
 
-      contribset.add(r.contributor)
-      creatorset.add(r.creator)
-      learnset.add(r.learn)
-      makeset.add(r.make)
-      useset.add(r.use)
-      doset.add(r.do)
-      moodset.add(r.mood)
-      yearset.add(r.year)
-      opensourceset.add(r.year)
-
-      //NEED TO GET THESE TO DISPLAY IN THE DROPDOWN MENUS AND THEN REACT TO FORM
-
-  }
-
-  // function filterResource(c){
-  // }
 
 
   // update generator upon interactions
