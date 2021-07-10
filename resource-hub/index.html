@@ -86,7 +86,7 @@ title: Resource Hub | Creative Code Collective
             {% endfor %}
           </select>
         </div>
-        <div class="filter">
+        <!-- <div class="filter">
           <label for="types">Type</label>
           <select name="types" id="types">
             <option value="">All</option>
@@ -94,7 +94,7 @@ title: Resource Hub | Creative Code Collective
             <option value="{{ type }}">{{ type }}</option>
             {% endfor %}
           </select>
-        </div>
+        </div> -->
         <button id="filterButton" type="filter">Filter</button>
       </form>
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
@@ -231,14 +231,47 @@ title: Resource Hub | Creative Code Collective
 
   window.addEventListener('DOMContentLoaded', init)
 
-  function loadData(results) {
-        var data = results.data
+  //create empty tags lists, to be populated by get tags as data is brought in
+  let contribset = new Set()
+  let creatorset = new Set()
+  let languageset = new Set()
+  let learnset = new Set()
+  let makeset = new Set()
+  let useset = new Set()
+  let doset = new Set()
+  let moodset = new Set() 
+  let opensourceset = new Set()
+  let yearset = new Set()
 
-        //write file, can we use liquid or is that only before build? write to site.data (/_data/ folder?)
+  function loadData(results) {
+        
+        var data = results.data
+        console.log("Successfully processed " + data.length + " rows!")
+
+        // let columns = results.meta.fields
+        // let checked = "x"
+        // let columnName = [columns.length]
 
         // data comes through as a simple array since simpleSheet is turned on
-        console.log("Successfully processed " + data.length + " rows!")
         // console.log(data)
+
+        // console.log(columns)
+        // for (let j=0; j< columns.length; j++){
+        //   columnName[j] = columns[j]
+        // }
+
+        // for (let i = categoryStartNum; i < columns.length; i++){
+        //   for (let j=0; j < data.length; j++){
+        //     if (data[j][columnName[i]] == checked){
+        //       console.log("matched")
+        //     } 
+        //   }
+        // }
+        // console.log(columnName)
+
+        
+        
+        // let contribset, creatorset, languageset, learnset, makeset, useset, doset, moodset, opensourceset, yearset = new Set()
 
         for (let d in data){
           let r = {
@@ -253,20 +286,22 @@ title: Resource Hub | Creative Code Collective
                 make: data[d].make,
                 use: data[d].use,
                 do: data[d].do,
-                mood: data[d].mood,
                 opensource: data[d].opensource,
                 year: data[d].year,
                 mood: data[d].mood
           }
           
-          createArticle(r)
+          getTags(r)  //fills all the tag sets with what's in each resource entry row
+          
+          displayResource(r) //creates dom elements for each resource
         }
+        // console.log(creatorset)  // for (let item of creatorset) console.log(item)
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
   //PAPA PARSE END
 
-  function createArticle(data){
+  function displayResource(data){
       r = {
           blurb: data.blurb,
           contributor: data.contributor,
@@ -409,6 +444,38 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-use = "{{ resource.use | join: ',' }}"
     // article.style.data-make = "{{ resource.make | join: ',' }}"
   }
+
+  function getTags(data){
+    // called in load data for each item in data
+    r = {
+          contributor: data.contributor,
+          creator: data.creator,
+          languages: data.languages,
+          learn: data.learn,
+          make: data.make,
+          use: data.use,
+          do: data.do,
+          mood: data.mood,
+          opensource: data.opensource,
+          year: data.year
+      }
+
+      contribset.add(r.contributor)
+      creatorset.add(r.creator)
+      learnset.add(r.learn)
+      makeset.add(r.make)
+      useset.add(r.use)
+      doset.add(r.do)
+      moodset.add(r.mood)
+      yearset.add(r.year)
+      opensourceset.add(r.year)
+
+      //NEED TO GET THESE TO DISPLAY IN THE DROPDOWN MENUS AND THEN REACT TO FORM
+
+  }
+
+  // function filterResource(c){
+  // }
 
 
   // update generator upon interactions
