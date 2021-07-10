@@ -281,9 +281,26 @@ title: Resource Hub | Creative Code Collective
         displayDropdowns(doset, "do")
         displayDropdowns(useset, "use")
         displayDropdowns(makeset, "make")
+
+        //eventually on click will filter?
+        filterResources("privacy")
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
+
+
+  //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
+  function filterResources(c){
+    //this will be buttons that make the URLs with GET requests
+    //they hide display articles with the tags requested, accordingly
+    let articles = document.getElementsByTagName("article")
+    for (let a in articles) articles[a].style.display = "none"
+
+    let show = document.getElementsByClassName(c)
+    for (s in show) show[s].style.display = "block"
+    // show.style.display = "block"
+  }
+
 
   function displayDropdowns(tags, field){
     let label = document.getElementById(field)
@@ -345,11 +362,6 @@ title: Resource Hub | Creative Code Collective
       //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM below
 
   }
-
-  // function filterResource(c){
-    //this will be buttons that make the URLs with GET requests
-    //they hide display articles with the tags requested, accordingly
-  // }
 
   function displayResource(data){
       r = {
@@ -471,11 +483,9 @@ title: Resource Hub | Creative Code Collective
       article.appendChild(blurb)
       article.appendChild(dl)
       resources.appendChild(article)
+      article.style.display = "none"
 
-      article.display = "none" //none/block to sort
-      let cyberfemme = document.getElementsByClassName("cyberfeminism")
-      cyberfemme.display = "block"
-
+      
     // //@KY: what did these do, add data tags to the article level for each sortable field?
     // article.style.data-levels = "{{ resource.levels | join: ',' }}"
     // article.style.data-languages = resource.languages
@@ -487,7 +497,7 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-make = "{{ resource.make | join: ',' }}"
   }
 
-
+  
   //PAPA PARSE VERSION END
 
 
