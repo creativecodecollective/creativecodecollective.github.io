@@ -281,26 +281,71 @@ title: Resource Hub | Creative Code Collective
         displayDropdowns(doset, "do")
         displayDropdowns(useset, "use")
         displayDropdowns(makeset, "make")
+
+        //eventually on click will filter?
+        filterResources("javascript")
       }
 
       console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
-  //PAPA PARSE END
+
+
+  //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
+  function filterResources(c){
+    //this will be buttons that make the URLs with GET requests
+    // //they hide display articles with the tags requested, accordingly
+    // let articles = document.getElementsByTagName("article")
+    // for (let a in articles) articles[a].style.display = "none"
+
+    let show = document.getElementsByClassName(c)
+    for (s in show) show[s].style.display = "block"
+    // show.style.display = "block"
+  }
+
 
   function displayDropdowns(tags, field){
     let label = document.getElementById(field)
     for (let item of tags.values()){
       let option = document.createElement("option")
       option.value = item 
-      option.innerText = item
+      option.innerHTML = item
       label.appendChild(option)
+      //eventually will trigger the filter somehow!?
+      //why did this stop working? because error in parseTags in displayResourses prob?
+    }
+  }
+
+  function parseTags(tags, div, label, article){
+    if (tags != null ){
+      // tags = tags.replace(/\s+/g, '')
+      tags = tags.split(", ")
+      console.log(tags)
+      for (let t in tags) {
+        //display tags
+        let dd = document.createElement("dd")
+        dd.innerHTML = tags[t] + " "
+
+        let tagClass = tags[t].replace(/\s+/g, '')
+        console.log(tagClass)
+
+        //add links to sort TK
+        let a = document.createElement("a")
+        a.href = "?" + label.innerHTML + "=" + tagClass
+        console.log(a.href)
+
+        
+        a.appendChild(dd) //adding a link to each tag to re-filter by that tag TK
+        div.appendChild(a)
+
+        //add to article class
+        article.classList.add(tagClass)        
+      }
     }
   }
 
   // (sets) => for (s in sets) sets.add(s)
   function addTagsToSet(tags, set){
     if (tags != null ){
-      tags = tags.split(", ")
-      console.log(tags)
+      tags = tags.split(",")
       for (let t in tags) { 
         set.add(tags[t]) 
         }
@@ -314,12 +359,9 @@ title: Resource Hub | Creative Code Collective
       addTagsToSet(r.use, useset)
       addTagsToSet(r.do, doset)
 
-      //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM
+      //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM below
 
   }
-
-  // function filterResource(c){
-  // }
 
   function displayResource(data){
       r = {
@@ -339,7 +381,7 @@ title: Resource Hub | Creative Code Collective
           year: data.year,
           mood: data.mood
       }
-      // console.log(r.title)
+      // console.log(Object.keys(r))
       
       //CREATE ELEMENTS
       let resources = document.getElementById('resources')
@@ -366,7 +408,6 @@ title: Resource Hub | Creative Code Collective
       let labelContrib = document.createElement("dt")
       let labelMood = document.createElement("dt")
 
-      let lang = document.createElement("dd")
       let learnDD = document.createElement("dd")
       let doDD = document.createElement("dd")
       let useDD = document.createElement("dd")
@@ -378,15 +419,15 @@ title: Resource Hub | Creative Code Collective
       article.classList.add("res")     
       link.classList.add("links") 
       title.classList.add("res-title")
-      creator.classList.add("res-title")
-      blurb.classList.add("res-description")
+      creator.classList.add("res-creator", "creator")
+      blurb.classList.add("res-description", "blurb")
       dl.classList.add("res-meta")
-      languages.classList.add("res-meta-languages")
-      learn.classList.add("res-meta-learn")
-      make.classList.add("res-meta-make")
-      doDiv.classList.add("res-meta-do")
-      contributor.classList.add("res-meta-contrib") //add cite and figure wrappers if necessary
-      mood.classList.add("res-meta-mood")
+      languages.classList.add("res-meta-languages", "languages")
+      learn.classList.add("res-meta-learn", "learn")
+      make.classList.add("res-meta-make", "make")
+      doDiv.classList.add("res-meta-do", "do")
+      contributor.classList.add("res-meta-contrib", "contributor") //add cite and figure wrappers if necessary
+      mood.classList.add("res-meta-mood", "mood")
 
       //INSERT CONTENT
       link.href = r.link
@@ -402,48 +443,38 @@ title: Resource Hub | Creative Code Collective
       labelMake.innerText = "Make"
       labelUse.innerText = "Use"
       labelDo.innerText = "Do"
-      labelContrib.innerText = "Community contributor"
+      labelContrib.innerText = "Contributor"
       labelMood.innerText = "Collection"
-      lang.innerHTML = r.languages
-      learnDD.innerHTML = r.learn
-      doDD.innerHTML = r.do
-      useDD.innerHTML = r.use
-      makeDD.innerHTML = r.make
-      contribDD.innerHTML = r.contributor
-      mood.innerHTML = r.mood
 
-      //DISPLAY ELEMENTS
       languages.appendChild(labelLang)
-      // //separate individual entries from cell for filtering?
-      // let list = [r.languages]
-      // for (let i in list) {
-      //   if (i == undefined) { continue }
-      //   // console.log(r.languages[i])
-      //   let lang = document.createElement("dd")
-      //   lang.innerText = r.languages[i]
-      //   languages.appendChild(i)
-      // }
-      languages.appendChild(lang)
+      parseTags(r.languages, languages, labelLang, article)
+      // languages.appendChild(lang)
       learn.appendChild(labelLearn)
-      learn.appendChild(learnDD)
+      parseTags(r.learn, learn, labelLearn, article)
+      // learn.appendChild(learnDD)
       doDiv.appendChild(labelDo)
-      doDiv.appendChild(doDD)
+      parseTags(r.do, doDiv, labelDo, article)
+      // doDiv.appendChild(doDD)
       use.appendChild(labelUse)
-      use.appendChild(useDD)
+      parseTags(r.use, use, labelUse, article)
+      // use.appendChild(useDD)
       make.appendChild(labelMake)
-      make.appendChild(makeDD)
+      parseTags(r.make, make, labelMake, article)
+      // make.appendChild(makeDD)
       contributor.appendChild(labelContrib)
-      contributor.appendChild(contribDD)
+      parseTags(r.contributor, contributor, labelContrib, article)
+      // contributor.appendChild(contribDD)
       mood.appendChild(labelMood)
-      mood.appendChild(moodDD)
+      parseTags(r.mood, mood, labelMood, article)
+      // mood.appendChild(moodDD)
 
-      dl.appendChild(languages)
       dl.appendChild(learn)
       dl.appendChild(doDiv)
       dl.appendChild(use)
       dl.appendChild(make)
-      dl.appendChild(contributor)
+      dl.appendChild(languages)
       dl.appendChild(mood)
+      // dl.appendChild(contributor)
 
       link.appendChild(title)
       article.appendChild(link)
@@ -452,8 +483,9 @@ title: Resource Hub | Creative Code Collective
       article.appendChild(blurb)
       article.appendChild(dl)
       resources.appendChild(article)
-      // article.display = "block" //hidden to sort
+      article.style.display = "none"
 
+      
     // //@KY: what did these do, add data tags to the article level for each sortable field?
     // article.style.data-levels = "{{ resource.levels | join: ',' }}"
     // article.style.data-languages = resource.languages
@@ -465,7 +497,8 @@ title: Resource Hub | Creative Code Collective
     // article.style.data-make = "{{ resource.make | join: ',' }}"
   }
 
-
+  
+  //PAPA PARSE VERSION END
 
 
   // update generator upon interactions

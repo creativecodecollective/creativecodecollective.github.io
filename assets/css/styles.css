@@ -175,9 +175,9 @@ article section:not(:last-of-type) {
 }
 
 .res-title {
+  text-align: left;
   font-size: 1.5em;
   margin-top: 0;
-  text-align: left;
 }
 
 .res-meta > div:not(:last-of-type) {
@@ -203,6 +203,11 @@ dd {
 
 dd::before {
   content:  "→ ";
+  /* content: " #"; */
+}
+
+dd::after {
+  content: " ";
 }
 
 /* FOOTER */
