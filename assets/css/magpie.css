@@ -68,6 +68,11 @@ h6 {
 	transform: translate(60px, -40px) rotate(15deg);
 }
 
+.title {
+	color: black;
+	text-decoration: none;
+}
+
 .links {
 	display: flex;
 	list-style-type: none;
