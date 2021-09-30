@@ -12,11 +12,11 @@ title: Resource Hub | Creative Code Collective
 
   {% include header.html %}
 
-  <main class="bubble3">
+  <main>
 
-    <div class="container">
+    <h2 class="subtitle">Resource Hub</h2>
 
-      <section id="roadmap" class="roadmap">
+      <div id="roadmap" class="roadmap">
         <h2>Roadmap</h2>
         <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
         <p>For example:</p>
@@ -98,100 +98,121 @@ title: Resource Hub | Creative Code Collective
         <button id="filterButton" type="filter">Filter</button>
       </form>
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
-</section>
+  </div>
 
-      <div id="resources">
-        <!-- {% for resource in site.resources %}
-        <article display="none" class="res"
-                 data-languages="{{ resource.languages | join: ',' }}"
-                 data-types="{{ resource.types | join: ',' }}"
-                 data-learn="{{ resource.learn | join: ',' }}"
-                 data-do="{{ resource.do | join: ',' }}"
-                 data-use="{{ resource.use | join: ',' }}"
-                 data-make="{{ resource.make | join: ',' }}">
-          <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
-          <figure class="res-blurb">
-            {% if resource.description %}
-              <blockquote class="res-description">{{ resource.description }}</blockquote>
-            {% endif %}
-            {% if resource.contributor %}
-              <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
-            {% endif %}
-          </figure>
-          <dl class="res-meta">
-            <div class="res-meta-levels">
-              <dt>Levels</dt>
-              {% for level in resource.levels %}
-              <dd>{{ level }}</dd>
-              {% endfor %}
-            </div>
-            <div class="res-meta-languages">
-              <dt>Languages</dt>
-              {% for language in resource.languages %}
-              <dd>{{ language }}</dd>
-              {% endfor %}
-            </div>
-            <div class="res-meta-types">
-              <dt>Types</dt>
-              {% for type in resource.types %}
-              <dd>{{ type }}</dd>
-              {% endfor %}
-            </div>
-            {% if resource.learn %}
-            <div class="res-meta-learn">
-              <dt>Learn</dt>
-                {% for tag in resource.learn %}
-                <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                    data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-                {% endfor %}
-            </div>
-            {% endif %}
-            {% if resource.do %}
-            <div class="res-meta-do">
-              <dt>Do</dt>
-              {% for tag in resource.do %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-            </div>
-            {% endif %}
-            {% if resource.use %}
-            <div class="res-meta-use">
-              <dt>Use</dt>
-              {% for tag in resource.use %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-            </div>
-            {% endif %}
-            {% if resource.make %}
-            <div class="res-meta-make">
-              <dt>Make</dt>
-              {% for tag in resource.make %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-            </div>
-            {% endif %}
-            {% if resource.tags %}
-              <div class="res-meta-tags">
-                <dt>Tags</dt>
-                {% for tag in resource.tags %}
-                <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                    data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-                {% endfor %}
-              </div>
-            {% endif %}
-            <div class="res-contrib">
-            {% if resource.contributor %}
-              <figcaption class="res-contrib"><cite><dt>Community Contributor</dt> {{ resource.contributor }}</cite></figcaption>
-            {% endif %}
-            <div>
-          </dl>
-        </article>
-        {% endfor %} -->
+    <div id="resources">
+      <div class="res" style="display: none">
+        <a href="" class="res-title"><h3></h3></a>
+        <p class="res-creator"></p>
+        <blockquote class="res-blurb"></blockquote>
+        <details class="res-learn">
+          <summary>Learn</summary>
+        </details>
+        <details class="res-do">
+          <summary>Do</summary>
+        </details>
+        <details class="res-use">
+          <summary>Use</summary>
+        </details>
+        <details class="res-make">
+          <summary>Make</summary>
+        </details>
+        <details class="res-languages">
+          <summary>Languages</summary>
+        </details>
+        <details class="res-collections">
+          <summary>Collections</summary>
+        </details>
       </div>
-
+      <!-- {% for resource in site.resources %}
+      <article display="none" class="res"
+               data-languages="{{ resource.languages | join: ',' }}"
+               data-types="{{ resource.types | join: ',' }}"
+               data-learn="{{ resource.learn | join: ',' }}"
+               data-do="{{ resource.do | join: ',' }}"
+               data-use="{{ resource.use | join: ',' }}"
+               data-make="{{ resource.make | join: ',' }}">
+        <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
+        <figure class="res-blurb">
+          {% if resource.description %}
+            <blockquote class="res-description">{{ resource.description }}</blockquote>
+          {% endif %}
+          {% if resource.contributor %}
+            <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
+          {% endif %}
+        </figure>
+        <dl class="res-meta">
+          <div class="res-meta-levels">
+            <dt>Levels</dt>
+            {% for level in resource.levels %}
+            <dd>{{ level }}</dd>
+            {% endfor %}
+          </div>
+          <div class="res-meta-languages">
+            <dt>Languages</dt>
+            {% for language in resource.languages %}
+            <dd>{{ language }}</dd>
+            {% endfor %}
+          </div>
+          <div class="res-meta-types">
+            <dt>Types</dt>
+            {% for type in resource.types %}
+            <dd>{{ type }}</dd>
+            {% endfor %}
+          </div>
+          {% if resource.learn %}
+          <div class="res-meta-learn">
+            <dt>Learn</dt>
+              {% for tag in resource.learn %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+          </div>
+          {% endif %}
+          {% if resource.do %}
+          <div class="res-meta-do">
+            <dt>Do</dt>
+            {% for tag in resource.do %}
+            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if resource.use %}
+          <div class="res-meta-use">
+            <dt>Use</dt>
+            {% for tag in resource.use %}
+            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if resource.make %}
+          <div class="res-meta-make">
+            <dt>Make</dt>
+            {% for tag in resource.make %}
+            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if resource.tags %}
+            <div class="res-meta-tags">
+              <dt>Tags</dt>
+              {% for tag in resource.tags %}
+              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
+                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="res-contrib">
+          {% if resource.contributor %}
+            <figcaption class="res-contrib"><cite><dt>Community Contributor</dt> {{ resource.contributor }}</cite></figcaption>
+          {% endif %}
+          <div>
+        </dl>
+      </article>
+      {% endfor %} -->
     </div>
 
   </main>
@@ -384,106 +405,116 @@ title: Resource Hub | Creative Code Collective
       // console.log(Object.keys(r))
       
       //CREATE ELEMENTS
-      let resources = document.getElementById('resources')
-      let article = document.createElement("article")
-      let link = document.createElement("a")
-      let title = document.createElement("H3")
-      let creator = document.createElement("dd")
-      let blurb = document.createElement("blockquote")
-      let dl = document.createElement("dl")
-      let languages = document.createElement("div")
-      let learn = document.createElement("div")
-      let make = document.createElement("div")
-      let use = document.createElement("div")
-      let doDiv = document.createElement("div")
-      let contributor = document.createElement("div")
-      let mood = document.createElement("div")
+      const resources = document.getElementById('resources')
 
-      let labelCreator = document.createElement("dt")
-      let labelLang = document.createElement("dt")
-      let labelLearn = document.createElement("dt")
-      let labelMake = document.createElement("dt")
-      let labelUse = document.createElement("dt")
-      let labelDo = document.createElement("dt")
-      let labelContrib = document.createElement("dt")
-      let labelMood = document.createElement("dt")
+      let res = document.querySelector(".res").cloneNode(true);
+      res.querySelector(".res-title").href = r.link;
+      res.querySelector(".res-title h3").innerText = r.title;
+      res.querySelector(".res-creator").innerText = r.creator;
+      res.querySelector(".res-blurb").innerText = r.blurb;
+      res.style.display = "block";
 
-      let learnDD = document.createElement("dd")
-      let doDD = document.createElement("dd")
-      let useDD = document.createElement("dd")
-      let makeDD = document.createElement("dd")
-      let contribDD = document.createElement("dd")
-      let moodDD = document.createElement("dd")
+      resources.appendChild(res);
+
+      // let article = document.createElement("article")
+      // let link = document.createElement("a")
+      // let title = document.createElement("H3")
+      // let creator = document.createElement("dd")
+      // let blurb = document.createElement("blockquote")
+      // let dl = document.createElement("dl")
+      // let languages = document.createElement("div")
+      // let learn = document.createElement("div")
+      // let make = document.createElement("div")
+      // let use = document.createElement("div")
+      // let doDiv = document.createElement("div")
+      // let contributor = document.createElement("div")
+      // let mood = document.createElement("div")
+
+      // let labelCreator = document.createElement("dt")
+      // let labelLang = document.createElement("dt")
+      // let labelLearn = document.createElement("dt")
+      // let labelMake = document.createElement("dt")
+      // let labelUse = document.createElement("dt")
+      // let labelDo = document.createElement("dt")
+      // let labelContrib = document.createElement("dt")
+      // let labelMood = document.createElement("dt")
+
+      // let learnDD = document.createElement("dd")
+      // let doDD = document.createElement("dd")
+      // let useDD = document.createElement("dd")
+      // let makeDD = document.createElement("dd")
+      // let contribDD = document.createElement("dd")
+      // let moodDD = document.createElement("dd")
 
       //ADD CLASSES
-      article.classList.add("res")     
-      link.classList.add("links") 
-      title.classList.add("res-title")
-      creator.classList.add("res-creator", "creator")
-      blurb.classList.add("res-description", "blurb")
-      dl.classList.add("res-meta")
-      languages.classList.add("res-meta-languages", "languages")
-      learn.classList.add("res-meta-learn", "learn")
-      make.classList.add("res-meta-make", "make")
-      doDiv.classList.add("res-meta-do", "do")
-      contributor.classList.add("res-meta-contrib", "contributor") //add cite and figure wrappers if necessary
-      mood.classList.add("res-meta-mood", "mood")
+      // article.classList.add("res")     
+      // link.classList.add("links") 
+      // title.classList.add("res-title")
+      // creator.classList.add("res-creator", "creator")
+      // blurb.classList.add("res-description", "blurb")
+      // dl.classList.add("res-meta")
+      // languages.classList.add("res-meta-languages", "languages")
+      // learn.classList.add("res-meta-learn", "learn")
+      // make.classList.add("res-meta-make", "make")
+      // doDiv.classList.add("res-meta-do", "do")
+      // contributor.classList.add("res-meta-contrib", "contributor") //add cite and figure wrappers if necessary
+      // mood.classList.add("res-meta-mood", "mood")
 
       //INSERT CONTENT
-      link.href = r.link
-      link.target = "_blank"
-      // console.log(r.link)
-      title.innerHTML = r.title
-      title.href = r.link
-      labelCreator.innerText = "Creator"
-      creator.innerHTML = r.creator
-      blurb.innerHTML = r.blurb
-      labelLang.innerText = "Languages"
-      labelLearn.innerText = "Learn"
-      labelMake.innerText = "Make"
-      labelUse.innerText = "Use"
-      labelDo.innerText = "Do"
-      labelContrib.innerText = "Contributor"
-      labelMood.innerText = "Collection"
+      // link.href = r.link
+      // link.target = "_blank"
+      // // console.log(r.link)
+      // title.innerHTML = r.title
+      // title.href = r.link
+      // labelCreator.innerText = "Creator"
+      // creator.innerHTML = r.creator
+      // blurb.innerHTML = r.blurb
+      // labelLang.innerText = "Languages"
+      // labelLearn.innerText = "Learn"
+      // labelMake.innerText = "Make"
+      // labelUse.innerText = "Use"
+      // labelDo.innerText = "Do"
+      // labelContrib.innerText = "Contributor"
+      // labelMood.innerText = "Collection"
 
-      languages.appendChild(labelLang)
-      parseTags(r.languages, languages, labelLang, article)
-      // languages.appendChild(lang)
-      learn.appendChild(labelLearn)
-      parseTags(r.learn, learn, labelLearn, article)
-      // learn.appendChild(learnDD)
-      doDiv.appendChild(labelDo)
-      parseTags(r.do, doDiv, labelDo, article)
-      // doDiv.appendChild(doDD)
-      use.appendChild(labelUse)
-      parseTags(r.use, use, labelUse, article)
-      // use.appendChild(useDD)
-      make.appendChild(labelMake)
-      parseTags(r.make, make, labelMake, article)
-      // make.appendChild(makeDD)
-      contributor.appendChild(labelContrib)
-      parseTags(r.contributor, contributor, labelContrib, article)
-      // contributor.appendChild(contribDD)
-      mood.appendChild(labelMood)
-      parseTags(r.mood, mood, labelMood, article)
-      // mood.appendChild(moodDD)
+      // languages.appendChild(labelLang)
+      // parseTags(r.languages, languages, labelLang, article)
+      // // languages.appendChild(lang)
+      // learn.appendChild(labelLearn)
+      // parseTags(r.learn, learn, labelLearn, article)
+      // // learn.appendChild(learnDD)
+      // doDiv.appendChild(labelDo)
+      // parseTags(r.do, doDiv, labelDo, article)
+      // // doDiv.appendChild(doDD)
+      // use.appendChild(labelUse)
+      // parseTags(r.use, use, labelUse, article)
+      // // use.appendChild(useDD)
+      // make.appendChild(labelMake)
+      // parseTags(r.make, make, labelMake, article)
+      // // make.appendChild(makeDD)
+      // contributor.appendChild(labelContrib)
+      // parseTags(r.contributor, contributor, labelContrib, article)
+      // // contributor.appendChild(contribDD)
+      // mood.appendChild(labelMood)
+      // parseTags(r.mood, mood, labelMood, article)
+      // // mood.appendChild(moodDD)
 
-      dl.appendChild(learn)
-      dl.appendChild(doDiv)
-      dl.appendChild(use)
-      dl.appendChild(make)
-      dl.appendChild(languages)
-      dl.appendChild(mood)
-      // dl.appendChild(contributor)
+      // dl.appendChild(learn)
+      // dl.appendChild(doDiv)
+      // dl.appendChild(use)
+      // dl.appendChild(make)
+      // dl.appendChild(languages)
+      // dl.appendChild(mood)
+      // // dl.appendChild(contributor)
 
-      link.appendChild(title)
-      article.appendChild(link)
-      article.appendChild(labelCreator)
-      article.appendChild(creator)
-      article.appendChild(blurb)
-      article.appendChild(dl)
-      resources.appendChild(article)
-      article.style.display = "none"
+      // link.appendChild(title)
+      // article.appendChild(link)
+      // article.appendChild(labelCreator)
+      // article.appendChild(creator)
+      // article.appendChild(blurb)
+      // article.appendChild(dl)
+      // resources.appendChild(article)
+      // article.style.display = "none"
 
       
     // //@KY: what did these do, add data tags to the article level for each sortable field?

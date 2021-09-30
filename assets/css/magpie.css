@@ -95,7 +95,53 @@ main {
 	margin: 50px;
 }
 
-main > div {
+.article > div {
 	max-width: 650px;
 	margin: 100px auto;
+}
+
+/**
+ * RESOURCE HUB
+ */
+
+.subtitle {
+	text-align: center;
+	font-size: 2em;
+}
+
+.roadmap {
+	margin: 50px auto;
+	background: linear-gradient(to right bottom, #759FDC, #D18DEC);
+	max-width: 650px;
+	padding: 50px;
+	border-radius: 50px;
+	box-shadow: 5px 5px 20px 10px rgba(117, 159, 220, 0.2);
+}
+
+#resources {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.res {
+	border-radius: 50px;
+	margin: 25px;
+	background-color: white;
+	padding: 50px;
+	transition: 0.25s ease-in-out box-shadow;
+	font-size: 0.9em;
+	box-shadow: 2px 5px 10px rgba(117, 159, 220, 0.1);;
+}
+
+.res:hover {
+	box-shadow: 2px 5px 20px rgba(117, 159, 220, 0.2);
+}
+
+.res-title {
+	text-decoration: none;
+}
+
+.res-title h3 {
+	margin-top: 0;
+	font-size: 2em;
 }
