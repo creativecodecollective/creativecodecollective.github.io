@@ -82,6 +82,14 @@ div > h6 {
 	text-decoration: none;
 }
 
+.title h1 {
+	transition: 0.2s ease-in-out font-variation-settings;
+}
+
+.title:hover h1 {
+	font-variation-settings: "wght" 900, "SPAC" 200;
+}
+
 .links {
 	display: flex;
 	list-style-type: none;
