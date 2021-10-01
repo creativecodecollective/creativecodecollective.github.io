@@ -37,6 +37,15 @@ h6 {
 	font-variation-settings: "wght" 600, "SPAC" 900;
 }
 
+div > h1,
+div > h2,
+div > h3,
+div > h4,
+div > h5,
+div > h6 {
+	margin-top: 0;
+}
+
 /**
  * HEADER AND FOOTER
  */
@@ -136,6 +145,11 @@ main {
 	transition: 0.25s ease-in-out box-shadow;
 	font-size: 0.9em;
 	box-shadow: 2px 5px 10px rgba(117, 159, 220, 0.1);;
+	display: none;
+}
+
+.res--visible {
+	display: block;
 }
 
 .res:hover {

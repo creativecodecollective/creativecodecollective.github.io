@@ -16,105 +16,90 @@ title: Resource Hub | Creative Code Collective
 
     <h2 class="subtitle">Resource Hub</h2>
 
-      <div id="roadmap" class="roadmap">
-        <h2>Roadmap</h2>
-        <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
-        <p>For example:</p>
-        <p>I'd like to learn _____ to do _____ using _____ to make _____. </p>
-        <p><b>This page is still under construction!</b></p>
-        <form method="GET" id="generator" action="">
-          <div class="action">
-            <label for="learn">Learn</label>
-            <select name="learn" id="learn">
-              <option value="" selected>anything</option>
-              {% for tag in learn %}
-              <option value="{{ tag }}">{{ tag }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="action">
-            <label for="do">Do</label>
-            <select name="do" id="do">
-              <option value="" selected>anything</option>
-              {% for tag in do %}
-              <option value="{{ tag }}">{{ tag }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="action">
-            <label for="use">Use</label>
-            <select name="use" id="use">
-              <option value="" selected>anything</option>
-              {% for tag in use %}
-              <option value="{{ tag }}">{{ tag }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="action">
-            <label for="make">Make</label>
-            <select name="make" id="make">
-              <option value="" selected>anything</option>
-              {% for tag in make %}
-              <option value="{{ tag }}">{{ tag }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <button id="searchButton" type="search">Search</button>
-          <button id="randomiseButton" type="button" value="randomise">Randomise</button>
-          <button id="resetButton" type="reset">Reset</button>
-        </form>
-
-
-      <h2>Resources</h2>
-      <p>Filter results by</p>
-      <form id="filters" class="filter" method="GET" action="">
-        <div class="filter">
-          <label for="collection">Collection</label>
-          <select name="collection" id="collection">
-            <option value="">Any</option>
-            {% for coll in collections %}
-            <option value="{{ coll }}">{{ coll }}</option>
+    <div id="roadmap" class="roadmap">
+      <h2>Roadmap</h2>
+      <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
+      <p>For example:</p>
+      <p>I'd like to learn _____ to do _____ using _____ to make _____. </p>
+      <p><b>This page is still under construction!</b></p>
+      <form method="GET" id="generator" action="">
+        <div class="action">
+          <label for="learn">Learn</label>
+          <select name="learn" id="learn">
+            <option value="" selected>anything</option>
+            {% for tag in learn %}
+            <option value="{{ tag }}">{{ tag }}</option>
             {% endfor %}
           </select>
         </div>
-        <div class="filter">
-          <label for="languages">Language</label>
-          <select name="languages" id="languages">
-            <option value="">All</option>
-            {% for language in languages %}
-            <option value="{{ language }}">{{ language }}</option>
+        <div class="action">
+          <label for="do">Do</label>
+          <select name="do" id="do">
+            <option value="" selected>anything</option>
+            {% for tag in do %}
+            <option value="{{ tag }}">{{ tag }}</option>
             {% endfor %}
           </select>
         </div>
-        <!-- <div class="filter">
-          <label for="types">Type</label>
-          <select name="types" id="types">
-            <option value="">All</option>
-            {% for type in types %}
-            <option value="{{ type }}">{{ type }}</option>
+        <div class="action">
+          <label for="use">Use</label>
+          <select name="use" id="use">
+            <option value="" selected>anything</option>
+            {% for tag in use %}
+            <option value="{{ tag }}">{{ tag }}</option>
             {% endfor %}
           </select>
-        </div> -->
-        <button id="filterButton" type="filter">Filter</button>
+        </div>
+        <div class="action">
+          <label for="make">Make</label>
+          <select name="make" id="make">
+            <option value="" selected>anything</option>
+            {% for tag in make %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button id="searchButton" type="search">Search</button>
+        <button id="randomiseButton" type="button" value="randomise">Randomise</button>
+        <button id="resetButton" type="reset">Reset</button>
       </form>
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
-  </div>
+    </div>
+
+    <h2>Resources</h2>
+    <p>Showing <span id="numResources">0</span> resources
+    <p>Filter results by</p>
+    <form id="filters" class="filter" method="GET" action="">
+      <div class="filter">
+        <label for="collections">Collections</label>
+        <select name="collections" id="collections">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter">
+        <label for="languages">Language</label>
+        <select name="languages" id="languages">
+          <option value="">All</option>
+        </select>
+      </div>
+      <!-- <button id="filterButton" type="filter">Filter</button> -->
+    </form>
 
     <div id="resources">
-      <div class="res" style="display: none">
+      <div class="res">
         <a href="" class="res-title"><h3></h3></a>
         <p class="res-creator"></p>
         <blockquote class="res-blurb"></blockquote>
-        <details class="res-learn">
+        <details open class="res-learn">
           <summary>Learn</summary>
         </details>
-        <details class="res-do">
+        <details open class="res-do">
           <summary>Do</summary>
         </details>
-        <details class="res-use">
+        <details open class="res-use">
           <summary>Use</summary>
         </details>
-        <details class="res-make">
+        <details open class="res-make">
           <summary>Make</summary>
         </details>
         <details class="res-languages">
@@ -124,533 +109,12 @@ title: Resource Hub | Creative Code Collective
           <summary>Collections</summary>
         </details>
       </div>
-      <!-- {% for resource in site.resources %}
-      <article display="none" class="res"
-               data-languages="{{ resource.languages | join: ',' }}"
-               data-types="{{ resource.types | join: ',' }}"
-               data-learn="{{ resource.learn | join: ',' }}"
-               data-do="{{ resource.do | join: ',' }}"
-               data-use="{{ resource.use | join: ',' }}"
-               data-make="{{ resource.make | join: ',' }}">
-        <h3 class="res-title"><a href="{{ resource.link }}">{{ resource.title }}</a></h3>
-        <figure class="res-blurb">
-          {% if resource.description %}
-            <blockquote class="res-description">{{ resource.description }}</blockquote>
-          {% endif %}
-          {% if resource.contributor %}
-            <figcaption class="res-contrib"><cite>{{ resource.contributor }}</cite></figcaption>
-          {% endif %}
-        </figure>
-        <dl class="res-meta">
-          <div class="res-meta-levels">
-            <dt>Levels</dt>
-            {% for level in resource.levels %}
-            <dd>{{ level }}</dd>
-            {% endfor %}
-          </div>
-          <div class="res-meta-languages">
-            <dt>Languages</dt>
-            {% for language in resource.languages %}
-            <dd>{{ language }}</dd>
-            {% endfor %}
-          </div>
-          <div class="res-meta-types">
-            <dt>Types</dt>
-            {% for type in resource.types %}
-            <dd>{{ type }}</dd>
-            {% endfor %}
-          </div>
-          {% if resource.learn %}
-          <div class="res-meta-learn">
-            <dt>Learn</dt>
-              {% for tag in resource.learn %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-          </div>
-          {% endif %}
-          {% if resource.do %}
-          <div class="res-meta-do">
-            <dt>Do</dt>
-            {% for tag in resource.do %}
-            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-            {% endfor %}
-          </div>
-          {% endif %}
-          {% if resource.use %}
-          <div class="res-meta-use">
-            <dt>Use</dt>
-            {% for tag in resource.use %}
-            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-            {% endfor %}
-          </div>
-          {% endif %}
-          {% if resource.make %}
-          <div class="res-meta-make">
-            <dt>Make</dt>
-            {% for tag in resource.make %}
-            <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-            {% endfor %}
-          </div>
-          {% endif %}
-          {% if resource.tags %}
-            <div class="res-meta-tags">
-              <dt>Tags</dt>
-              {% for tag in resource.tags %}
-              <dd data-tag-action="{{ tag | split: ':' | first | join: '' }}"
-                  data-tag-content="{{ tag | split: ':' | slice: 1 | join: '' }}">{{ tag }}</dd>
-              {% endfor %}
-            </div>
-          {% endif %}
-          <div class="res-contrib">
-          {% if resource.contributor %}
-            <figcaption class="res-contrib"><cite><dt>Community Contributor</dt> {{ resource.contributor }}</cite></figcaption>
-          {% endif %}
-          <div>
-        </dl>
-      </article>
-      {% endfor %} -->
     </div>
 
   </main>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-<script>
-  // "use strict"
-
-  // add data attributes from filled-in html
-  // function addDataAttrs(resources) {
-  //   for (let res of resources) {
-  //     let fields = res.querySelectorAll("div");
-  //     for (let field of fields) {
-  //       let fieldname = field.classList[0].split("-")[2];
-  //       let fieldlist = [];
-  //       for (let d of field.querySelectorAll("dd")) {
-  //         fieldlist.push(d.textContent);
-  //       }
-  //       res.dataset[fieldname] = fieldlist.join("|");
-  //     }
-  //   }
-  // }
-
-
-  //PAPA PARSE START
-
-  var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
-  
-  function init() {
-        Papa.parse(public_spreadsheet_url, {
-          download: true,
-          header: true,
-          dynamicTyping: true,
-          complete: loadData
-        })
-      }
-
-  window.addEventListener('DOMContentLoaded', init)
-
-  //create empty tags lists, to be populated by get tags as data is brought in
-  let contribset = new Set()
-  let creatorset = new Set()
-  let languageset = new Set()
-  let learnset = new Set()
-  let makeset = new Set()
-  let useset = new Set()
-  let doset = new Set()
-  let moodset = new Set() 
-  let opensourceset = new Set()
-  let yearset = new Set()
-
-  let tags = [contribset, creatorset, languageset, learnset, makeset, useset, doset, moodset, opensourceset, yearset]
-
-  function loadData(results) {
-        
-        var data = results.data
-        console.log("Successfully processed " + data.length + " rows!")
-        // let columns = results.meta.fields
-
-        for (let d in data){
-          
-          let r = {
-                blurb: data[d].blurb,
-                contributor: data[d].contributor,
-                title: data[d].title,
-                creator: data[d].creator,
-                link: data[d].link,
-                image: data[d].image,
-                languages: data[d].languages,
-                learn: data[d].learn,
-                make: data[d].make,
-                use: data[d].use,
-                do: data[d].do,
-                opensource: data[d].opensource,
-                year: data[d].year,
-                mood: data[d].mood
-          }
-
-          // if (r.make != null ){console.log(r.make, typeof(r.make))}
-          
-          getTags(r)  //fills all the tag sets with what's in each resource entry row
-          
-          displayResource(r) //creates dom elements for each resource
-        }
-
-        displayDropdowns(learnset, "learn")
-        displayDropdowns(doset, "do")
-        displayDropdowns(useset, "use")
-        displayDropdowns(makeset, "make")
-
-        //eventually on click will filter?
-        filterResources("javascript")
-      }
-
-      console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');        
-
-
-  //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
-  function filterResources(c){
-    //this will be buttons that make the URLs with GET requests
-    // //they hide display articles with the tags requested, accordingly
-    // let articles = document.getElementsByTagName("article")
-    // for (let a in articles) articles[a].style.display = "none"
-
-    let show = document.getElementsByClassName(c)
-    for (s in show) show[s].style.display = "block"
-    // show.style.display = "block"
-  }
-
-
-  function displayDropdowns(tags, field){
-    let label = document.getElementById(field)
-    for (let item of tags.values()){
-      let option = document.createElement("option")
-      option.value = item 
-      option.innerHTML = item
-      label.appendChild(option)
-      //eventually will trigger the filter somehow!?
-      //why did this stop working? because error in parseTags in displayResourses prob?
-    }
-  }
-
-  function parseTags(tags, div, label, article){
-    if (tags != null ){
-      // tags = tags.replace(/\s+/g, '')
-      tags = tags.split(", ")
-      console.log(tags)
-      for (let t in tags) {
-        //display tags
-        let dd = document.createElement("dd")
-        dd.innerHTML = tags[t] + " "
-
-        let tagClass = tags[t].replace(/\s+/g, '')
-        console.log(tagClass)
-
-        //add links to sort TK
-        let a = document.createElement("a")
-        a.href = "?" + label.innerHTML + "=" + tagClass
-        console.log(a.href)
-
-        
-        a.appendChild(dd) //adding a link to each tag to re-filter by that tag TK
-        div.appendChild(a)
-
-        //add to article class
-        article.classList.add(tagClass)        
-      }
-    }
-  }
-
-  // (sets) => for (s in sets) sets.add(s)
-  function addTagsToSet(tags, set){
-    if (tags != null ){
-      tags = tags.split(",")
-      for (let t in tags) { 
-        set.add(tags[t]) 
-        }
-      }
-    }
-
-  function getTags(r){
-      // for (let item in r.learn) learnset.add(r.learn[item])
-      addTagsToSet(r.learn, learnset)
-      addTagsToSet(r.make, makeset)
-      addTagsToSet(r.use, useset)
-      addTagsToSet(r.do, doset)
-
-      //GOT THESE TO DISPLAY IN THE DROPDOWN MENUS, NOW NEED REACT TO FORM below
-
-  }
-
-  function displayResource(data){
-      r = {
-          blurb: data.blurb,
-          contributor: data.contributor,
-          title: data.title,
-          creator: data.creator,
-          link: data.link,
-          image: data.image,
-          languages: data.languages,
-          learn: data.learn,
-          make: data.make,
-          use: data.use,
-          do: data.do,
-          mood: data.mood,
-          opensource: data.opensource,
-          year: data.year,
-          mood: data.mood
-      }
-      // console.log(Object.keys(r))
-      
-      //CREATE ELEMENTS
-      const resources = document.getElementById('resources')
-
-      let res = document.querySelector(".res").cloneNode(true);
-      res.querySelector(".res-title").href = r.link;
-      res.querySelector(".res-title h3").innerText = r.title;
-      res.querySelector(".res-creator").innerText = r.creator;
-      res.querySelector(".res-blurb").innerText = r.blurb;
-      res.style.display = "block";
-
-      resources.appendChild(res);
-
-      // let article = document.createElement("article")
-      // let link = document.createElement("a")
-      // let title = document.createElement("H3")
-      // let creator = document.createElement("dd")
-      // let blurb = document.createElement("blockquote")
-      // let dl = document.createElement("dl")
-      // let languages = document.createElement("div")
-      // let learn = document.createElement("div")
-      // let make = document.createElement("div")
-      // let use = document.createElement("div")
-      // let doDiv = document.createElement("div")
-      // let contributor = document.createElement("div")
-      // let mood = document.createElement("div")
-
-      // let labelCreator = document.createElement("dt")
-      // let labelLang = document.createElement("dt")
-      // let labelLearn = document.createElement("dt")
-      // let labelMake = document.createElement("dt")
-      // let labelUse = document.createElement("dt")
-      // let labelDo = document.createElement("dt")
-      // let labelContrib = document.createElement("dt")
-      // let labelMood = document.createElement("dt")
-
-      // let learnDD = document.createElement("dd")
-      // let doDD = document.createElement("dd")
-      // let useDD = document.createElement("dd")
-      // let makeDD = document.createElement("dd")
-      // let contribDD = document.createElement("dd")
-      // let moodDD = document.createElement("dd")
-
-      //ADD CLASSES
-      // article.classList.add("res")     
-      // link.classList.add("links") 
-      // title.classList.add("res-title")
-      // creator.classList.add("res-creator", "creator")
-      // blurb.classList.add("res-description", "blurb")
-      // dl.classList.add("res-meta")
-      // languages.classList.add("res-meta-languages", "languages")
-      // learn.classList.add("res-meta-learn", "learn")
-      // make.classList.add("res-meta-make", "make")
-      // doDiv.classList.add("res-meta-do", "do")
-      // contributor.classList.add("res-meta-contrib", "contributor") //add cite and figure wrappers if necessary
-      // mood.classList.add("res-meta-mood", "mood")
-
-      //INSERT CONTENT
-      // link.href = r.link
-      // link.target = "_blank"
-      // // console.log(r.link)
-      // title.innerHTML = r.title
-      // title.href = r.link
-      // labelCreator.innerText = "Creator"
-      // creator.innerHTML = r.creator
-      // blurb.innerHTML = r.blurb
-      // labelLang.innerText = "Languages"
-      // labelLearn.innerText = "Learn"
-      // labelMake.innerText = "Make"
-      // labelUse.innerText = "Use"
-      // labelDo.innerText = "Do"
-      // labelContrib.innerText = "Contributor"
-      // labelMood.innerText = "Collection"
-
-      // languages.appendChild(labelLang)
-      // parseTags(r.languages, languages, labelLang, article)
-      // // languages.appendChild(lang)
-      // learn.appendChild(labelLearn)
-      // parseTags(r.learn, learn, labelLearn, article)
-      // // learn.appendChild(learnDD)
-      // doDiv.appendChild(labelDo)
-      // parseTags(r.do, doDiv, labelDo, article)
-      // // doDiv.appendChild(doDD)
-      // use.appendChild(labelUse)
-      // parseTags(r.use, use, labelUse, article)
-      // // use.appendChild(useDD)
-      // make.appendChild(labelMake)
-      // parseTags(r.make, make, labelMake, article)
-      // // make.appendChild(makeDD)
-      // contributor.appendChild(labelContrib)
-      // parseTags(r.contributor, contributor, labelContrib, article)
-      // // contributor.appendChild(contribDD)
-      // mood.appendChild(labelMood)
-      // parseTags(r.mood, mood, labelMood, article)
-      // // mood.appendChild(moodDD)
-
-      // dl.appendChild(learn)
-      // dl.appendChild(doDiv)
-      // dl.appendChild(use)
-      // dl.appendChild(make)
-      // dl.appendChild(languages)
-      // dl.appendChild(mood)
-      // // dl.appendChild(contributor)
-
-      // link.appendChild(title)
-      // article.appendChild(link)
-      // article.appendChild(labelCreator)
-      // article.appendChild(creator)
-      // article.appendChild(blurb)
-      // article.appendChild(dl)
-      // resources.appendChild(article)
-      // article.style.display = "none"
-
-      
-    // //@KY: what did these do, add data tags to the article level for each sortable field?
-    // article.style.data-levels = "{{ resource.levels | join: ',' }}"
-    // article.style.data-languages = resource.languages
-    // article.style.data-types = "{{ resource.types | join: ',' }}"
-    // article.style.data-tags = "{{ resource.tags | join: ',' }}"
-    // article.style.data-learn = "{{ resource.learn | join: ',' }}"
-    // article.style.data-do = "{{ resource.do | join: ',' }}"
-    // article.style.data-use = "{{ resource.use | join: ',' }}"
-    // article.style.data-make = "{{ resource.make | join: ',' }}"
-  }
-
-  
-  //PAPA PARSE VERSION END
-
-
-  // update generator upon interactions
-  let updateGenerator = (event) => {
-    console.log('reached updateGenerator()')
-    event.stopPropagation();
-    let actions = event.target.form.querySelectorAll("select");
-
-    // deal with buttons
-    if (event.target.type === "search") { // search
-      event.preventDefault();
-    } else if (event.target.type === "reset") { // reset
-      event.preventDefault();
-      event.target.form.reset();
-      for (let action of actions) {
-        for (let opt of action.options) {
-          opt.removeAttribute("selected");
-        }
-        action.options[0].setAttributeNode(document.createAttribute("selected"));
-      }
-    } else if (event.target.value === "randomise") {  // randomise
-      for (let action of actions) {
-        for (let opt of action.options) {
-          opt.removeAttribute("selected");
-        }
-        if (action.options.length > 1) {
-          let numOpt = Math.floor(Math.random() * action.options.length);
-          action.options[numOpt].setAttributeNode(document.createAttribute("selected"));
-        } else {
-          action.options[0].setAttributeNode(document.createAttribute("selected"));
-        }
-      }
-    }
-
-    let resources = generateResources();
-    // updateFilters(resources);
-  }
-
-  // function updateFilters(resources) {
-  //   let filters = document.querySelectorAll(".filter select");
-  //   for (let filter of filters) {
-  //     let filterid = filter.id;
-  //     let
-  //     let options = filter.querySelectorAll("option:not([value=''])");
-  //     options.forEach((val, i, arr) => {
-  //       console.log()
-  //     });
-  //   }
-  // }
-
-  // generate resources based on interests and filters
-  function generateResources() {
-    let queries = [];
-
-    // get actions
-    let actions = document.querySelectorAll(".action select");
-    for (let action of actions) {
-      if (action.value) { // ignore if it's set to "anything"
-        queries.push(action.value);
-      }
-    }
-
-    // get filters
-    let filters = document.querySelectorAll("#filter");
-    for (let filter of filters) {
-      if (filter.value) { // ignore if set to "all"
-        queries.push(filter.value);
-      }
-    }
-
-    console.log(queries);
-    console.log("query made");
-
-    let resources = document.getElementsByClassName("res");
-    if (queries.length == 0) {
-      for (let res of resources) {
-        res.style.display = "block";
-      }
-    } else {
-      for (let res of resources) {
-        let tags = [...res.classList]; // turn into an array
-        console.log(tags)
-        console.log("this is where tag is empty")
-        tags.splice(0, 1); // remove first "res" class name
-        let matches = tags.filter(tag => {
-          console.log("tag filtering happening??")
-          console.log(queries.includes(tag.replace("-", ":").replace("_", " ")))
-          return queries.includes(tag.replace("-", ":").replace("_", " "))
-        });
-        if (matches.length > 0) {
-          res.style.display = "block";
-        } else {
-          res.style.display = "none";
-        }
-      }
-    }
-
-    return resources;
-  }
-
-
-
-  //issue is with how to set up the form I think
-  let resources = document.getElementsByClassName("res");
-
-  var generator = document.getElementById('generator')
-  // searchButton.addEventListener("click", updateGenerator);
-  //let randomiseButton = document.getElementById("randomiseButton")
-  //randomiseButton.addEventListener("click", updateGenerator);
-//  let resetButton = document.getElementById("resetButton")
-//  resetButton.addEventListener("click", updateGenerator);
-
-   for (let button of generator.querySelectorAll("button")) {
-     button.addEventListener("click", updateGenerator);
-   }
-
-  let filterForm = document.getElementById("filters");
-  // filterForm.reset();
-  document.addEventListener("input", generateResources);
-
-</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <script src="/assets/js/scripts.js"></script>
 
   {% include footer.html %}
 
