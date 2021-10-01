@@ -229,7 +229,7 @@ main {
 .custom-combobox {
   position: relative;
   display: inline-block;
-  width: 77%;
+  width: 100%;
 }
 .custom-combobox-toggle {
   position: absolute;
@@ -241,7 +241,7 @@ main {
 .custom-combobox-input {
   margin: 0;
   padding: 5px 10px;
-  width: 100%;
+  width: 90%;
 }
 
 .ui-widget {
