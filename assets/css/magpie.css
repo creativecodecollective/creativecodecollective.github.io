@@ -66,16 +66,16 @@ button:active {
   background-color: #d7d7d7;
 }
 
-button[type="search"] {
+button[type="submit"] {
   background-color: #2F6EEB;
   color: white;
 }
 
-button[type="search"]:hover {
+button[type="submit"]:hover {
   background-color: #2B64CF;
 }
 
-button[type="search"]:active {
+button[type="submit"]:active {
   background-color: #275aba;
 }
 
