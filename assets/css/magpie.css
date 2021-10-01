@@ -18,7 +18,6 @@
 }
 
 body {
-  /*background: linear-gradient(to right bottom, #759FDC, #D18DEC);*/
   font-family: "Fira Code VF", monospace;
   margin: 0;
 }
@@ -88,7 +87,6 @@ button[type="submit"]:active {
   padding: 20px;
   justify-content: space-between;
   align-items: center;
-  /*background: linear-gradient(to right bottom, #759FDC, #D18DEC);*/
   flex-direction: column;
 }
   @media (min-width: 1000px) {
@@ -266,9 +264,7 @@ main {
 
 #resources {
   display: grid;
-  /*grid-template-columns: 1fr;*/
   gap: 2em;
-  /*padding: 25px;*/
 }
   @media (min-width: 800px) {
     #resources {
