@@ -62,10 +62,30 @@ function loadData(results) {
   generatorForm.addEventListener("reset", resetResources);
   randomiseButton.addEventListener("click", randomiseResources);
 
+  // placeholders
+  setPlaceholders();
   let comboboxes = document.querySelectorAll(".custom-combobox-input");
   for (let input of comboboxes) {
     let select = input.parentElement.parentElement.querySelector("select");
-    let id = select.id
+    let id = select.id;
+
+    // clear and re-set intervals on events
+    input.addEventListener("focus", () => {
+      clearInterval(placeholderIntervals[id]);
+      input.placeholder = "";
+    });
+    input.addEventListener("blur", () => {
+      placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
+    });
+
+  }
+}
+
+function setPlaceholders() {
+  let comboboxes = document.querySelectorAll(".custom-combobox-input");
+  for (let input of comboboxes) {
+    let select = input.parentElement.parentElement.querySelector("select");
+    let id = select.id;
 
     // randomise placeholder
     let setPlaceholder = () => {
@@ -75,19 +95,7 @@ function loadData(results) {
 
     // set interval
     setPlaceholder();
-    // let placeholderInterval = setInterval(setPlaceholder, 1000);
     placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
-
-    // clear and re-set intervals on events
-    input.addEventListener("focus", () => {
-      clearInterval(placeholderIntervals[id]);
-      input.placeholder = "";
-    });
-    input.addEventListener("blur", () => {
-      // placeholderInterval = setInterval(setPlaceholder, 1000);
-      placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
-    });
-
   }
 }
 
@@ -111,7 +119,7 @@ function loadResources(e) {
 }
 
 function resetResources(e) {
-  clearPlaceholders();
+  setPlaceholders();
   filterResources();
 }
 
