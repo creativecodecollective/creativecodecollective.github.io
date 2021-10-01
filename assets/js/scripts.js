@@ -106,13 +106,13 @@ function clearPlaceholders() {
 
 function loadResources(e) {
   e.preventDefault();
-  filterResources([learnSelect.value, doSelect.value, useSelect.value, makeSelect.value])
   clearPlaceholders();
+  filterResources([learnSelect.value, doSelect.value, useSelect.value, makeSelect.value])
 }
 
 function resetResources(e) {
-  filterResources();
   clearPlaceholders();
+  filterResources();
 }
 
 function randomiseResources(e) {
@@ -123,6 +123,26 @@ function randomiseResources(e) {
     select.nextElementSibling.querySelector("input").value = value;
   }
   loadResources(e);
+}
+
+function filterByButton(e) {
+  let tag = e.target.value;
+
+  // update input fields
+  clearPlaceholders();
+  for (let select of selects) {
+    let options = select.children;
+    for (let option of options) {
+      if (option.value === tag) {
+        select.value = tag;
+        select.nextElementSibling.querySelector("input").value = tag;
+        break;
+      }
+    }
+  }
+
+  // filter
+  filterResources([tag]);
 }
 
 //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
@@ -155,7 +175,6 @@ function filterResources(classes = []) {
   numResources.innerText = document.querySelectorAll(".res--visible").length;
 }
 
-
 function populateDropdowns(tags, field) {
   let select = document.getElementById(field)
   let sorted = Array.from(tags).sort(); // sort alphabetically
@@ -181,33 +200,24 @@ function createResource(r){
       let p = document.createElement("p");
       p.classList.add("tagList");
       for (let tag of tagList) {
-        // add to class list
+        // add to tags
         let escaped = tag.trim().replace(/\s+/g, "");
+        tags[field].add(tag.trim());
+        // add to class list
         res.classList.add(escaped);
         // create element
-        let span = document.createElement("span");
-        span.classList.add("tag");
-        span.innerText = tag.trim();
-        p.appendChild(span);
+        let button = document.createElement("button");
+        button.classList.add("tag");
+        button.innerText = tag.trim();
+        button.value = tag.trim();
+        button.addEventListener("click", filterByButton);
+        p.appendChild(button);
       }
       res.querySelector(".res-" + field).appendChild(p);
     } else {
       res.querySelector(".res-" + field).style.display = "none";
     }
   }
-
-  // // add tags to sets and classlist
-  // // for (let tag of ["learn", "make", "use", "do", "languages", "collections"]) {
-  // for (let tag of ["learn", "make", "use", "do"]) {
-  //   if (r[tag]) {
-  //     let tagList = r[tag].split(",")
-  //     for (let t of tagList) { 
-  //       tags[tag].add(t.trim())
-  //       let escaped = t.trim().replace(/\s+/g, "");
-  //       res.classList.add(escaped);
-  //     }
-  //   }
-  // }
 
   // make visible initially
   res.classList.add("res--visible");
