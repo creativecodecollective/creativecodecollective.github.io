@@ -51,6 +51,34 @@ input {
 	font-family: inherit;
 }
 
+button {
+	padding: 6px 12px;
+	cursor: pointer;
+	border-radius: 4px;
+	border: 0;
+}
+
+button:hover {
+	background-color: #e3e3e3;
+}
+
+button:active {
+	background-color: #d7d7d7;
+}
+
+button[type="search"] {
+	background-color: #2F6EEB;
+	color: white;
+}
+
+button[type="search"]:hover {
+	background-color: #2B64CF;
+}
+
+button[type="search"]:active {
+	background-color: #275aba;
+}
+
 /**
  * HEADER AND FOOTER
  */
@@ -185,23 +213,6 @@ main {
 
 .buttons {
 	margin-top: 2em;
-}
-
-.buttons button {
-	/*padding: 1em;*/
-	padding: 6px 12px;
-	cursor: pointer;
-	border-radius: 4px;
-	border: 0;
-}
-
-.buttons button[type="search"] {
-	background-color: #2F6EEB;
-	color: white;
-}
-
-.buttons button[type="search"]:hover {
-	background-color: #2B64CF;
 }
 
 /**
