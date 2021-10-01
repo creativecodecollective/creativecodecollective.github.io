@@ -222,11 +222,16 @@ main {
 #resources {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2em;
+	padding: 25px;
+}
+
+.numResourcesText {
+	grid-column: 1 / span 3;
 }
 
 .res {
 	border-radius: 50px;
-	margin: 25px;
 	background-color: white;
 	padding: 50px;
 	transition: 0.25s ease-in-out box-shadow;
