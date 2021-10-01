@@ -40,34 +40,41 @@ function loadData(results) {
       
   let data = results.data
   console.log("Successfully processed " + data.length + " rows!")
+  // update number
   numResources.innerText = data.length;
 
+  //creates dom elements for each resource
   for (let r of data) {
-    //creates dom elements for each resource
     createResource(r);
   }
 
+  // populate dropdowns
   for (let tag of ["learn", "do", "use", "make", "languages", "collections"]) {
     populateDropdowns(tags[tag], tag);
   }
 
-  generatorForm.addEventListener("submit", e => {
-    e.preventDefault();
-    filterResources([learnSelect.value, doSelect.value, useSelect.value, makeSelect.value])
-  });
-
-  generatorForm.addEventListener("reset", e => {
-    filterResources();
-  });
-
-  randomiseButton.addEventListener("click", () => {
-    for (let select of selects) {
-      let options = select.children;
-      select.value = options[Math.floor(Math.random() * options.length)].value;
-    }
-  });
+  // form buttons
+  generatorForm.addEventListener("submit", loadResources);
+  generatorForm.addEventListener("reset", resetResources);
+  randomiseButton.addEventListener("click", randomiseResources);
 }
 
+function loadResources(e) {
+  e.preventDefault();
+  filterResources([learnSelect.value, doSelect.value, useSelect.value, makeSelect.value])
+}
+
+function resetResources(e) {
+  filterResources();
+}
+
+function randomiseResources(e) {
+  for (let select of selects) {
+    let options = select.children;
+    select.value = options[Math.floor(Math.random() * options.length)].value;
+  }
+  loadResources(e);
+}
 
 //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
 function filterResources(classes = []) {
@@ -84,7 +91,8 @@ function filterResources(classes = []) {
       // check if resource contains at least one of the given tags
       let match = false;
       for (let c of classes) {
-        if (res.classList.contains(c)) {
+        let escaped = c.replace(/\s+/g, "");
+        if (res.classList.contains(escaped)) {
           match = true;
         }
       }
