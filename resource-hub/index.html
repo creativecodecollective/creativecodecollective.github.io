@@ -21,7 +21,6 @@ title: Resource Hub | Creative Code Collective
       <p>Need inspiration for a new project? Or is there something specific you'd like guidance on? Use this roadmap generator to come up with ideas or find specific resources that match any of your queries!</p>
       <p>For example:</p>
       <p>I'd like to learn _____ to do _____ using _____ to make _____. </p>
-      <p><b>This page is still under construction!</b></p>
       <form method="GET" id="generator" action="">
         <div class="action">
           <label for="learn">Learn</label>
@@ -59,9 +58,11 @@ title: Resource Hub | Creative Code Collective
             {% endfor %}
           </select>
         </div>
-        <button id="searchButton" type="search">Search</button>
-        <button id="randomiseButton" type="button" value="randomise">Randomise</button>
-        <button id="resetButton" type="reset">Reset</button>
+        <div class="buttons">
+          <button id="searchButton" type="search">Search</button>
+          <button id="randomiseButton" type="button" value="randomise">Randomise</button>
+          <button id="resetButton" type="reset">Reset</button>
+        </div>
       </form>
       <!-- Should this should all be one form, one filter process, to simplify? Or filter results after search? -SARAH -->
     </div>
