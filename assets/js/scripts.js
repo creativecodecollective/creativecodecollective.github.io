@@ -69,13 +69,18 @@ function loadData(results) {
     let select = input.parentElement.parentElement.querySelector("select");
     let id = select.id;
 
+    let randomisePlaceholder = () => {
+      let options = select.querySelectorAll("option");
+      input.placeholder = options[Math.floor(Math.random() * options.length)].value;
+    }
+
     // clear and re-set intervals on events
     input.addEventListener("focus", () => {
       clearInterval(placeholderIntervals[id]);
       input.placeholder = "";
     });
     input.addEventListener("blur", () => {
-      placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
+      placeholderIntervals[id] = setInterval(randomisePlaceholder, 1000);
     });
 
   }
@@ -87,15 +92,14 @@ function setPlaceholders() {
     let select = input.parentElement.parentElement.querySelector("select");
     let id = select.id;
 
-    // randomise placeholder
-    let setPlaceholder = () => {
+    let randomisePlaceholder = () => {
       let options = select.querySelectorAll("option");
       input.placeholder = options[Math.floor(Math.random() * options.length)].value;
     }
 
     // set interval
-    setPlaceholder();
-    placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
+    randomisePlaceholder(select, input);
+    placeholderIntervals[id] = setInterval(randomisePlaceholder, 1000);
   }
 }
 
