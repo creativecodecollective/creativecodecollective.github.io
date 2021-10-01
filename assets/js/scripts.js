@@ -52,7 +52,8 @@ function loadData(results) {
   }
 
   // populate dropdowns
-  for (let tag of ["learn", "do", "use", "make", "languages", "collections"]) {
+  // for (let tag of ["learn", "do", "use", "make", "languages", "collections"]) {
+  for (let tag of ["learn", "do", "use", "make"]) {
     populateDropdowns(tags[tag], tag);
   }
 
@@ -120,7 +121,6 @@ function randomiseResources(e) {
     let value = options[Math.floor(Math.random() * options.length)].value
     select.value = value;
     select.nextElementSibling.querySelector("input").value = value;
-    console.log(value);
   }
   loadResources(e);
 }
@@ -156,7 +156,7 @@ function filterResources(classes = []) {
 }
 
 
-function populateDropdowns(tags, field){
+function populateDropdowns(tags, field) {
   let select = document.getElementById(field)
   let sorted = Array.from(tags).sort(); // sort alphabetically
   for (let item of sorted) {
@@ -174,14 +174,16 @@ function createResource(r){
   res.querySelector(".res-title h3").innerText = r.title;
   res.querySelector(".res-creator").innerText = r.creator;
   res.querySelector(".res-blurb").innerText = r.blurb;
-  for (let field of ["learn", "use", "do", "make", "collections", "languages"]) {
+  // for (let field of ["learn", "use", "do", "make", "collections", "languages"]) {
+  for (let field of ["learn", "use", "do", "make"]) {
     if (r[field]) {
       res.querySelector(".res-" + field).appendChild(document.createTextNode(r[field]));
     }
   }
 
   // add tags to sets and classlist
-  for (let tag of ["learn", "make", "use", "do", "languages", "collections"]) {
+  // for (let tag of ["learn", "make", "use", "do", "languages", "collections"]) {
+  for (let tag of ["learn", "make", "use", "do"]) {
     if (r[tag]) {
       let tagList = r[tag].split(",")
       for (let t of tagList) { 
