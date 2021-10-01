@@ -26,6 +26,9 @@ let tags = {
   opensource: new Set()
 }
 
+// intervals
+let placeholderIntervals = {};
+
 // initialise papa parse
 window.addEventListener('DOMContentLoaded', () => {
   Papa.parse(public_spreadsheet_url, {
@@ -39,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function loadData(results) {
       
   let data = results.data
-  console.log("Successfully processed " + data.length + " rows!")
+  console.log("Successfully processed " + data.length + " rows!", data)
   // update number
   numResources.innerText = data.length;
 
@@ -57,27 +60,75 @@ function loadData(results) {
   generatorForm.addEventListener("submit", loadResources);
   generatorForm.addEventListener("reset", resetResources);
   randomiseButton.addEventListener("click", randomiseResources);
+
+  let comboboxes = document.querySelectorAll(".custom-combobox-input");
+  for (let input of comboboxes) {
+    let select = input.parentElement.parentElement.querySelector("select");
+    let id = select.id
+
+    // randomise placeholder
+    let setPlaceholder = () => {
+      let options = select.querySelectorAll("option");
+      input.placeholder = options[Math.floor(Math.random() * options.length)].value;
+    }
+
+    // set interval
+    setPlaceholder();
+    // let placeholderInterval = setInterval(setPlaceholder, 1000);
+    placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
+
+    // clear and re-set intervals on events
+    input.addEventListener("focus", () => {
+      clearInterval(placeholderIntervals[id]);
+      input.placeholder = "";
+    });
+    input.addEventListener("blur", () => {
+      // placeholderInterval = setInterval(setPlaceholder, 1000);
+      placeholderIntervals[id] = setInterval(setPlaceholder, 1000);
+    });
+
+  }
+}
+
+function clearPlaceholders() {
+  // clear placeholders
+  for (let input of document.querySelectorAll(".custom-combobox-input")) {
+    input.placeholder = "";
+  }
+  // clear intervals
+  for (let id in placeholderIntervals) {
+    if (placeholderIntervals[id]) {
+      clearInterval(placeholderIntervals[id]);
+    }
+  }
 }
 
 function loadResources(e) {
   e.preventDefault();
   filterResources([learnSelect.value, doSelect.value, useSelect.value, makeSelect.value])
+  clearPlaceholders();
 }
 
 function resetResources(e) {
   filterResources();
+  clearPlaceholders();
 }
 
 function randomiseResources(e) {
   for (let select of selects) {
     let options = select.children;
-    select.value = options[Math.floor(Math.random() * options.length)].value;
+    let value = options[Math.floor(Math.random() * options.length)].value
+    select.value = value;
+    select.nextElementSibling.querySelector("input").value = value;
+    console.log(value);
   }
   loadResources(e);
 }
 
 //FILTER ONLY SELECT RESOURCES BY KEYWORD TAGS
 function filterResources(classes = []) {
+  console.log(classes);
+
   const resources = document.querySelectorAll(".res");
 
   // if nothing is selected, show everything
