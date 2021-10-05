@@ -78,6 +78,10 @@ button[type="submit"]:active {
   background-color: #275aba;
 }
 
+.center {
+  text-align: center;
+}
+
 /**
  * HEADER AND FOOTER
  */
