@@ -1,12 +1,12 @@
 # CREATIVE CODE COLLECTIVE
 
-We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community not competition. Join us in person at the Ahmanson Lab, on Sprout.Place, or explore our growing resource hub online.
+We believe in scrappy artistic strategies not perfect code, growth not perfection, collaboration and community not competition. Join us in person at the Ahmanson Lab, on Around video, or explore our growing resource hub online.
 
-You can find things to LEARN, DO, USE, and MAKE with code, as well as view projects created by our members.
+You can find things to LEARN, DO, USE, and MAKE with code on our Resource Hub, as well as view projects created by our members.
 
 ## Meetups
 
-Fall 2021: Thurs 4–6p PDT (check our Discord server for up-to-date times and URLs)
+Spring 2022: Thurs 5–7p PDT (check our Discord server for up-to-date times and URLs)
 
 Discord: Join anytime [here](https://discord.gg/thvgd52)
 
