@@ -1,7 +1,8 @@
+@charset "utf-8";
+
 /**
  * FONTS
  */
-
 @font-face {
   font-family: "Movement";
   src: url("/assets/fonts/MovementV.ttf") format("truetype-variations");
@@ -146,26 +147,26 @@ button[type="submit"]:active {
   padding: 25px;
   align-items: flex-start;
 }
-  @media (min-width: 800px) {
-    .footer {
-      grid-template-columns: 50% 50%;
-      grid-template-rows: auto auto;
-    }
-    .footer > div:nth-of-type(3) {
-      grid-column: 1 / span 2;
-    }
+@media (min-width: 800px) {
+  .footer {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
   }
-  @media (min-width: 1200px) {
-    .footer {
-      grid-template-columns: 25% 25% 50%;
-      grid-template-rows: auto;
-      padding: 50px;
-    }
+  .footer > div:nth-of-type(3) {
+    grid-column: 1 / span 2;
+  }
+}
+@media (min-width: 1200px) {
+  .footer {
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows: auto;
+    padding: 50px;
+  }
 
-    .footer > div:nth-of-type(3) {
-      grid-column: 3;
-    }
+  .footer > div:nth-of-type(3) {
+    grid-column: 3;
   }
+}
 
 .footer div {
   margin: 25px;

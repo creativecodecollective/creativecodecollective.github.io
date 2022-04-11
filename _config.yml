@@ -8,6 +8,8 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
+encoding: utf-8
+
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
@@ -25,8 +27,9 @@ baseurl: "/creativecodecollective.github.io" # the subpath of your site, e.g. /b
 # github_username:  jekyll
 
 # Build settings
-markdown: kramdown
+kramdown:
   parse_block_html: true
+  toc_levels: "2"
 
 # collections:
 #   - resources
