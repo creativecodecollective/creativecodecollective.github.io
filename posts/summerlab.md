@@ -12,12 +12,16 @@ title: Summer Lab | Creative Code Collective
 ## Code Collective Summer Lab
 {: .subtitle }
 
-9-11a PDT, 
+9-11a PDT
+
 July 2022
+
 4 weeks 2x week
+
 Sarah Ciston, [ciston@usc.edu](mailto:ciston@usc.edu)
 
 **Applications due May 1**
+
 Follow link below to apply
 
 ### Course Description
@@ -40,12 +44,9 @@ Have a dataset (text) in mind you’re interested to work with—this could be y
 
 ### Goals
 
-You'll understand  how artists, engineers, makers, and academics can embrace coding with a critical eye toward ethics and a creative glint that can help imagine more equitable futures.
-
-You will gain comfort exploring data and coding, building on any existing skills with new perspectives both technical and critical. You will also emerge with a zine about what we've learned. 
-
-You'll develop your portfolio of individual and collaborative code projects, plus the opportunity to continue in the fall with the Code Collective community. 
-
+* You'll understand  how artists, engineers, makers, and academics can embrace coding with a critical eye toward ethics and a creative glint that can help imagine more equitable futures.
+* You will gain comfort exploring data and coding, building on any existing skills with new perspectives both technical and critical. You will also emerge with a zine about what we've learned. 
+* You'll develop your portfolio of individual and collaborative code projects, plus the opportunity to continue in the fall with the Code Collective community. 
 
 ### Course Format
 
@@ -55,8 +56,9 @@ Weekly sessions will be divided into "Studio" days, during which we code togethe
 
 ### Apply
 
-Undergraduates at USC and Claremont Colleges are elligible to apply and will receive a $1500 stipend for completing the course requirements. See [USC Humanities in a Digital World Summer Tutorials](https://dornsife.usc.edu/digitalhumanities/summer-tutorials2021/){:target="_blank"} for more information on the course and how to apply. Please send a CV/resume and a letter expressing your interest in the course to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by Monday, May 1, 2022.
+Undergraduates at USC and Claremont Colleges are elligible to apply and will receive a $1500 stipend for completing the course requirements. See [USC Humanities in a Digital World Summer Tutorials](https://dornsife.usc.edu/digitalhumanities/summer-tutorials2021/){:target="_blank"} for more information on the course and how to apply. 
 
+Please send a CV/resume and a letter expressing your interest in the course to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by **Monday, May 1, 2022**. In the letter, note your availability in July 2022 to meet 9-11a PDT 2x week for 4 weeks. Also briefly describe a text you are interested to work with using code during the Summer Lab.
 
 </main>
 
