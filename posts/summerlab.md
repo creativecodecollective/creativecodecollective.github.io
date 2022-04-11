@@ -3,26 +3,26 @@ id: summer-lab
 title: Summer Lab | Creative Code Collective
 ---
 
-{% include head.html %}
-
-{% include header.html %}
-
-<main class="article">
-
 ## Code Collective Summer Lab
 {: .subtitle }
 
 9-11a PDT
+{: .small }
 
 July 2022
+{: .small }
 
 4 weeks 2x week
+{: .small }
 
 Sarah Ciston, [ciston@usc.edu](mailto:ciston@usc.edu)
+{: .small }
 
 **Applications due May 1**
 
 Follow link below to apply
+
+<hr>
 
 ### Course Description
       
@@ -54,12 +54,10 @@ This course is a workshop in exploratory programming, run as an open-format coll
 
 Weekly sessions will be divided into "Studio" days, during which we code together and troubleshoot our work, and "Salon" days, during which we discuss something we've read and reflect on the practices we're undertaking. Each will have a text or tutorial attached that pertains to the broader theme. Still the work will be self-directed toward each student's particular project, explorations, and goals. Through collaboration, co-learning, co-teaching, We discover how much we already know and how much we can build on that together.
 
+<hr>
+
 ### Apply
 
 Undergraduates at USC and Claremont Colleges are elligible to apply and will receive a $1500 stipend for completing the course requirements. See [USC Humanities in a Digital World Summer Tutorials](https://dornsife.usc.edu/digitalhumanities/summer-tutorials2021/){:target="_blank"} for more information on the course and how to apply. 
 
 Please send a CV/resume and a letter expressing your interest in the course to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by **Monday, May 1, 2022**. In the letter, note your availability in July 2022 to meet 9-11a PDT 2x week for 4 weeks. Also briefly describe a text you are interested to work with using code during the Summer Lab.
-
-</main>
-
-{% include footer.html %}
