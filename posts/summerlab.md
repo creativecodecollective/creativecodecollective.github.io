@@ -2,8 +2,10 @@
 layout: default
 id: summerlab
 title: Summer Lab | Creative Code Collective
-# permalink: summerlab
+permalink: summerlab
 ---
+
+<div>
 
 ## Code Collective Summer Lab
 {: .subtitle }
@@ -53,3 +55,5 @@ Weekly sessions will be divided into "Studio" days, during which we code togethe
 Undergraduates at USC and Claremont Colleges are elligible to apply and will receive a $1500 stipend for completing the course requirements. See [USC Humanities in a Digital World Summer Tutorials](https://dornsife.usc.edu/digitalhumanities/summer-tutorials2021/){:target="_blank"} for more information on the course and how to apply. 
 
 Please send a **CV/resume** and a **letter expressing your interest in the course** to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by **Monday, May 1, 2022**. In the letter, note your availability in July 2022 to meet 9-11a PDT 2x week for 4 weeks. Also briefly describe a text you are interested to work with using code during the Summer Lab. For any questions before submitting, feel free to reach out to Sarah at [ciston dot usc dot edu](mailto:ciston@usc.edu)
+
+</div>
