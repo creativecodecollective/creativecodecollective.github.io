@@ -1,6 +1,6 @@
 ---
 layout: default
-id: summer-lab
+id: summerlab
 title: Summer Lab | Creative Code Collective
 permalink: summerlab
 ---
@@ -16,13 +16,13 @@ See details below to apply
 
 <hr>
 
-### Course Description
+### Description
       
 *Frustrated with coding but want to use it in your projects? Always wondered about programming but felt intimidated to try? Overwhelmed with too many choices and confusing jargon? Just don't know where to start?*
     
 The Code Collective Summer Lab is an opportunity to join fellow students in a fun and friendly space to dabble in code, ask dumb questions, troubleshoot your dream project, and just explore.
         
-This summer intensive builds on USC's Creative Code Collective, a year-round student group supporting critical and artistic coding. We build programming skills in an engaging, non-intimidating environment— emphasizing co-learning and co-teaching, celebrating experimentation and process. We believe in growth not perfection, scrappy artistic strategies not perfect code, collaboration not competition. All levels and languages welcome!
+This summer intensive builds on USC's Creative Code Collective, a year-round student group supporting critical and artistic coding. We build programming skills in an engaging, non-intimidating environment—emphasizing co-learning and co-teaching, celebrating experimentation and process. We believe in growth not perfection, scrappy artistic strategies not perfect code, collaboration not competition. All levels and languages welcome!
         
 During the Summer Lab, we'll explore the relationships among machine learning, datasets, and human language. We will learn strategies for gathering, utilizing, and tending to data (both big and personal) with care and curatorial consideration. We will consider the aesthetics, ethics, and poetics of datasets through the lenses of intersectional identities and text-based machine learning.
 
@@ -40,7 +40,7 @@ Have a dataset (text) in mind you’re interested to work with—this could be y
 * You will gain comfort exploring data and coding, building on any existing skills with new perspectives both technical and critical. You will also emerge with a zine about what we've learned. 
 * You'll develop your portfolio of individual and collaborative code projects, plus the opportunity to continue in the fall with the Code Collective community. 
 
-### Course Format
+### Format
 
 This course is a workshop in exploratory programming, run as an open-format collaboratory. Its self-directed learning model requires motivated student engagement and rewards artistic risk-taking. As lab leader I provide technical and theoretical resources to facilitate your projects, and as a group we agree to cultivate a supportive environment for creating. Together we bring our individual skill sets and abilities; our interest to learn from each other and together; and our open minds, mutual respect, and sense of possibility. Practically, this means you come each day ready to discuss the topic and to support each other's co-learning, ideating, and troubleshooting; and you'll have time to develop your code-based projects with support from the collaboratory. Because of the lab nature of this course, we will decide as a group how to work through the readings and where to take them next, thus this schedule and reading list are subject to change depending on your projects and interests. 
 
