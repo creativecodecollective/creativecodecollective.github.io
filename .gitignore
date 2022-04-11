@@ -4,6 +4,7 @@
 
 ### Jekyll ###
 _site/
+.jekyll-cache/
 
 ### Node ###
 # Logs
