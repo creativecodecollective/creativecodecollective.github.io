@@ -26,6 +26,7 @@ url: "https://creativecodecollective.github.io" # the base hostname & protocol f
 
 # Build settings
 markdown: kramdown
+  parse_block_html: true
 
 # collections:
 #   - resources
