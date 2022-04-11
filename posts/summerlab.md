@@ -2,7 +2,7 @@
 layout: default
 id: summerlab
 title: Summer Lab | Creative Code Collective
-permalink: summerlab
+# permalink: summerlab
 ---
 
 ## Code Collective Summer Lab

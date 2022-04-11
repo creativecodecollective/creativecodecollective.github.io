@@ -1,9 +1,11 @@
+
+
 /**
  * FONTS
  */
 @font-face {
   font-family: "Movement";
-  src: url("/assets/fonts/MovementV.ttf") format("truetype-variations");
+  src: url("../fonts/MovementV.ttf") format("truetype-variations");
 }
 
 /**
