@@ -1,5 +1,5 @@
 ---
-id: lab
+id: summer-lab
 title: Summer Lab | Creative Code Collective
 ---
 
