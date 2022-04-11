@@ -1,6 +1,8 @@
 ---
+layout: default
 id: summer-lab
 title: Summer Lab | Creative Code Collective
+permalink: summerlab
 ---
 
 ## Code Collective Summer Lab
