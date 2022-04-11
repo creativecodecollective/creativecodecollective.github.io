@@ -8,6 +8,10 @@ permalink: summerlab
 ## Code Collective Summer Lab
 {: .subtitle }
 
+![]("../assets/img/CCCsummerlab-stories1.jpg")
+
+<img src="../assets/img/CCCsummerlab-stories1.jpg" style="float:left; width: 400px; margin-right: 15px ">
+
 9-11a PDT | July 2022 | 4 weeks 2x week | [Sarah Ciston](https://sarahciston.com)
 
 **Applications due May 1**
