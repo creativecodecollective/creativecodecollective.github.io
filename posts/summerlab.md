@@ -1,6 +1,6 @@
 ---
 layout: default
-id: summer-lab
+id: summerlab
 title: Summer Lab | Creative Code Collective
 permalink: summerlab
 ---
