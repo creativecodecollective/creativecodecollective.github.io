@@ -12,8 +12,13 @@ title: Summer Lab | Creative Code Collective
 ## Code Collective Summer Lab
 {: .subtitle }
 
-9-11a PDT
-Sarah Ciston, ciston@usc.edu
+9-11a PDT, 
+July 2022
+4 weeks 2x week
+Sarah Ciston, [ciston@usc.edu](mailto:ciston@usc.edu)
+
+**Applications due May 1**
+Follow link below to apply
 
 ### Course Description
       
@@ -25,9 +30,11 @@ This summer intensive builds on USC's Creative Code Collective, a year-round stu
         
 During the Summer Lab, we'll explore the relationships among machine learning, datasets, and human language. We will learn strategies for gathering, utilizing, and tending to data (both big and personal) with care and curatorial consideration. We will consider the aesthetics, ethics, and poetics of datasets through the lenses of intersectional identities and text-based machine learning.
 
-We'll tinker with conversational agents like Alexa and text generators like GPT-3. Through artistic-critical interventions and workshops, we will focus on how these technologies get embedded in the very words we use; and we'll reflect carefully on what assumptions these tools make in their materials, their language, and their users.
+We'll tinker with conversational agents like Alexa and text generators like GPT. Through artistic-critical interventions and workshops, we will focus on how these technologies get embedded in the very words we use; and we'll reflect carefully on what assumptions these tools make in their materials, their language, and their users.
 
 ### Preparation
+
+**No particular experience is required!** Any kind of field or background is helpful to get started; we'll meet you where you are. So that we can focus during our time together, it will help if you have in mind a project or a skill you want to work on. We're going to focus on text-based tools, so here's what you can prep in advance:
 
 Have a dataset (text) in mind you’re interested to work with—this could be your own journal, something from the USC Libraries Digital Collection, or anything goes. Don't worry, no matter your existing level of comfort with code, even if it's none, we will meet you where you are. Just start from asking, What do you want to make, and why? 
 
@@ -45,6 +52,11 @@ You'll develop your portfolio of individual and collaborative code projects, plu
 This course is a workshop in exploratory programming, run as an open-format collaboratory. Its self-directed learning model requires motivated student engagement and rewards artistic risk-taking. As lab leader I provide technical and theoretical resources to facilitate your projects, and as a group we agree to cultivate a supportive environment for creating. Together we bring our individual skill sets and abilities; our interest to learn from each other and together; and our open minds, mutual respect, and sense of possibility. Practically, this means you come each day ready to discuss the topic and to support each other's co-learning, ideating, and troubleshooting; and you'll have time to develop your code-based projects with support from the collaboratory. Because of the lab nature of this course, we will decide as a group how to work through the readings and where to take them next, thus this schedule and reading list are subject to change depending on your projects and interests. 
 
 Weekly sessions will be divided into "Studio" days, during which we code together and troubleshoot our work, and "Salon" days, during which we discuss something we've read and reflect on the practices we're undertaking. Each will have a text or tutorial attached that pertains to the broader theme. Still the work will be self-directed toward each student's particular project, explorations, and goals. Through collaboration, co-learning, co-teaching, We discover how much we already know and how much we can build on that together.
+
+### Apply
+
+Undergraduates at USC and Claremont Colleges are elligible to apply and will receive a $1500 stipend for completing the course requirements. See [USC Humanities in a Digital World Summer Tutorials](https://dornsife.usc.edu/digitalhumanities/summer-tutorials2021/){:target="_blank"} for more information on the course and how to apply. Please send a CV/resume and a letter expressing your interest in the course to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by Monday, May 1, 2022.
+
 
 </main>
 
