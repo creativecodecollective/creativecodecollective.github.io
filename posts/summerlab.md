@@ -9,7 +9,7 @@ title: Summer Lab | Creative Code Collective
 ## Code Collective Summer Lab
 {: .subtitle }
 
-9-11a PDT | July 2022 | 4 weeks 2x week | [Sarah Ciston](https://sarahciston.com)
+9-11a PDT, July 2022, 4 weeks 2x week, [Sarah Ciston](https://sarahciston.com)
 
 **Applications due May 1**
 
