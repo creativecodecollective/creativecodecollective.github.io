@@ -329,3 +329,7 @@ main {
   flex-wrap: wrap;
   gap: 0.5em;
 }
+
+.res-thumb {
+  width:fit-content;
+}

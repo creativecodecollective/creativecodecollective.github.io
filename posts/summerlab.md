@@ -9,6 +9,9 @@ title: Summer Lab | Creative Code Collective
 ## Code Collective Summer Lab
 {: .subtitle }
 
+<div id="resources">
+</div>
+
 9-11a PDT, July 2022, 4 weeks 2x week, [Sarah Ciston](https://sarahciston.com)
 
 **Applications due May 1**
@@ -60,3 +63,115 @@ Undergraduates at USC and Claremont Colleges are elligible to apply and will rec
 Please send a **CV/resume** and a **letter expressing your interest in the course** to [hidw@dornsife.usc.edu](mailto:hidw@dornsife.usc.edu) by **Monday, May 1, 2022**. In the letter, note your availability in July 2022 to meet 9-11a PDT 2x week for 4 weeks. Also briefly describe a text you are interested to work with using code during the Summer Lab. For any questions before submitting, feel free to reach out to Sarah at [ciston dot usc dot edu](mailto:ciston@usc.edu)
 
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<script>
+    let resourses = document.querySelector('.resources')
+
+    // papa parse
+    const public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaVhvuhl2fp41u1WTde4FAf5rxW-pZ9GMbREmSDf-wsM8uXdn5GrikJtweUDoqkFW_fHn3QXc1mxpD/pub?output=csv"
+    console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');
+
+    // initialise papa parse
+
+    window.addEventListener('DOMContentLoaded', () => {
+      Papa.parse(public_spreadsheet_url, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: loadData
+      })
+    });
+
+    function loadData(r){
+      let data = r.data
+      for (let d in data){
+        createResource(data[d])
+      }
+    }
+
+    function createResource(r){
+        let res = document.createElement("div")
+        res.classList.add("res")
+        res.classList.add("res--visible")
+
+        let projectURL = document.createElement("a")
+        projectURL.classList.add("ref-link")
+        projectURL.href = r.projectURL
+        res.appendChild(projectURL)
+
+
+        if (r.codeURL) {
+            codeURL = document.createElement("a")
+            codeURL.href = r.codeURL
+            res.appendChild(codeURL)
+        }
+
+        let thumb = document.createElement("img")
+        thumb.src = r.image
+        thumb.classList.add("res-thumb")
+        projectURL.appendChild(thumb)
+        
+        let title = document.createElement("h3")
+        title.classList.add("res-title")
+        title.textContent = r.title
+        projectURL.appendChild(title)
+
+        if (r.description){
+            let desc = document.createElement("blockquote")
+            desc.classList.add("res-blurb")
+            desc.textContent = r.description
+            res.appendChild(desc)
+        }
+        
+        if (r.process){
+            let proc = document.createElement("blockquote")
+            proc.classList.add("res-blurb")
+            proc.textContent = r.process
+            res.appendChild(proc)
+        }
+
+        let creator = document.createElement("p")
+        creator.classList.add("res-creator")
+        creator.textContent = r.name
+        res.appendChild(creator)
+
+        if (r.media){
+            let media = document.createElement("p")
+            media.classList.add("res-blurb")
+            media.textContent = r.media
+            res.appendChild(media)
+        }
+
+        if (r.major){
+            let major = document.createElement("p")
+            major.classList.add("res-blurb")
+            major.textContent = r.major
+            res.appendChild(major)
+        }
+
+        if (r.blurb){
+            let blurb = document.createElement("p")
+            blurb.classList.add("res-blurb")
+            blurb.textContent = r.reflection
+            //res.appendChild(blurb)
+        }
+        
+        //separate tags and append
+        let tagList = r.tags
+        if (tagList != null){
+            tagList = tagList.split(",").sort()         
+            for (let t of tagList){
+                console.log(t)
+                let tag = document.createElement("button")
+                tag.classList.add("tag")
+                tag.setAttribute('value', t)
+                tag.textContent = t
+                res.appendChild(tag)
+                }
+            }
+
+        resources.appendChild(res)
+
+    }
+</script>
