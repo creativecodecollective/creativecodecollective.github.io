@@ -4,13 +4,14 @@ id: summerlab
 title: Summer Lab | Creative Code Collective
 ---
 
-<div>
 
 ## Code Collective Summer Lab
 {: .subtitle }
 
 <div id="resources">
 </div>
+
+<div class="article">
 
 9-11a PDT, July 2022, 4 weeks 2x week, [Sarah Ciston](https://sarahciston.com)
 
@@ -92,8 +93,7 @@ Please send a **CV/resume** and a **letter expressing your interest in the cours
 
     function createResource(r){
         let res = document.createElement("div")
-        res.classList.add("res")
-        res.classList.add("res--visible")
+        res.classList.add("res", "res--visible", "lab")
 
         let projectURL = document.createElement("a")
         projectURL.classList.add("ref-link")
@@ -107,10 +107,17 @@ Please send a **CV/resume** and a **letter expressing your interest in the cours
             res.appendChild(codeURL)
         }
 
-        let thumb = document.createElement("img")
-        thumb.src = r.image
-        thumb.classList.add("res-thumb")
-        projectURL.appendChild(thumb)
+        if (r.image){
+            let imgList = r.image
+            let imgID = imgList.substring(33,66)
+            //imgList = imgList.split(",").sort()    
+            console.log(imgList)
+            console.log(imgID)     
+            let thumb = document.createElement("img")
+            thumb.src = "http://drive.google.com/uc?export=view&id=" + imgID
+            thumb.classList.add("res-thumb")
+            projectURL.appendChild(thumb)
+        }
         
         let title = document.createElement("h3")
         title.classList.add("res-title")
@@ -123,7 +130,7 @@ Please send a **CV/resume** and a **letter expressing your interest in the cours
             desc.textContent = r.description
             res.appendChild(desc)
         }
-        
+
         if (r.process){
             let proc = document.createElement("blockquote")
             proc.classList.add("res-blurb")
