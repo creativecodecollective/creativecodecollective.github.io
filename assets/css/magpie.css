@@ -193,8 +193,14 @@ main {
 
 .article > div {
   max-width: 650px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
+
+/* why isn't this working to bump the margin back?
+.resources {
+  max-width: unset;
+  margin: unset;
+} */
 
 /**
  * ROADMAP
@@ -270,6 +276,8 @@ main {
 #resources {
   display: grid;
   gap: 2em;
+  max-width: unset;
+  margin: unset;
 }
   @media (min-width: 800px) {
     #resources {
@@ -307,6 +315,17 @@ main {
     }
   }
 
+/* LAB for portfolio size resources */
+.lab {
+  /* .article { */
+    width:calc(90% - 100px);
+} 
+  /* @media (min-width: 800px){
+    .lab {
+      width:calc(95% - 200px);
+    } 
+  } */
+
 .res--visible {
   display: block;
 }
@@ -329,3 +348,13 @@ main {
   flex-wrap: wrap;
   gap: 0.5em;
 }
+
+
+.res-thumb {
+  width:200px;
+}
+  @media (min-width: 800px) {
+    .res-thumb {
+      width:400px;
+    }
+  }
