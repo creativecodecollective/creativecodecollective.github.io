@@ -351,10 +351,10 @@ main {
 
 
 .res-thumb {
-  width:200px;
+  width:100%;
 }
-  @media (min-width: 800px) {
+/*   @media (min-width: 800px) {
     .res-thumb {
       width:400px;
     }
-  }
+  } */
