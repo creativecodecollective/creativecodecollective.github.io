@@ -39,7 +39,7 @@ We'll tinker with conversational agents like Alexa and text generators like GPT.
 
 So that we can focus during our time together, it will help if you have in mind a project or a skill you want to work on. We're going to focus on text-based tools, so here's what you can prep in advance:
 
-Have a dataset (text) in mind you’re interested to work with—this could be your own journal, something from the USC Libraries Digital Collection, or anything goes. For example, your corpus could be the entire series of the show Community, like [@whykatherine](https://github.com/whykatherine/community-references), or these [sarcastic and serious news headlines](https://huggingface.co/datasets/raquiba/Sarcasm_News_Headline), or the archived pages from the early internet sites like [Friendster and Geosities](https://archive.org/details/webarchivedatasets).
+Have a dataset (text) in mind you’re interested to work with—this could be your own journal, something from the USC Libraries Digital Collection, or anything goes. For example, your corpus could be the entire series of the show Community, like [@kayserifserif](https://github.com/kayserifserif/community-references), or these [sarcastic and serious news headlines](https://huggingface.co/datasets/raquiba/Sarcasm_News_Headline), or the archived pages from the early internet sites like [Friendster and Geosities](https://archive.org/details/webarchivedatasets).
 
 Don't worry, no matter your existing level of comfort with code, even if it's none, we will meet you where you are. Just start from asking, What do you want to make, and why? 
 
