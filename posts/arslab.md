@@ -1,11 +1,11 @@
 ---
 layout: default
-id: arsailab
+id: arslab
 title: Ars Electronica AI Lab
 ---
 
 # AI // Bias 
-@ Ars Electronica FOUNDING SCHOOL
+@ Ars Electronica FOUNDING LAB SUMMER SCHOOL
 
 ## 🖇 Resources
 
@@ -17,11 +17,9 @@ title: Ars Electronica AI Lab
   
   "[to create] speculative fictions for CS––Careful Slugs stories that reconfigure relations and introduce scandals and chances into Computer Science, Design, and STS processes that might lead to other sorts of project plans, research questions, and technical inquiries." 
   
-  –Ren Loren Britton, Helen V. Pritchard (2022) (see further readings)
+  –[Ren Loren Britton, Helen V. Pritchard (2022)](https://catalystjournal.org/index.php/catalyst/article/view/37723/30027)
   
-  https://catalystjournal.org/index.php/catalyst/article/view/37723/30027
-  
-- Reading Investigation
+#### Reading Investigation
 
   Team up based on the text which interests you most, or which you have the most questions about. We'll take 20 min to read and summarise in preparation for a brief presentation and discussion. Each group will have 5 min to present main arguments or interesting aspects they found in their text and discussion questions to the group. And we'll take another 15 to engage those topics together, with that group as guides. 
   
@@ -31,18 +29,15 @@ title: Ars Electronica AI Lab
 
 	- [Mean Images](https://newleftreview.org/issues/ii140/articles/hito-steyerl-mean-images)
 
-- Dataset Investigation
+#### Dataset Investigation
 
   In teams, choose a dataset to investigate. See how much of its datasheet you can fill out. What's there? What's missing? (In both the dataset and the documentation) What's interesting, complicated, confronting about what is there? What questions are you left with? How would you want to use this dataset?
-  
-  *Make Datasheet Worksheet
-  * Make List of Test Datasets on Huggingface 
   
 	- [Datasheets for Datasets](http://arxiv.org/abs/1803.09010)
 
 	- [Exposing.AI](https://exposing.ai/)
 
-- Zine Investigation
+#### Zine Investigation
 
 	- Pen & Paper
 
@@ -50,7 +45,7 @@ title: Ars Electronica AI Lab
 
 ### More to Explore
 
-- More for Making With
+#### More for Making With
 
 	- [Creative Code Collective Resource Hub](https://creativecodecollective.github.io/resource-hub/)
 
@@ -72,7 +67,7 @@ title: Ars Electronica AI Lab
 
 	- [Pretty Simple Explainers of ML Math Notation](https://machinelearningmastery.com/basics-mathematical-notation-machine-learning/)
 
-- More for Thinking With
+#### More for Thinking With
 
 	- [Research for People Who Would Rather Create](http://researchforpeoplewhowouldrathercreate.online/)
 
@@ -100,7 +95,7 @@ title: Ars Electronica AI Lab
 
 ### Open Tools
 
-- Prompt Programming
+#### Prompt Programming
 
   Maybe not ChatGPT?
   
@@ -110,11 +105,11 @@ title: Ars Electronica AI Lab
 
 	- [Explore others on Hugging Face](https://huggingface.co/models)
 
-- Datasets, Models
+#### Datasets, Models
 
   see HuggingFace, see Inclusive Datasets Research Guide
   
-- Libraries & Tools
+#### Libraries & Tools
 
   See Inclusive Datasets Resource Guide, Creative Code Collective Resource Hub
   
@@ -124,6 +119,6 @@ title: Ars Electronica AI Lab
 
 	- [Spacy](https://spacy.io)
 
-- Compute & Storage
+#### Compute & Storage
 
   TBD (let's discuss)
