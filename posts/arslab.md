@@ -55,6 +55,8 @@ title: Ars Electronica AI Lab
 
 	- [Intersectional AI Toolkit](https://intersectionalai.com)
 
+ 	- [All Toolkit Zines](https://drive.google.com/drive/folders/1gXFMh72vhabUv85H39pIH9sm9q4a2qEA?usp=sharing)
+
 	- [Wizard Zines](https://wizardzines.com/comics/)
 
 	- [Aesthetic Programming](https://aesthetic-programming.net)
