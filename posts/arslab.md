@@ -11,22 +11,21 @@ title: Ars Electronica AI Lab
 
 ### Exercises
 
-- [Careful Slugs](https://www.artsoftheworkingclass.org/text/for-cs-loren-britton-and-helen-pritchard)
+[Careful Slugs](https://www.artsoftheworkingclass.org/text/for-cs-loren-britton-and-helen-pritchard)
 
-  "CS (Careful Slugs) can be a form of failure less closely tied to action."
+>"CS (Careful Slugs) can be a form of failure less closely tied to action."
   
-  "[to create] speculative fictions for CS––Careful Slugs stories that reconfigure relations and introduce scandals and chances into Computer Science, Design, and STS processes that might lead to other sorts of project plans, research questions, and technical inquiries." 
+>"[to create] speculative fictions for CS––Careful Slugs stories that reconfigure relations and introduce scandals and chances into Computer Science, Design, and STS processes that might lead to other sorts of project plans, research questions, and technical inquiries." 
   
-  –[Ren Loren Britton, Helen V. Pritchard (2022)](https://catalystjournal.org/index.php/catalyst/article/view/37723/30027)
-  
+>>[Ren Loren Britton, Helen V. Pritchard (2022)](https://catalystjournal.org/index.php/catalyst/article/view/37723/30027)
+>>
+
 #### Reading Investigation
 
-  Team up based on the text which interests you most, or which you have the most questions about. We'll take 20 min to read and summarise in preparation for a brief presentation and discussion. Each group will have 5 min to present main arguments or interesting aspects they found in their text and discussion questions to the group. And we'll take another 15 to engage those topics together, with that group as guides. 
-  
+Team up based on the text which interests you most, or which you have the most questions about. We'll take 20 min to read and summarise in preparation for a brief presentation and discussion. Each group will have 5 min to present main arguments or interesting aspects they found in their text and discussion questions to the group. And we'll take another 15 to engage those topics together, with that group as guides. 
+
 	- [The Point of Collection](https://points.datasociety.net/the-point-of-collection-8ee44ad7c2fa)
-
 	- [Factoring the Matrix of Domination: A Critical Review and Reimagination of Intersectionality in AI Fairness](https://arxiv.org/abs/2303.17555)
-
 	- [Mean Images](https://newleftreview.org/issues/ii140/articles/hito-steyerl-mean-images)
 
 #### Dataset Investigation
