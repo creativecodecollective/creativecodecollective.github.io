@@ -1,6 +1,7 @@
 ---
 layout: default
 id: summerlab
+permalink: showcase
 title: Summer Lab | Creative Code Collective
 ---
 
