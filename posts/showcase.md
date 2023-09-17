@@ -1,6 +1,6 @@
 ---
 layout: default
-id: summerlab
+id: showcase
 permalink: showcase
 title: Summer Lab | Creative Code Collective
 ---
