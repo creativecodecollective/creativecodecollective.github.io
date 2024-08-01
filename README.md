@@ -6,7 +6,7 @@ You can find things to LEARN, DO, USE, and MAKE with code on our Resource Hub, a
 
 ## Meetups
 
-Spring 2022: Thurs 5–7p PDT (check our Discord server for up-to-date times and URLs)
+Check our Discord server for up-to-date times and URLs
 
 Discord: Join anytime [here](https://discord.gg/thvgd52)
 
