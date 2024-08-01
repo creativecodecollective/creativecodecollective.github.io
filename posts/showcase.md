@@ -112,11 +112,13 @@ Please send a **CV/resume** and a **letter expressing your interest in the cours
         if (r.image){
             let imgList = r.image
             let imgID = imgList.substring(33,66)
+            console.log(imgID)
             //imgList = imgList.split(",").sort()    
             console.log(imgList)
             console.log(imgID)     
             let thumb = document.createElement("img")
-            thumb.src = "http://drive.google.com/uc?export=view&id=" + imgID
+            //thumb.src = "http://drive.google.com/uc?export=view&id=" + imgID
+            thumb.src = "https://drive.usercontent.google.com/download?id=" + imgID + "&export=view&authuser=0"
             thumb.classList.add("res-thumb")
             projectURL.appendChild(thumb)
         }
