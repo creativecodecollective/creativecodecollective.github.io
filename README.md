@@ -67,3 +67,6 @@ bundle exec jekyll serve
 It should tell you the server address (http://127.0.0.1:4000/, which you can also write as http://localhost:4000) and let you know that the server is now running.
 
 7. In your browser, go to the server address. The website should load, and any changes you save in the files will automatically update on the website!
+
+### Build and deployment via GitHub Pages
+Site administrators can access this under Settings, and Pages of this repository.
