@@ -56,6 +56,7 @@ button {
   cursor: pointer;
   border-radius: 4px;
   border: 0;
+  margin: 4px;
 }
 
 button:hover {
@@ -304,7 +305,7 @@ main {
   border-radius: 50px;
   background-color: white;
   padding: 50px;
-  width: calc(87% - 100px);
+  width: calc(87% - 200px);
   transition: 0.25s ease-in-out box-shadow;
   box-shadow: 2px 5px 10px rgba(117, 159, 220, 0.1);;
   display: none;
@@ -340,15 +341,15 @@ main {
 
 .res-title h3 {
   margin-top: 0;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .tagList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  padding: 10px;
 }
-
 
 .res-thumb {
   width:100%;

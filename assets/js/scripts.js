@@ -1,5 +1,7 @@
 // papa parse
-const public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
+  const public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRdF4YTsRX1OKJzZs2hLb74RdOsQkRZxGlzNjxTYeeiPE1ckmJrpD8nagDz217SLjVLpeqPZwR1N_3y/pub?output=csv"
+// const public_spreadsheet_url = "https://proxy.corsfix.com/?https://wolke.khm.de/index.php/s/mxqtZDbe3YzkjjD"
+// const public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub?output=csv"
 console.log('<a href="' + public_spreadsheet_url + '">' + public_spreadsheet_url + '</a>');
 
 // elements
@@ -35,6 +37,12 @@ window.addEventListener('DOMContentLoaded', () => {
     download: true,
     header: true,
     dynamicTyping: true,
+    // downloadRequestHeaders: {
+    //   'Access-Control-Allow-Origin': '*',
+    //   // 'Access-Control-Allow-Origin': ['http://localhost:4000'] // 'https://codecollective.org'
+    //       //'Access-Control-Request-Method': 'GET,POST,PUT',
+    //       //'Access-Control-Allow-Origin': ['https://wolke.khm.de'],
+    //       },
     complete: loadData
   })
 });
@@ -161,7 +169,7 @@ function filterByButton(e) {
 function filterResources(classes = []) {
   console.log(classes);
 
-  const resources = document.querySelectorAll(".res");
+const resources = document.querySelectorAll(".res");
 
   // if nothing is selected, show everything
   let showAll = classes.every(c => c === "");
@@ -201,6 +209,7 @@ function populateDropdowns(tags, field) {
 function createResource(r){
   // create element
   let res = resTemplate.cloneNode(true);
+  console.log(r.link, r.title, r.creator, r.blurb)
   if (r.link) res.querySelector(".res-title").href = r.link;
   res.querySelector(".res-title h3").innerText = r.title;
   res.querySelector(".res-creator").innerText = r.creator;
@@ -229,6 +238,9 @@ function createResource(r){
     } else {
       res.querySelector(".res-" + field).style.display = "none";
     }
+
+
+    
   }
 
   // make visible initially
