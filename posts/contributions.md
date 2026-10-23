@@ -5,12 +5,6 @@ permalink: contributions
 title: Contributions | Code Collective
 ---
 
-<!-- {% include head.html %} -->
-
-<!-- {% include header.html %} -->
-
-<!-- <main> -->
-
 <div class="article">
 
 ## Contributions
@@ -55,9 +49,3 @@ Contributors and participants past and present:
 #### Join the list!
 
 This website is open-sourced on <a href="https://github.com/creativecodecollective/creativecodecollective.github.io">GitHub</a>, and our resource hub draws from a live <a href="">Google Sheet</a>. Reach out to learn how to get started!
-
-<!-- broken -->
-<!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEGW1VxkMnHgIIl16U_78ZrP8rvWvk66_InItIv1Riq0K2d7D6fA1jqfcBl7PZHPAQXyqofWmcJTV/pub -->
-    
-<!-- </div> -->
-<!-- {% include footer.html %} -->
